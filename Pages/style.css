@@ -80,5 +80,6 @@ img{
 }
 
 ::placeholder{
+    opacity: 1;
     color: #F5EAEA;
 }
