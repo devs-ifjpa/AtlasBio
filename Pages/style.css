@@ -9,7 +9,7 @@
     src: url(../Pages/Fonts/TypoGraphica_demo.otf);
 }
 
-input, option, select {
+input, option, select, #nasc {
     background-color: #102660;
     color:#F5EAEA;    
     font-family: "TypoGrafica";
@@ -52,6 +52,7 @@ img{
 #enviar{
     padding: 10px;
     border: 0px;
+    margin-bottom: 10px;
 }
 
 #meio{
@@ -59,11 +60,12 @@ img{
     margin: 50px 0;
 }
 
-#foot{
-    margin-top: 25px;
+.foot{
+    justify-items: center;
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
     color: #00081D;
+    margin: 0px 0px;
 }
 
 #formDate{

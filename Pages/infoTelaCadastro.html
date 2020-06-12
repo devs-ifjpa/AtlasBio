@@ -26,8 +26,8 @@
             <input type="password" name="" id="" placeholder="Senha">
             <input type="password" name="" id="" placeholder="Confirmar senha">
         </div> 
-        
-        <p>Data de Nascimento</p>
+
+        <p id="nasc">Data de Nascimento</p>
         <div id="lembrarSenha">           
             <form id="formDate">                
                 <select id="day"><option value="day">01</option></select>
@@ -37,18 +37,16 @@
             </form>
          </div>    
 
-            <input id="enviar" type="submit" value="Entrar">
-
-            <p id="meio"> OU </p>
-
-         <div id="outrosLogin">
-            <input type="submit" value= "Continuar com o Google">
-            <input type="submit" value="Novo usuário. Crie uma conta">
-        </div>
+            <input id="enviar" type="submit" value="Criar Conta">
+           
     </div>
-    <p id="foot">Esqueceu sua senha? Clique aqui</p>
+    <p class="foot">Ao se cadastrar, você concorda com os</p>
+    <p class="foot">Termos de Serviços e a Política de Privacidade</p>
   </main>
-  
+</body>
+</html>
+
+
   <script>
       //Ano
     let mySelectYear=document.getElementById("year"), 
@@ -68,5 +66,5 @@
                     }(12);
   </script>
   
-</body>
-</html>
+
+
