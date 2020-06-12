@@ -28,4 +28,45 @@
         </div> 
 
         <div id="lembrarSenha">
-    
+            <form id="formDate">
+                <p>Data de Nascimento</p>
+                <select id="day"><option value="day">01</option></select>
+                <select id="month"><option value="month">Jan</option></select>
+                <select id="year"></select>
+                
+            </form>
+         </div>    
+
+            <input id="enviar" type="submit" value="Entrar">
+
+            <p id="meio"> OU </p>
+
+         <div id="outrosLogin">
+            <input type="submit" value= "Continuar com o Google">
+            <input type="submit" value="Novo usuário. Crie uma conta">
+        </div>
+    </div>
+    <p id="foot">Esqueceu sua senha? Clique aqui</p>
+  </main>
+  
+  <script>
+      //Ano
+    let mySelectYear=document.getElementById("year"), 
+    year = new Date().getFullYear();
+        let gen = function(max){
+            do{
+                mySelectYear.add(new Option(year--,max--),null);
+                }while(max>0);
+                    }(80);
+      //Mes
+    let mySelectMonth=document.getElementById("month"), 
+    month = new Date().getMonth();
+        let g = function(max){
+          do{
+            mySelectMonth.add(new Option(month--,max--),null);
+                }while(max>0);
+                    }(11);
+  </script>
+  
+</body>
+</html>
