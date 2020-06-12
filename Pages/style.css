@@ -19,7 +19,8 @@ input, option, select, #nasc {
     border-radius: 50px;
     margin-top: 20px;    
     font-size: 20px; 
-    width: fit-content;    
+    width: fit-content;
+    padding: 5px;    
 }
 
 #topo {
