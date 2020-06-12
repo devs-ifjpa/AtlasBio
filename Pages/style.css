@@ -66,5 +66,9 @@ img{
     color: #00081D;
 }
 
-
+#formDate{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
