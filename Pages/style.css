@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 * {
     display: flex;
     flex-direction: column;
@@ -10,6 +11,10 @@ body{
 @font-face {
     font-family: "TypoGrafica";
     src: url(../Pages/Fonts/TypoGraphica_demo.otf);
+}
+@font-face{
+    font-family: 'roboto', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 }
 
 input, option, select, #nasc {
@@ -30,11 +35,16 @@ main{
     width: 100vw;
     height: 100vh;
 }
-#topo, #recuperar {
+#topo{
     margin: 0px 0;
     color: #00081D;
     font-size: 16px;
     font-family: "TypoGrafica";
+}
+#recuperar{
+    font-family: "TypoGrafica";
+    font-size: 15px;
+    color: #00081D;
 }
 #condicoes{
     background-color: #102660;
@@ -70,10 +80,10 @@ img{
 .foot{
     justify-items: center;
     font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
+    font-weight: bold;
     color: #00081D;
     margin: 0px 0px;   
-    font-size: 13px;     
+    font-size: 12px;     
 }
 
 #formDate{
@@ -92,6 +102,7 @@ img{
 ::placeholder{
     opacity: 1;
     color: #F5EAEA;
+    font-family: 'Roboto', sans-serif;
 }
 
 #dividir{
