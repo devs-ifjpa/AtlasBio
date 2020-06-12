@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+</head>
+<body>
+  <main>      
+    <p id="topo">Criar uma conta</p>
+    <div>
+        <div id="form1">
+            <input type="Nome" placeholder="Nome completo">
+            <select name="voce" id="voce">
+                <option value="you">Você é</option>
+                <option value="student">Estudante</option>
+                <option value="interpreter">Interprete</option>
+                <option value="teacher">Professor</option>
+                <option value="other">outro</option>
+            </select>            
+            <input type="password" name="" id="" placeholder="Senha">
+            <input type="password" name="" id="" placeholder="Confirmar senha">
+        </div> 
+
+        <p id="nasc">Data de Nascimento</p>
+        <div id="lembrarSenha">           
+            <form id="formDate">                
+                <select id="day"><option value="day">01</option></select>
+                <select id="month"><option value="month">Jan</option></select>
+                <select id="year"></select>
+                
+            </form>
+         </div>    
+
+            <input id="enviar" type="submit" value="Criar Conta">
+           
+    </div>
+    <p class="foot">Ao se cadastrar, você concorda com os</p>
+    <p class="foot">Termos de Serviços e a Política de Privacidade</p>
+  </main>
+</body>
+</html>
+
+
+  <script>
+      //Ano
+    let mySelectYear=document.getElementById("year"), 
+    year = new Date().getFullYear();
+        let gen = function(max){
+            do{
+                mySelectYear.add(new Option(year--,max--),null);
+                }while(max>0);
+                    }(121);
+      //Mes
+    let mySelectMonth=document.getElementById("month"), 
+    month = new Date().getMonth();
+        let g = function(max){
+          do{
+            mySelectMonth.add(new Option(month--,max--),null);
+                }while(max>0);
+                    }(12);
+  </script>
+  
+
+
