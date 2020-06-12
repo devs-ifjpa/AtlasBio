@@ -20,7 +20,7 @@ input, option, select, #nasc {
     margin-top: 20px;    
     font-size: 20px; 
     width: fit-content;
-    padding: 5px;    
+    padding: 0px 15px;    
 }
 
 #topo, #recuperar {
@@ -50,7 +50,7 @@ img{
     height: 25px;
 }
 #enviar{
-    padding: 10px;
+    padding: 0px 15px;
     border: 0px;
     margin-bottom: 10px;
 }
@@ -65,7 +65,7 @@ img{
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
     color: #00081D;
-    margin: 0px 0px;
+    margin: 0px 0px;        
 }
 
 #formDate{
@@ -84,4 +84,9 @@ img{
 ::placeholder{
     opacity: 1;
     color: #F5EAEA;
+}
+
+#dividir{
+    display: flex;
+    justify-content: space-between;
 }
