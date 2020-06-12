@@ -42,8 +42,7 @@ input, option, select, #nasc {
     margin: 0px 0px;    
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
-    color: #00081D;  
-      
+    color: #00081D;       
     padding: 0px 0px;     
 }
 img{
@@ -78,4 +77,8 @@ img{
 #logo{
     width: 200px;
     height: 200px;
+}
+
+::placeholder{
+    color: #F5EAEA;
 }
