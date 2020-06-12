@@ -23,7 +23,7 @@ input, option, select, #nasc {
     padding: 5px;    
 }
 
-#topo {
+#topo, #recuperar {
     margin: 30px 0;
     color: #00081D;
     font-size: 16px;
@@ -75,3 +75,7 @@ img{
     flex-wrap: wrap;
 }
 
+#logo{
+    width: 200px;
+    height: 200px;
+}
