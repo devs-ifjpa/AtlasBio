@@ -8,6 +8,7 @@ body{
     width: 100vw;
     height: 100vh;
 }
+
 @font-face {
     font-family: "TypoGrafica";
     src: url(../Pages/Fonts/TypoGraphica_demo.otf);
@@ -30,6 +31,7 @@ input, option, select, #nasc {
     width: fit-content;
     padding: 0px 15px;    
 }
+
 main{
     justify-content: space-around;
     width: 100vw;
@@ -50,7 +52,7 @@ main{
     background-color: #102660;
     border-radius: 50%;
 }
-#form1 input {
+#form1 input, select, option {
     font-family: 'Roboto', sans-serif;       
 }
 #lembrarSenha{
@@ -66,11 +68,11 @@ img{
     width: 25px;
     height: 25px;
 }
-#enviar{
-    padding: 5px 18px;
+#enviar, #nasc{
+    padding: 7px 35px;
     border: 0px;
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 12px;
     color: #F5EAEA;
 }
 
@@ -88,10 +90,23 @@ img{
     font-size: 12px;     
 }
 
+.foot p{
+    justify-content: start;
+    margin: 0px 0px;
+}
+
 #formDate{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  
+    margin-top: 10px;
+    margin-bottom: 30px;  
+}
+
+#formDate select{
+    margin: 0 8px;
+    font-size: 18px;
+    padding: 3px 12px;
 }
 
 #logo{
