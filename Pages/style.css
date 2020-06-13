@@ -109,11 +109,10 @@ img{
     padding: 3px 12px;
 }
 
-#logo{
-    margin-top: 40px;
+#logo{    
     margin-bottom: 70px;
-    width: 160px;
-    height: 60px;
+    width: 140px;
+    height: 55px;
 }
 
 ::placeholder{
