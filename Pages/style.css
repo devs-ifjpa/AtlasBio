@@ -156,3 +156,6 @@ form{
 #data{
     width: 60vw;
 }
+.menor{
+    justify-content: space-around;
+}
