@@ -55,6 +55,9 @@ main{
 #form1 input, select, option {
     font-family: 'Roboto', sans-serif;       
 }
+#form1{
+    flex-grow: auto 100% auto auto;
+}
 #lembrarSenha{
     display: flex;
     flex-direction: row;      
@@ -74,6 +77,10 @@ img{
     margin-bottom: 10px;
     font-size: 12px;
     color: #F5EAEA;
+}
+#enviar{
+    margin-bottom: 20px;
+    padding: 7px 40px;
 }
 
 #meio{
@@ -98,17 +105,22 @@ img{
 #formDate{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;  
     margin-top: 10px;
-    margin-bottom: 30px;  
+    margin-bottom: 30px;
+    width: 80vw;
 }
 
 #formDate select{
     margin: 0 8px;
     font-size: 18px;
-    padding: 3px 12px;
+    padding: 0px;
+    align-self: center;
 }
-
+form{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
 #logo{
     margin-top: 40px;
     margin-bottom: 70px;
@@ -130,4 +142,10 @@ img{
 
 #metade{
     justify-content: space-around;
+}
+.maior{
+    justify-content: space-between;
+}
+#data{
+    width: 60vw;
 }
