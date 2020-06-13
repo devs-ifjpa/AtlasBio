@@ -55,8 +55,8 @@ main{
 #form1 input, select, option {
     font-family: 'Roboto', sans-serif;       
 }
-#form1{
-    flex-grow: auto 100% auto auto;
+#voce{
+    
 }
 #lembrarSenha{
     display: flex;
