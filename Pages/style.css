@@ -148,4 +148,16 @@ form{
 #metade{
     justify-content: space-around;
 }
+<<<<<<< HEAD
 
+=======
+.maior{
+    justify-content: space-between;
+}
+#data{
+    width: 60vw;
+}
+.menor{
+    justify-content: space-around;
+}
+>>>>>>> b5d11fb6cfe5945ed4fb2c4ede3e26936cb92f15
