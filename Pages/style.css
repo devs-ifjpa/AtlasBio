@@ -29,14 +29,19 @@ main{
 }
 /* ******* FIM TODO O CORPO ***** */
 
-/* ******* LOGO TELALOGIN / TELA RECUPERAR SENHA ***** */
+/* ******* TODAS AS IMAGENS ***** */
 #logo{
     margin-top: 40px;
     margin-bottom: 70px;
     width: 160px;
     height: 60px;
 }
-/* ******* FIM TELALOGIN / TELA RECUPERAR SENHA ***** */
+
+img{
+    width: 25px;
+    height: 25px;
+}
+/* ******* FIM DE TODAS AS IMAGENS ***** */
 
 /* ******* TÍTULO ***** */
 #topo{
@@ -55,6 +60,8 @@ main{
 }
 /* ******* TÍTULO TELALOGIN / TELA RECUPERAR SENHA ***** */
 
+/* ******* TODAS AS CAIXINHAS AZUL(INPUT, BUTTON E TEXTO SIMPLES) ***** */
+/* ******* TUDO DE SELECT E OPTION ***** */
 input, option, select, #nasc {
     background-color: #102660;
     color:#F5EAEA;    
@@ -68,58 +75,24 @@ input, option, select, #nasc {
     width: fit-content;
     padding: 0px 15px;    
 }
-input{
-    width: max-content;
+
+#form1 input, select, option {
+    font-family: 'Roboto', sans-serif;      
 }
 
-#condicoes{
-    background-color: #102660;
-    border-radius: 50%;
-    margin: 0px;
+#form1{
+    width: 70vw;
 }
-    
-#form1 input, select, option {
-    font-family: 'Roboto', sans-serif;       
-}
+
 #voce{
     width: 22vmax;
     font-size: 14px;
     height: 30px;
 }
-#form1{
-    width: 70vw;
-}
-#lembrarSenha{    
-    flex-direction: row; 
-    align-self: flex-start;     
-    margin: 0px 0px;    
-    font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
-    color: #00081D;       
-    padding: 0px 0px; 
-        
-}
-img{
-    width: 25px;
-    height: 25px;
-}
-#enviar, #nasc{
-    padding: 7px 35px;
-    border: 0px;
-    margin-bottom: 10px;
-    font-size: 12px;
-    color: #F5EAEA;
-}
-#enviar{
-    margin-bottom: 20px;
-    padding: 7px 40px;
-}
 
-#meio{
-    font-size: 40px;
-    margin: 50px 0;
-}
+/* ******* FIM DE TUDO DE SELECT E OPTION ***** */
 
+/* ******* TUDO DE DATA ***** */
 #formDate{    
     flex-direction: row;
     margin-top: 10px;
@@ -137,33 +110,65 @@ form{
     border: 0px;
     padding: 0px;
 }
+/* ******* FIM DE TUDO DE DATA ***** */
 
+input{
+    width: max-content;
+}
 
+#enviar, #nasc{
+    padding: 7px 35px;
+    border: 0px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #F5EAEA;
+}
+#enviar{
+    margin-bottom: 20px;
+    padding: 7px 40px;
+}
+
+/* ******* TEXTO ESCRITO DENTRO DAS CAIXINHAS ***** */
 ::placeholder{
     opacity: 1;
     color: #F5EAEA;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
 }
+/* ******* FIM TEXTO ESCRITO DENTRO DAS CAIXINHAS ***** */
 
-#dividir{
-    display: flex;
-    justify-content: space-around;
+/* ******* FIM DAS CAIXINHAS AZUL (INPUT, BUTTON E TEXTO SIMPLES) ***** */
+
+
+#lembrarSenha{    
+    flex-direction: row; 
+    align-self: flex-start;     
+    margin: 0px 0px;    
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: #00081D;       
+    padding: 0px 0px;         
+}
+#condicoes{
+    background-color: #102660;
+    border-radius: 50%;
+    margin: 0px;
 }
 
-#metade{
-    justify-content: space-around;
+/* ******* ID OU CLASS DE DIV'S ***** */
+#meio{
+    font-size: 40px;
+    margin: 50px 0;
 }
 
-.maior{
-    justify-content: space-between;
-}
 #data{
     width: 60vw;
 }
 .menor{
     justify-content: space-around;
 }
+/* ******* FIM ID OU CLASS DE DIV'S ***** */
+
 
 /* ******* TODO RODAPÉ ***** */
 .foot{
