@@ -58,7 +58,7 @@ main{
     font-family: 'Roboto', sans-serif;       
 }
 #voce{
-    width: 75vw;
+    width: 22vmax;
     font-size: 14px;
     height: 30px;
 }
@@ -109,20 +109,18 @@ img{
     margin: 0px 0px;
 }
 
-#formDate{
-    display: flex;
+#formDate{    
     flex-direction: row;
     margin-top: 10px;
-    margin-bottom: 30px;
-    width: 80vw;
+    margin-bottom: 30px;    
 }
 
 #formDate select{
     margin: 0 8px;
     font-size: 18px;
-    padding: 0px;
-    align-self: center;
+    padding: 0px;    
 }
+
 form{
     margin: 0px;
     border: 0px;
@@ -144,15 +142,10 @@ form{
 
 #dividir{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #metade{
     justify-content: space-around;
 }
-.maior{
-    justify-content: space-between;
-}
-#data{
-    width: 60vw;
-}
+
