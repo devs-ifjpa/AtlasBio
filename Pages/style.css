@@ -29,6 +29,11 @@ main{
     width: 100vw;
     height: 100vh;
 }
+
+main#cada{
+    justify-content: unset;
+}
+
 /* ******* FIM TODO O CORPO ***** */
 
 /* ******* TODAS AS IMAGENS ***** */
@@ -88,7 +93,7 @@ input, option, select,button, #nasc {
 }
 
 #voce{
-    width: calc(100% + 17px);
+    width: calc(30% + 17px);
     font-size: 14px;
     height: 30px;
 }
@@ -96,7 +101,7 @@ input, option, select,button, #nasc {
 /* ******* FIM DE TUDO DE SELECT E OPTION ***** */
 /* *****************traço**************** */
 .traco{
-    width: 35vw;
+    width: 7vw;
     border: .001rem solid #102660;
 }
 .tracos{
@@ -119,7 +124,7 @@ input, option, select,button, #nasc {
 #formDate select{
     margin: 0 8px;
     font-size: 18px;
-    padding: 0px;    
+    padding: 3px 14px;    
 }
 
 form{
@@ -180,10 +185,15 @@ tr img{
     right: 6vw;  
     top: 5px;         
 }
+
+#lembraSenha input[type="checkbox"]{
+    visibility: hidden;
+}
+
 #condicoes{
     background-color: #102660;
     border-radius: 50%;
-    margin: 0px;
+    margin: 0px 10px;
 }
 
 /* ******* ID OU CLASS DE DIV'S ***** */
@@ -199,14 +209,12 @@ tr img{
     justify-content: space-around;
 }
 
-main#cada{
-    justify-content: unset;
-}
+
 /* ******* FIM ID OU CLASS DE DIV'S ***** */
 
 
 /* ******* TODO RODAPÉ ***** */
-.foot{
+.foot {
     justify-items: center;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
@@ -218,6 +226,16 @@ main#cada{
 .foot p{
     justify-content: start;
     margin: 0px 0px;
+}
+
+#foot{
+    flex-direction: row;      
+}
+.foot p{
+    font-weight: normal;
+}
+a{
+    text-decoration: none;
 }
 /* ******* FIM DO RODAPÉ ***** */
 
