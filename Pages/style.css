@@ -47,7 +47,8 @@ img{
 
 /* ******* TÍTULO ***** */
 #topo{
-    margin: 0px 0;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
     color: #00081D;
     font-size: 16px;
     font-family: "TypoGrafica";
@@ -75,7 +76,7 @@ input, option, select,button, #nasc {
     margin-top: 20px;    
     font-size: 20px; 
     width: fit-content;
-    padding: 0px 15px;    
+    padding: 5px 15px;    
 }
 
 #form1 input, select, option {
@@ -87,7 +88,7 @@ input, option, select,button, #nasc {
 }
 
 #voce{
-    width: 22vmax;
+    width: calc(100% + 17px);
     font-size: 14px;
     height: 30px;
 }
@@ -196,6 +197,10 @@ tr img{
 }
 .menor{
     justify-content: space-around;
+}
+
+main#cada{
+    justify-content: unset;
 }
 /* ******* FIM ID OU CLASS DE DIV'S ***** */
 
