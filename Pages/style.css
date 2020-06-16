@@ -96,7 +96,7 @@ input, option, select,button, #nasc {
 /* *****************traço**************** */
 .traco{
     width: 35vw;
-    border: .1rem solid #102660;
+    border: .001rem solid #102660;
 }
 .tracos{
     flex-wrap: nowrap;
@@ -171,13 +171,13 @@ tr img{
 
 
 #lembrarSenha{    
-    flex-direction: row; 
-    align-self: flex-start;     
-    margin: 0px 0px;    
+    flex-direction: row;          
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
-    color: #00081D;       
-    padding: 0px 0px;         
+    color: #00081D; 
+    position: relative;
+    right: 6vw;  
+    top: 5px;         
 }
 #condicoes{
     background-color: #102660;
