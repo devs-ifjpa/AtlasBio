@@ -19,12 +19,11 @@ body{
 }
 
 nav{
-    width: 100vw;
-    justify-content: center;
+    width: 100vw;    
 }
 
 nav input{
-    width: 80vw;
+    width: 85vw;
     height: 37px;
     background-color: #B7B7B3;
     opacity: 0.6;
@@ -33,7 +32,7 @@ nav input{
     margin-top: 11px;
 }
 nav img{
-    height: 10vh;
+    width: 13vw;
 }
 #linha{
     border: 0.1rem solid #102660;
