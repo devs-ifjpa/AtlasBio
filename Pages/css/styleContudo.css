@@ -1,0 +1,18 @@
+footer{     
+    display: flex;
+    flex-direction: row;   
+    justify-content: space-around;
+    background-color: #0B193D;
+    position: fixed;
+    width: 100vw;
+    height: 49px;
+    left: 0px;
+    bottom: 0px;    
+}
+
+footer img{
+    height: 49px;
+    display: flex;
+    flex-direction: row;        
+    box-sizing: border-box;   
+}
