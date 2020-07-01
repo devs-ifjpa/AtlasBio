@@ -40,7 +40,7 @@ nav img{
     margin-top: 12px;
 }
 .titulo{
-    padding: 18px 9px;
+    padding: 9px 18px;
     font-family: 'Roboto';
     text-align: center;
     font-weight: bold;
@@ -52,7 +52,7 @@ nav img{
     border-radius: 50px;
     align-items: center;
     margin-left: -25px;
-    width: 80vw;
+    width: 90vw;
 }
 .demo{
     width: 95px;
@@ -79,5 +79,4 @@ nav img{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
 }
