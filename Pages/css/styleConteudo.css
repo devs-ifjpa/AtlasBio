@@ -76,23 +76,24 @@ nav img{
     border-radius: 10px;
 }
 .demos{
-    display: flex;
-    justify-content: space-around;
+    display: flex;    
     flex-wrap: nowrap;
     flex-direction: row;
     height: 150px;
     width: 100vw;
+    align-content: flex-start;
+    margin: 0px 5px 0px 5px;
     overflow-x: scroll;
-    overflow-y: hidden;    
+    overflow-y: hidden;   
     white-space: nowrap;
 }
 .demos2{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-around;    
     align-items: center;
-    padding: 0rem 10rem 0rem 10rem;     
+    padding: 0px 3rem 0px 3rem;   
 }
 
 footer{     
