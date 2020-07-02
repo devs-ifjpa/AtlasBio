@@ -97,12 +97,7 @@ nav img{
     flex-direction: column;
     justify-content: space-around;    
     align-items: center;
-<<<<<<< HEAD
-    /* padding: 0rem 10rem 0rem 10rem;  */
-    margin: 10px
-=======
     padding: 0px 3rem 0px 3rem;   
->>>>>>> af9deb85da2822e75656c157d8235449c060c619
 }
 
 footer{     
