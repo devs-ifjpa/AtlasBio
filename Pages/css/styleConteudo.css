@@ -85,6 +85,10 @@ nav img{
     overflow-x: scroll;
     overflow-y: hidden;    
     white-space: nowrap;
+    scrollbar-width: none;
+}
+.demos::-webkit-scrollbar{
+    display: none;
 }
 .demos2{
     display: flex;
@@ -92,7 +96,8 @@ nav img{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 0rem 10rem 0rem 10rem;     
+    /* padding: 0rem 10rem 0rem 10rem;  */
+    margin: 10px
 }
 
 footer{     
