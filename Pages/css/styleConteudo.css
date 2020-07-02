@@ -71,7 +71,7 @@ nav img{
 }
 .demo2{
     width: 90px;
-    height: 33px;
+    height: 33px;    
     background: #183FA3;
     border-radius: 10px;
 }
@@ -81,6 +81,10 @@ nav img{
     flex-wrap: nowrap;
     flex-direction: row;
     height: 150px;
+    width: 100vw;
+    overflow-x: scroll;
+    overflow-y: hidden;    
+    white-space: nowrap;
 }
 .demos2{
     display: flex;
@@ -88,6 +92,7 @@ nav img{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 0rem 10rem 0rem 10rem;     
 }
 
 footer{     
