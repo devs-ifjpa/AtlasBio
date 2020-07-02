@@ -19,12 +19,15 @@ body{
 }
 
 nav{
-    width: 100vw;    
+    display: flex;
+    justify-content: space-between;
+    width: 100vw; 
+    height: 8vh;   
 }
 
 nav input{
     width: 85vw;
-    height: 37px;
+    height: 4vh;
     background-color: #B7B7B3;
     opacity: 0.6;
     border-radius: 15px;
@@ -32,8 +35,17 @@ nav input{
     margin-top: 11px;
 }
 nav img{
-    width: 13vw;
+    height: 8vh;
+
 }
+
+main{
+    overflow-x: hidden;
+    overflow-y: scroll;   
+    white-space: nowrap;
+    height: 82vh;   
+}
+
 #linha{
     border: 0.1rem solid #102660;
     width: 100vw;
@@ -107,7 +119,7 @@ footer{
     background-color: #0B193D;
     position: fixed;
     width: 100vw;
-    height: 49px;
+    height: 7vh; 
     left: 0px;
     bottom: 0px;    
 }
