@@ -20,14 +20,14 @@ body{
 
 nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100vw; 
     height: 8vh;   
 }
 
 nav input{
     width: 85vw;
-    height: 4vh;
+    height: 6vh;
     background-color: #B7B7B3;
     opacity: 0.6;
     border-radius: 15px;
