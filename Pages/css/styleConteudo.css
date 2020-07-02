@@ -76,14 +76,15 @@ nav img{
     border-radius: 10px;
 }
 .demos{
-    display: flex;
-    justify-content: space-around;
+    display: flex;    
     flex-wrap: nowrap;
     flex-direction: row;
     height: 150px;
     width: 100vw;
+    align-content: flex-start;
+    margin: 0px 5px 0px 5px;
     overflow-x: scroll;
-    overflow-y: hidden;    
+    overflow-y: hidden;   
     white-space: nowrap;
     scrollbar-width: none;
 }
@@ -94,10 +95,14 @@ nav img{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-around;    
     align-items: center;
+<<<<<<< HEAD
     /* padding: 0rem 10rem 0rem 10rem;  */
     margin: 10px
+=======
+    padding: 0px 3rem 0px 3rem;   
+>>>>>>> af9deb85da2822e75656c157d8235449c060c619
 }
 
 footer{     
