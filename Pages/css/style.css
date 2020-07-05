@@ -20,23 +20,39 @@
     align-items: center;     
 }
 body{
+    margin: 0px;
     width: 100vw;
     height: 100vh;
 }
 
 main{
+    width: 100%;
     justify-content: space-around;
-    width: 100vw;
-    height: 100vh;
 }
 
 main#cada{
     justify-content: unset;
 }
 
+.hidden{
+    display: none;
+}
+
+#sphere{
+    position: absolute;
+    width: 15px;
+    height: 16px;
+    left: 20px;
+    top: 15px;
+    background: #102660;
+    opacity: 0.9;
+    border-radius: 50%;
+}
+
 /* ******* FIM TODO O CORPO ***** */
 
 /* ******* TODAS AS IMAGENS ***** */
+
 #logo{
     margin-top: 40px;
     margin-bottom: 70px;
@@ -44,16 +60,14 @@ main#cada{
     height: 60px;
 }
 
-img{
-    width: 25px;
-    height: 25px;
-}
 /* ******* FIM DE TODAS AS IMAGENS ***** */
 
 /* ******* TÍTULO ***** */
 #topo{
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    margin-top: 90px;
+    margin-bottom: 78px;
+    display: flex;
+    align-items: center;
     color: #00081D;
     font-size: 16px;
     font-family: "TypoGrafica";
@@ -84,12 +98,27 @@ input, option, select,button, #nasc {
     padding: 5px 15px;    
 }
 
+
+input, option, select,button, #nasc {
+    margin-top: 15px;
+}
+
 #form1 input, select, option {
     font-family: 'Roboto', sans-serif;      
 }
 
 #form1{
-    width: 70vw;
+    width: 266px;
+}
+
+#form1 input:first-child{
+    margin-top: 0px;
+}
+
+#form1 input:not(:last-child){
+    font-size: 12px;
+    width: calc(100% - 34px);
+    height: calc(32px - (10px + 4px));
 }
 
 #voce{
@@ -100,19 +129,24 @@ input, option, select,button, #nasc {
 
 /* ******* FIM DE TUDO DE SELECT E OPTION ***** */
 /* *****************traço**************** */
-.traco{
-    width: 7vw;
-    border: .001rem solid #102660;
-}
+
 .tracos{
-    flex-wrap: nowrap;
+    width: 100%;
     flex-flow: row;
+    justify-content: space-between;
+    margin-bottom: 27px;
 }
-#ou{
-    font-size: 24px;
+
+.tracos hr{
+    margin: 0px;
+    width: 122px;
     color: #102660;
-    padding: 2.5rem;
+}
+
+#ou{
     font-family: 'Righteous', cursive;
+    color: #102660;
+    font-size: 24px;
 }
 /* ******* TUDO DE DATA ***** */
 #formDate{    
@@ -146,7 +180,11 @@ input{
     color: #F5EAEA;
 }
 #enviar{
-    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 106px;
+    height: 32px;
+    margin-bottom: 40px;
     padding: 7px 40px;
 }
 
@@ -166,10 +204,58 @@ tr img{
    width: 10vw;  
 }
 
-#outrosLogin button, #outrosLogin input{
-    font-size: 17px;
-    padding: 0px 40px;    
+#outrosLogin{
+    font-family: "TypoGrafica";
+    color: white;
+    font-size: 14px;
 }
+
+#outrosLogin a{
+    color: white;
+    border-radius: 30px;
+    background-color: #102660;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 266px;
+    height: 32px;
+}
+
+#outrosLogin a p{
+    margin: 0;
+}
+
+#LoginGoogle{
+    background-color: #102660;
+    border-radius: 30px;
+    width: 266px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 9px;
+}
+
+#LoginGoogle img{
+    width: 24px;
+    height: 24px;
+}
+
+#LoginGoogle p{
+    margin: 0px;
+    margin-left: 12px;
+}
+
+/* #outrosLogin button, #outrosLogin input{ */
+    /* width: 266px; */
+    /* height: 32px; */
+    /* font-size: 17px; */
+    /* padding: 0px 40px;     */
+/* } */
+/*  */
+/* #outrosLogin button{ */
+    /* margin-top: 0px; */
+/* } */
 
 /* ******* FIM TEXTO ESCRITO DENTRO DAS CAIXINHAS ***** */
 
@@ -179,15 +265,34 @@ tr img{
 #lembrarSenha{    
     flex-direction: row;          
     font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
-    color: #00081D; 
-    position: relative;
-    right: 6vw;  
-    top: 5px;         
+    color: #00081D;
+    margin-top: 23px;
+    margin-bottom: 30px;
+    width: 100%;
 }
 
 #lembraSenha input[type="checkbox"]{
     visibility: hidden;
+}
+
+.checkboxiconbox{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background: #102660;
+    opacity: 0.9;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.checkboxicon{
+    width: 60%;
+    height: 60%;
+    background: #102660;
+    border-radius: 50%;
 }
 
 #condicoes{
@@ -206,7 +311,9 @@ tr img{
     width: 60vw;
 }
 .menor{
+    width: 100%;
     justify-content: space-around;
+    margin-bottom: 24px;
 }
 
 
@@ -219,7 +326,7 @@ tr img{
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     color: #00081D;
-    margin: 0px 0px;   
+    margin: 0px 0px;
     font-size: 12px;     
 }
 
@@ -229,7 +336,12 @@ tr img{
 }
 
 #foot{
+    font-size: 15px;
+    margin: 0px;
     flex-direction: row;      
+}
+#foot a{
+    margin-left: 3px;
 }
 .foot p{
     font-weight: normal;
@@ -239,3 +351,37 @@ a{
 }
 /* ******* FIM DO RODAPÉ ***** */
 
+@media screen{
+    #sphere{
+        width: 2.34375vh;
+        height: 2.5vh;
+        left: 3.125vh;
+        top: 2.34375vh;
+    }
+    #topo{
+        margin-top: 14.0625vh;
+        margin-bottom: 12.1875vh;
+        font-size: 2.5vh;
+    }
+    #form1 input:not(:last-child) {
+        font-size: 1.875vh;
+        width: calc(100% - 5.3125vh);
+        height: calc(5vh - (1.5625vh + 0.625vh));
+    }
+    input, option, select, button, #nasc {
+        border-radius: 7.8125vh;
+        margin-top: 3.125vh;
+        font-size: 3.125vh;
+        padding: 0.78125vh 2.34375vh;
+    }
+    #lembrarSenha {
+        margin-top: 3.59375vh;
+        margin-bottom: 4.6875vh;
+    }
+    .checkboxiconbox {
+        margin-left: 1.5625vh;
+        width: 2.34375vh;
+        height: 2.34375vh;
+        margin-right: 0.78125vh;
+    }
+}
