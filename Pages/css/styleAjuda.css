@@ -59,6 +59,7 @@ main img{
 main div{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     font-family: 'roboto', sans-serif;
     font-weight: bold;
@@ -66,7 +67,19 @@ main div{
     line-height: 18px;
     color: #102660;
 }
-
+#pessoas{
+    width: 25px;
+    height: 22px;
+    padding: 10px;
+}
+#I{
+    height: 22px;
+    padding: 10px;
+}
+#prancheta{
+    height: 22px;
+    padding: 10px;
+}
 footer{     
     display: flex;
     flex-direction: row;   
