@@ -26,21 +26,13 @@ nav{
 }
 nav input{
     background-color: #B7B7B3;
-    background-image: url('../img/lupa.svg');
-    background-repeat: no-repeat;
-    background-position: 19px 19px;
     border: 0px;
     font-size: 20px;
-    width: 85vw;
-    height: 6vh;
+    width: 60vw;
     margin-bottom: 3px;
-    margin-top: 11px;
-    opacity: 0.6;
-    border-radius: 15px;
-    padding-left: 55px;
 }
 
-/* #input{
+#input{
     width: 85vw;
     height: 6vh;
     background-color: #B7B7B3;
@@ -53,14 +45,14 @@ nav input{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-} */
+}
 nav img{
     height: 8vh;
 }
-/* #lupa{
+#lupa{
     z-index: 5;
     height: 5vh;
-} */
+}
 
 main{
     overflow-x: hidden;
