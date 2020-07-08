@@ -29,12 +29,16 @@ nav input{
     background-color: #B7B7B3;
     border: 0px;
     font-size: 20px;
-    width: 60vw;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: 3px;
+    margin-right: 10px;
+    outline: none;
 }
 
 #input{
-    width: 85vw;
+    width: 80%;
+    box-sizing: border-box;
     height: 6vh;
     background-color: #B7B7B3;
     opacity: 0.6;
