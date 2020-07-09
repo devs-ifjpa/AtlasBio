@@ -82,6 +82,7 @@ input{
     align-self: flex-end;
     background: #102660;
     border-radius: 30px;
+    border: 0px;
 }
 
 ::placeholder{
@@ -89,6 +90,7 @@ input{
     font-size: 12px;
     line-height: 14px;
     color: #102660;
+    opacity: 1;
 }
 
 footer{     
