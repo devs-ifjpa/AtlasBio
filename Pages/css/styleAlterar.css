@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+@font-face{
+    font-family: 'roboto', 'sans-serif';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+}
+@font-face {
+    font-family: "TypoGrafica";
+    src: url(../fonts/TypoGraphica_demo.otf);
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+nav p{
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 16px;
+    color: #00081D;
+}
+#first, #second, form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#second{
+    margin-bottom: 50px;
+}
+input{
+    background-color: #102660;
+    border-radius: 30px;
+    width: 266px;
+    height: 32px;
+    border: 0px;
+    margin: 5px;
+    padding-left: 15px;
+    color: #F5EAEA;
+}
+::placeholder{
+    color: #F5EAEA;
+    font-size: 12px;
+    font-family: 'Roboto';
+    opacity: 1;
+}
+.title{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: #102660;
+}
+button{
+    width: 163px;
+    height: 32px;
+    background-color: #102660;
+    border-radius: 30px;
+    color: #F5EAEA;
+    font-family: "TypoGraphica";
+    border: 0px;
+    margin: 40px;
+}
+footer{     
+    display: flex;
+    flex-direction: row;   
+    justify-content: space-around;
+    background-color: #0B193D;
+    position: fixed;
+    width: 100vw;
+    height: 7vh; 
+    left: 0px;
+    bottom: 0px;    
+}
+
+footer img{
+    height: 49px;
+    display: flex;
+    flex-direction: row;        
+    box-sizing: border-box;   
+}
