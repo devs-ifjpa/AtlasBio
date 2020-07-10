@@ -48,19 +48,25 @@ nav h3{
 }
 
 main{   
-    height: 82vh;   
+    height: 82vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 main img{
     height: 6vh;
-    
+    margin: 13px;
 }
-
+main p{
+    padding-left: 10px;
+}
 main div{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     font-family: 'roboto', sans-serif;
     font-weight: bold;
     font-size: 15px;
@@ -70,15 +76,16 @@ main div{
 #pessoas{
     width: 25px;
     height: 22px;
-    padding: 10px;
+    align-self: center;
 }
 #I{
     height: 22px;
-    padding: 10px;
+    margin-top: 12px;
+    align-self: center;
 }
 #prancheta{
     height: 22px;
-    padding: 10px;
+    align-self: center;
 }
 footer{     
     display: flex;
