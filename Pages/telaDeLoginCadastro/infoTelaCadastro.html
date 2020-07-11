@@ -8,43 +8,58 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
-</head>
-<body>
-  <main id="cada">      
-    <p id="topo">Criar uma conta</p>
-    <div class="maior">
-        <div id="form1">
-            <input type="Nome" placeholder="Nome completo">
-            <select name="voce" id="voce">
-                <option value="you">Você é</option>
-                <option value="student">Estudante</option>
-                <option value="interpreter">Interprete</option>
-                <option value="teacher">Professor</option>
-                <option value="other">outro</option>
-            </select>            
-            <input type="password" name="" id="" placeholder="Senha">
-            <input type="password" name="" id="" placeholder="Confirmar senha">
-        </div> 
-
-        <p id="nasc">Data de Nascimento</p>
-        <div id="data">           
-            <form id="formDate">           
-                <select id="month"><option value="month">Jan</option></select>
-                <select id="day"><option value="day">01</option></select>
-                <select id="year"></select>                
-            </form>
-         </div>    
-
-            <input id="enviar" type="submit" value="Criar Conta">
-           
-    
-        <div class="foot">
-            <p>Ao se cadastrar, você concorda com os</p>
-            <p>Termos de Serviços e a Política de Privacidade</p>
+    <main id="cada">
+        <p id="topo">Criar uma conta</p>
+        <div class="maior">
+            <form class="form" id="Form_Register">
+                <input type="name" id="name" placeholder="Nome" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <select name="voce" id="voce">
+                    <option value="you">Você é</option>
+                    <option value="estudante">Estudante</option>
+                    <option value="interprete">Interprete</option>
+                    <option value="professor">Professor</option>
+                    <option value="outro">outro</option>
+                </select>            
+                <input type="password" id="password" placeholder="Senha" minlength="8" required>
+                <input type="password" id="confirm" placeholder="Confirmar senha" minlength="8" required>
+                <p id="nasc">Data de Nascimento</p>
+                <!-- <div id="data">    -->
+                    <div id="formDate">
+                        <select id="month"><option value="month">Jan</option></select>
+                        <select id="day"><option value="day">01</option></select>
+                        <select id="year"></select>                
+                    </div>
+                <!-- </div> -->
+                <input id="enviar" type="submit" value="Criar Conta">
+            </form>           
+        
+            <div class="foot">
+                <p>Ao se cadastrar, você concorda com os</p>
+                <p>Termos de Serviços e a Política de Privacidade</p>
+            </div>
         </div>
-    </div>
-  </main>
-  <script src="../js/script.js"></script>   
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDsOE0A9NkCyxxtQjaNg8QUJBRwgQ_csjs",
+        authDomain: "atlasbio-aa54f.firebaseapp.com",
+        databaseURL: "https://atlasbio-aa54f.firebaseio.com",
+        projectId: "atlasbio-aa54f",
+        storageBucket: "atlasbio-aa54f.appspot.com",
+        messagingSenderId: "413942805195",
+        appId: "1:413942805195:web:2aa2e5df1ee4c9a026614e",
+        measurementId: "G-XCQVHBMC97"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="../js/firebase.js"></script>   
+    <script src="../js/script.js"></script>   
 </body>
 </html>  

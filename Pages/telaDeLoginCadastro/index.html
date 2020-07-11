@@ -13,9 +13,9 @@
       <span id="sphere"></span>   
       <p id="topo">Fazer login</p>
       <div class="menor">
-          <form id="form1">
-            <input type="text" name="E-mail" placeholder="E-mail">
-            <input type="password" name="" id="" placeholder="Senha">
+          <form class="form" id="formlogin">
+            <input type="email" name="E-mail" placeholder="E-mail" id="loginemail" required>
+            <input type="password" name="" placeholder="Senha" id="loginpassword" minlength="8" required>
             <div id="lembrarSenha">
               <input type="checkbox" name="lembrarSenha" value="ok" id="condicoes" class="hidden">
               <div class="checkboxiconbox" onclick="ChangeCheck()">
@@ -24,6 +24,7 @@
               <label for="condicoes">Lembrar Senha</label>
             </div>
             <input id="enviar" type="submit" value="Entrar">
+            <p onclick="Firebase_Logout()" style="color:'red'">sair</p>
           </form>
 
         <div class="tracos">
@@ -32,7 +33,7 @@
           <hr>
         </div>
         <div id="outrosLogin">
-          <div id="LoginGoogle">
+          <div id="LoginGoogle" onclick="Firebase_AlternativeLogin('google')">
             <img src="../img/google.svg">
             <p>Continuar com o Google</p>
           </div>
@@ -43,6 +44,26 @@
      </div>
       <p id="foot"> Esqueceu sua senha?<a href="#">Clique aqui</a></p>
     </main>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDsOE0A9NkCyxxtQjaNg8QUJBRwgQ_csjs",
+        authDomain: "atlasbio-aa54f.firebaseapp.com",
+        databaseURL: "https://atlasbio-aa54f.firebaseio.com",
+        projectId: "atlasbio-aa54f",
+        storageBucket: "atlasbio-aa54f.appspot.com",
+        messagingSenderId: "413942805195",
+        appId: "1:413942805195:web:2aa2e5df1ee4c9a026614e",
+        measurementId: "G-XCQVHBMC97"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="../js/firebase.js"></script>
     <script src="../js/front-end.js"></script> 
   </body>
 </html>

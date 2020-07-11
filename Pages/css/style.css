@@ -19,6 +19,10 @@
     flex-direction: column;
     align-items: center;     
 }
+script{
+    display: none;
+}
+
 body{
     margin: 0px;
     /* width: 100vw; */
@@ -99,20 +103,23 @@ input, option, select,button, #nasc {
     width: fit-content;
     padding: 5px 15px;    
 }
-
-#form1 input, select, option {
+select{
+    width: 100%;
+    box-sizing: border-box;
+}
+.form input, select, option {
     font-family: 'Roboto', sans-serif;      
 }
 
-#form1{
+.form{
     width: 266px;
 }
 
-#form1 input:first-child{
+.form input:first-child{
     margin-top: 0px;
 }
 
-#form1 input:not(:last-child){
+.form input:not(:last-child){
     font-size: 12px;
     width: calc(100% - 34px);
     height: calc(32px - (10px + 4px));
@@ -138,7 +145,8 @@ input, option, select,button, #nasc {
     margin: 0px;
     /* width: 122px; */
     width: 33.888888889vw;
-    color: #102660;
+    border-bottom: none;
+    border-color: #102660;
 }
 
 #ou{
@@ -168,6 +176,7 @@ form{
 
 input{
     width: max-content;
+    border: 0px;
 }
 
 #enviar, #nasc{
@@ -309,6 +318,8 @@ tr img{
 
 #data{
     width: 60vw;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .menor{
     width: 100%;
@@ -368,7 +379,7 @@ a{
         margin-bottom: 12.1875vh;
         font-size: 2.5vh;
     }
-    #form1 input:not(:last-child) {
+    .form input:not(:last-child) {
         font-size: 1.875vh;
         width: calc(100% - 5.3125vh);
         height: calc(5vh - (1.5625vh + 0.625vh));
@@ -404,7 +415,7 @@ a{
         padding: 0.78125vh 2.34375vh;
         margin-top: 2.34375vh;
     }
-    #form1{
+    .form{
         width: 41.5625vh;
     }
     #voce{
@@ -520,7 +531,7 @@ a{
         margin-bottom: 21.666666667vw;
         font-size: 4.444444444vw;
     }
-    #form1 input:not(:last-child) {
+    .form input:not(:last-child) {
         font-size: 3.333333333vw;
         width: calc(100% - 10vw);
         height: calc(8.888888889vw - (2.777777778vw + 1.111111111vw));
@@ -556,7 +567,7 @@ a{
         padding: 1.388888889vw 4.166666667vw;
         margin-top: 4.166666667vw;
     }
-    #form1{
+    .form{
         width: 73.888888889vw;
     }
     #voce{
