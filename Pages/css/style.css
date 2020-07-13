@@ -110,6 +110,7 @@ input, option, select,button, #nasc {
 select{
     width: 100%;
     box-sizing: border-box;
+    border: none;
 }
 .form input, select, option {
     font-family: 'Roboto', sans-serif;      
@@ -163,13 +164,15 @@ select{
 #formDate{    
     flex-direction: row;
     margin-top: 10px;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
+    align-self: center;
 }
 
 #formDate select{
     margin: 0 8px;
     font-size: 18px;
-    padding: 3px 14px;    
+    padding: 3px 14px;
+    width: 20vw;  
 }
 
 form{
