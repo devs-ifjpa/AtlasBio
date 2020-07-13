@@ -1,4 +1,5 @@
 var database = firebase.database();
+// const fb = firebase.database.ref();
 
 // LOGIN DEFAULT
 
@@ -49,9 +50,9 @@ function Firebase_Logout(){
     document.getElementById("Form_Register") != null ? (
         document.getElementById("Form_Register").addEventListener("submit", () => {
             event.preventDefault();
-            let email = document.getElementById("email");
+            let email = document.getElementById("email").value;
             let name = document.getElementById("name").value;
-            let password = document.getElementById("password");
+            let password = document.getElementById("password").value;
             let confirm = document.getElementById("confirm");
             let voce = SelectChecked(document.getElementById("voce"),"option").value;
             let day = SelectChecked(document.getElementById("day"),"option").textContent;
@@ -59,7 +60,7 @@ function Firebase_Logout(){
             let year = SelectChecked(document.getElementById("year"),"option").textContent;
             let date = `${day}/${month}/${year}`;
             voce != "you" ? (
-                password.value == confirm.value ?
+                password == confirm.value ?
                 Firebase_RegisterEmail(email,password,[name,date,voce]) :
                 alert('As senhas não conferem')
             ) :
@@ -68,8 +69,6 @@ function Firebase_Logout(){
     ) : false;
 
     function Firebase_RegisterEmail(email,password,data){
-        var email = email.value;
-        var password = password.value;
         if(email != "" && password != ""){
             var errorcont = 0;
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -101,13 +100,31 @@ function Firebase_Logout(){
   
 // $REGISTER
 
+// UPDATE
+
+    function Firebase_UpdateDatabase(email,password,data){
+        firebase.auth().signInWithEmailAndPassword(email, password);
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                var user = firebase.auth().currentUser;
+                firebase.database().ref('users/' + user.uid).update({
+                    nome: data[0],
+                    data: data[1],
+                    profissao: data[2]
+                });        
+                Firebase_Logout();
+            }
+        });
+    }
+
+// $UPDATE
+
 // REGISTER ALTERNATIVE
 
 function Firebase_AlternativeLogin(type,data){
     if(type == "Google" || type == "google"){
         var provider = new firebase.auth.GoogleAuthProvider();
     }
-    console.log("entrou");
     firebase.auth().signInWithPopup(provider).then(function(result) {
         var token = result.credential.accessToken;
         var user = result.user;
@@ -127,9 +144,9 @@ function Firebase_AlternativeLogin(type,data){
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
-        // alert("entrou");
+        alert("entrou");
     } else{
-        // alert("saiu");
+        alert("saiu");
     }
 });
 
