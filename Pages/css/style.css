@@ -55,6 +55,10 @@ label{
 input{
     border-width: 2px;
 }
+#voce{
+    width: 75vw;
+    border: none;
+}
 
 /* ******* FIM TODO O CORPO ***** */
 
@@ -106,6 +110,7 @@ input, option, select,button, #nasc {
 select{
     width: 100%;
     box-sizing: border-box;
+    border: none;
 }
 .form input, select, option {
     font-family: 'Roboto', sans-serif;      
@@ -126,10 +131,11 @@ select{
 }
 
 #voce{
-    width: calc(30% + 17px);
-    font-size: 14px;
+    /* width: calc(30% + 17px);
+    font-size: 14px; */
     height: 30px;
 }
+
 
 /* ******* FIM DE TUDO DE SELECT E OPTION ***** */
 /* *****************traço**************** */
@@ -158,13 +164,15 @@ select{
 #formDate{    
     flex-direction: row;
     margin-top: 10px;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
+    align-self: center;
 }
 
 #formDate select{
     margin: 0 8px;
     font-size: 18px;
-    padding: 3px 14px;    
+    padding: 3px 14px;
+    width: 20vw;  
 }
 
 form{
@@ -419,8 +427,8 @@ a{
         width: 41.5625vh;
     }
     #voce{
-        width: calc(30% + 2.65625vh);
-        font-size: 2.1875vh;
+        /* width: calc(30% + 2.65625vh);
+        font-size: 2.1875vh; */
         height: 4.6875vh;
     }
     .tracos{
@@ -571,8 +579,8 @@ a{
         width: 73.888888889vw;
     }
     #voce{
-        width: calc(30% + 4.722222222vw);
-        font-size: 3.888888889vw;
+        /* width: calc(30% + 4.722222222vw);
+        font-size: 3.888888889vw; */
         height: 9.375vw;
     }
     .tracos{
@@ -658,4 +666,11 @@ a{
     #foot a{
         margin-left: 0.833333333vw;
     }
+}
+.form{
+    width: min-content;
+}
+#voce{
+    height: 35px;
+    font-size: 14px;
 }
