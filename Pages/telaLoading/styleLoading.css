@@ -1,29 +1,29 @@
 body{
-    display: flex;      
-    justify-content: space-between;
-    margin: 0px;
     width: 100vw;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-#logo{
-    width: 212px;    
-    align-self: center;
+
+#logo{    
+    width: 212px;
+    display: flex;
+    justify-self: center;   
 }
 
-/*#up{
-    width: 100vw;
+#up{
+    background-image: url(../img/Ellipse_2.svg);
+    height: 100vh;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+#down{       
+    background-image: url(../img/Ellipse_1.svg);
     height: 100vh;
-    position: fixed;
-    top: 0px;
-    left: -50px;
-     
+    background-repeat: no-repeat;
+    background-size: cover;   
 }
 
-#down{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    right: 0px;
-    bottom: 0px;    
-}*/
