@@ -18,16 +18,16 @@ body{
 
 #up{
     background-image: url(../img/Ellipse_2.svg);
-    height: 40vh;  
-    width: 20vw;
+    height: 50vh;  
+    width: 100vw;
     background-size: cover;
-      
+    
 }
 
 #down{       
     background-image: url(../img/Ellipse_1.svg);
-    height: 50vh;      
-    width: 30vw;
+    height: 55vh;
+    width: 100vw;
     background-size: cover;   
 }
 
