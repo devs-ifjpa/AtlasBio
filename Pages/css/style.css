@@ -55,10 +55,6 @@ label{
 input{
     border-width: 2px;
 }
-#voce{
-    width: 75vw;
-    border: none;
-}
 
 /* ******* FIM TODO O CORPO ***** */
 
@@ -127,14 +123,20 @@ select{
 .form input:not(:last-child){
     font-size: 12px;
     width: calc(100% - 34px);
-    height: calc(32px - (10px + 4px));
+    height: calc(32px - 10px);
+    /* height: 32px; */
 }
 
 #voce{
-    /* width: calc(30% + 17px);
-    font-size: 14px; */
-    height: 30px;
+    width: calc(100% - 6px);
+    height: 32px;
+    font-size: 12px;
+    border: none;
 }
+
+/* #voce{ */
+    /* text-align: center; */
+/* } */
 
 
 /* ******* FIM DE TUDO DE SELECT E OPTION ***** */
@@ -390,7 +392,8 @@ a{
     .form input:not(:last-child) {
         font-size: 1.875vh;
         width: calc(100% - 5.3125vh);
-        height: calc(5vh - (1.5625vh + 0.625vh));
+        /* height: calc(5vh - (1.5625vh + 0.625vh)); */
+        height: calc(5vh - 1.5625vh);
     }
     input, option, select, button, #nasc {
         border-radius: 7.8125vh;
@@ -427,9 +430,9 @@ a{
         width: 41.5625vh;
     }
     #voce{
-        /* width: calc(30% + 2.65625vh);
-        font-size: 2.1875vh; */
-        height: 4.6875vh;
+        width: calc(100% - 0.9375vh);
+        font-size: 1.875vh;
+        height: 5vh;
     }
     .tracos{
         margin-bottom: 4.21875vh;
@@ -516,12 +519,6 @@ a{
     }
 }
 
-
-
-
-
-
-
 @media screen and (max-aspect-ratio: 360/640){
     #sphere{
         width: 4.166666667vw;
@@ -542,7 +539,8 @@ a{
     .form input:not(:last-child) {
         font-size: 3.333333333vw;
         width: calc(100% - 10vw);
-        height: calc(8.888888889vw - (2.777777778vw + 1.111111111vw));
+        /* height: calc(8.888888889vw - (2.777777778vw + 1.111111111vw)); */
+        height: calc(8.888888889vw - 2.777777778vw);
     }
     input, option, select, button, #nasc {
         border-radius: 13.888888889vw;
@@ -579,9 +577,9 @@ a{
         width: 73.888888889vw;
     }
     #voce{
-        /* width: calc(30% + 4.722222222vw);
-        font-size: 3.888888889vw; */
-        height: 9.375vw;
+        width: calc(100% - 1.666666667vw);
+        font-size: 3.333333333vw;
+        height: 8.888888889vw;
     }
     .tracos{
         margin-bottom: 7.5vw;
@@ -666,11 +664,4 @@ a{
     #foot a{
         margin-left: 0.833333333vw;
     }
-}
-.form{
-    width: min-content;
-}
-#voce{
-    height: 35px;
-    font-size: 14px;
 }

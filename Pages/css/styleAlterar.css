@@ -94,3 +94,32 @@ footer img{
     flex-direction: row;        
     box-sizing: border-box;   
 }
+
+#sphere{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 20px;
+    top: 15px;
+    background: #102660;
+    opacity: 0.9;
+    border-radius: 50%;
+}
+
+@media screen{
+    #sphere{
+        width: 2.34375vh;
+        height: 2.34375vh;
+        left: 3.125vh;
+        top: 2.34375vh;
+    }
+}
+
+@media screen and (max-aspect-ratio: 360/640){
+    #sphere{
+        width: 4.166666667vw;
+        height: 4.166666667vw;
+        left: 5.555555556vw;
+        top: 4.166666667vw;
+    }
+}

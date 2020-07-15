@@ -1,5 +1,4 @@
 var database = firebase.database();
-// const fb = firebase.database.ref();
 
 // LOGIN DEFAULT
 
@@ -83,41 +82,78 @@ function Firebase_Logout(){
         }
     }
   
-    function Firebase_RegisterDatabase(email,password,data){
-        firebase.auth().signInWithEmailAndPassword(email, password);
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                var user = firebase.auth().currentUser;
-                firebase.database().ref('users/' + user.uid).set({
-                    nome: data[0],
-                    data: data[1],
-                    profissao: data[2]
-                });        
-                Firebase_Logout();
-            }
-        });
-    }
   
 // $REGISTER
 
-// UPDATE
+// CRUD
 
-    function Firebase_UpdateDatabase(email,password,data){
-        firebase.auth().signInWithEmailAndPassword(email, password);
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                var user = firebase.auth().currentUser;
-                firebase.database().ref('users/' + user.uid).update({
-                    nome: data[0],
-                    data: data[1],
-                    profissao: data[2]
-                });        
-                Firebase_Logout();
-            }
-        });
-    }
+    // CREATE
 
-// $UPDATE
+        function Firebase_RegisterDatabase(email,password,data){
+            firebase.auth().signInWithEmailAndPassword(email, password);
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    var user = firebase.auth().currentUser;
+                    firebase.database().ref('users/' + user.uid).set({
+                        nome: data[0],
+                        data: data[1],
+                        profissao: data[2]
+                    });        
+                    Firebase_Logout();
+                }
+            });
+        }
+
+    // $CREATE
+
+    // READ
+
+        function Firebase_ReadDatabase(user){
+            firebase.database().ref(`users/${user.uid}`).on('value',(snap)=>{
+                Firebase_FormatData(snap.val());
+            });
+        }
+
+        function Firebase_FormatData(datauser){
+            // console.log(datauser.nome);
+            // console.log(datauser.profissao);
+            // console.log(datauser.data);
+        }
+
+    // $READ
+
+    // UPDATE
+
+        function Firebase_UpdateDatabase(email,password,data){
+            firebase.auth().signInWithEmailAndPassword(email, password);
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    var user = firebase.auth().currentUser;
+                    firebase.database().ref('users/' + user.uid).update({
+                        nome: data[0],
+                        data: data[1],
+                        profissao: data[2]
+                    });        
+                    Firebase_Logout();
+                }
+            });
+        }
+
+    // $UPDATE
+
+    // DELETE
+
+        function Firebase_DeleteDatabase(user,data){
+            data == undefined ?
+                // Firebase_DeleteDatabase(user)
+                firebase.database().ref(`users/${user.uid}`).remove() :
+                // Firebase_DeleteDatabase(user,"nome")
+                firebase.database().ref(`users/${user.uid}/${data}`).remove();
+        }
+
+    // $DELETE
+
+// $CRUD
 
 // REGISTER ALTERNATIVE
 
@@ -138,15 +174,15 @@ function Firebase_AlternativeLogin(type,data){
 
 // $REGISTER ALTERNATIVE
 
-
 // SIGNED
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
-        alert("entrou");
+        // alert("entrou");
+        Firebase_ReadDatabase(user);
     } else{
-        alert("saiu");
+        // alert("saiu");
     }
 });
 
