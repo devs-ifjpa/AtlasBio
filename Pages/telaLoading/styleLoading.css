@@ -1,11 +1,15 @@
-body{    
+body{
     display: flex;
-    flex-direction: row;
-    align-content: center;   
+    flex-direction: column;
+   /* justify-content: center; */
+   align-items: center;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
 }
 
+<<<<<<< HEAD
 #left{
     width: 500px;
 <<<<<<< HEAD
@@ -29,6 +33,8 @@ body{
     flex-direction: column;    
     align-items: center;
 }
+=======
+>>>>>>> parent of 3195224... Ajustes na tela de Loading
 
 #logo{    
     width: 212px;
@@ -38,16 +44,16 @@ body{
 
 #up{
     background-image: url(../img/Ellipse_2.svg);
-    height: 300px;  
-    width: 320px;
+    height: 50vh;  
+    width: 100vw;
     background-size: cover;
     
 }
 
 #down{       
     background-image: url(../img/Ellipse_1.svg);
-    height: 240px;  
-    width: 320px;
+    height: 55vh;
+    width: 100vw;
     background-size: cover;   
 }
 
