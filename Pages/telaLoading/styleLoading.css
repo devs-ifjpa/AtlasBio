@@ -8,10 +8,19 @@ body{
 
 #left{
     width: 500px;
+<<<<<<< HEAD
 }
 
 #right{
     width: 500px; 
+=======
+    background-color: #102660;
+}
+
+#right{
+    width: 500px;
+    background-color: #102660;  
+>>>>>>> parent of 2aba44f... Update styleLoading.css
 }
 
 #tela{
