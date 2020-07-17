@@ -1,4 +1,5 @@
-var database = firebase.database();
+var db = firebase.firestore();
+let FieldValue = firebase.firestore.FieldValue;
 
 // LOGIN DEFAULT
 
@@ -15,7 +16,6 @@ function Firebase_Login(userEmail,userPass){
     userEmail = userEmail.value;
     userPass = userPass.value;
     firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-        // Handle Errors here.
         var errorMessage = error.message;
         if(errorMessage == "The password is invalid or the user does not have a password."){
             window.alert("Senha inválida ou usuário não cadastrado.")
@@ -69,16 +69,16 @@ function Firebase_Logout(){
 
     function Firebase_RegisterEmail(email,password,data){
         if(email != "" && password != ""){
-            var errorcont = 0;
-            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-                errorcont ++;
+            firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+                data.length > 0 ? Firebase_RegisterDatabase(data) : false;
+            }).catch(function(error) {
+                console.log(error);
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 errorMessage == "The email address is already in use by another account." ?
                     alert('O endereço de email já está sendo usado por outra conta.') : false;
             });
-            errorcont == 0 && data.length > 0 ? Firebase_RegisterDatabase(email,password,data) : false;
         }
     }
   
@@ -89,17 +89,20 @@ function Firebase_Logout(){
 
     // CREATE
 
-        function Firebase_RegisterDatabase(email,password,data){
-            firebase.auth().signInWithEmailAndPassword(email, password);
+        function Firebase_RegisterDatabase(data){
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
                     var user = firebase.auth().currentUser;
-                    firebase.database().ref('users/' + user.uid).set({
+                    db.collection("users").doc(user.uid).set({
                         nome: data[0],
                         data: data[1],
                         profissao: data[2]
-                    });        
-                    Firebase_Logout();
+                    }).then(function() {
+                        Firebase_Logout();
+                    })
+                    .catch(function(error) {
+                        console.error("Error writing document: ", error);
+                    });
                 }
             });
         }
@@ -108,13 +111,16 @@ function Firebase_Logout(){
 
     // READ
 
-        function Firebase_ReadDatabase(user){
-            firebase.database().ref(`users/${user.uid}`).on('value',(snap)=>{
-                Firebase_FormatData(snap.val());
+        function Firebase_ReadDatabase(user,dir = 'users'){
+            db.collection(dir).doc(user.uid).get().then(doc => {
+                Firebase_FormatData(doc.data());
+            }).catch(err => {
+                console.log('Error getting document', err);
             });
         }
 
         function Firebase_FormatData(datauser){
+            console.log(datauser);
             // console.log(datauser.nome);
             // console.log(datauser.profissao);
             // console.log(datauser.data);
@@ -124,18 +130,16 @@ function Firebase_Logout(){
 
     // UPDATE
 
-        function Firebase_UpdateDatabase(email,password,data){
-            firebase.auth().signInWithEmailAndPassword(email, password);
-            firebase.auth().onAuthStateChanged(function(user) {
-                if (user) {
-                    var user = firebase.auth().currentUser;
-                    firebase.database().ref('users/' + user.uid).update({
-                        nome: data[0],
-                        data: data[1],
-                        profissao: data[2]
-                    });        
-                    Firebase_Logout();
-                }
+        function Firebase_UpdateDatabase(user,data){
+            db.collection("users").doc(user.uid).update({
+                nome: data[0],
+                data: data[1],
+                profissao: data[2]
+            }).then(function() {
+                Firebase_Logout();
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
             });
         }
 
@@ -144,11 +148,20 @@ function Firebase_Logout(){
     // DELETE
 
         function Firebase_DeleteDatabase(user,data){
-            data == undefined ?
-                // Firebase_DeleteDatabase(user)
-                firebase.database().ref(`users/${user.uid}`).remove() :
-                // Firebase_DeleteDatabase(user,"nome")
-                firebase.database().ref(`users/${user.uid}/${data}`).remove();
+            if(data == undefined){
+                db.collection("users").doc(user.uid).delete()
+            }
+            else{
+                let dataremove = [
+                    { nome: FieldValue.delete() },
+                    { data: FieldValue.delete() },
+                    { profissao: FieldValue.delete() }
+                ];
+                data == "nome" ? dataoption = dataremove[0] :
+                data == "data" ? dataoption = dataremove[1] :
+                data == "profissao" ? dataoption = dataremove[2] : false;
+                db.collection("users").doc(user.uid).update(dataoption);
+            }
         }
 
     // $DELETE
@@ -179,10 +192,10 @@ function Firebase_AlternativeLogin(type,data){
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
-        // alert("entrou");
+        console.log("entrou");
         Firebase_ReadDatabase(user);
-    } else{
-        // alert("saiu");
+    }else{
+        console.log("saiu");
     }
 });
 
