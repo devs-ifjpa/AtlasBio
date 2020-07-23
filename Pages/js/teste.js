@@ -12,23 +12,23 @@ function bissexto(ano){
 function selectDayTratamento (mes){          
     day=[]
     if(mes === 'Janeiro' || 'Março' ||'Maio' || 'Julho' ||'Agosto' ||'Outubro' ||'Dezembro'){
-        for (let dias=1; dias<3; dias++){
-            console.log('primeiro')
+        for (let dias=1; dias<31; dias++){
+            day.push(dias)
         } 
     }
     
     else if(mes === 'Abril'||'Junho' || 'Setembro' || 'Novembro'){
         for (let dias=1; dias<31; dias++){
-            console.log('segundo')
+            day.push(dias)
         } 
     }
 
     else{
         for (let dias=1; dias<29; dias++){
-            console.log('terceiro')
+            day.push(dias)
         } 
     }
-    return day
+    return console.log(mes, day)
 }
 
 selectDayTratamento('Junho')
