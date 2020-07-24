@@ -7,12 +7,7 @@ function gerarDias(start,stop){
 }
 
 function bissexto(ano){
-    if(ano%4 === 0 || ano%400 === 0){
-        gerarDias(1,29)
-    }
-    else{
-        gerarDias(1,28)
-    }
+    (ano%4 === 0 || ano%400 === 0)?gerarDias(1,29):gerarDias(1,28)
     return day
 }
 
@@ -31,4 +26,4 @@ function selectDayTratamento (mes,year){
     return console.log(mes, day)
 }
 
-selectDayTratamento("Fevereiro", 2015)
+selectDayTratamento("Fevereiro", 2016)
