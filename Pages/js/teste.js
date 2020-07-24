@@ -94,4 +94,4 @@ function selectDayTratamento (mes,year){
     return console.log(mes, day)
 }
 
-selectDayTratamento("Março", 2017)
+selectDayTratamento("Fevereiro", 2016)
