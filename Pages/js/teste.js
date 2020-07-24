@@ -1,16 +1,25 @@
 
 
 function bissexto(ano){
+    day=[]
     if(ano%4 === 0 || ano%400 === 0){
-        return console.log('É bissexto000000000000')
+        for (let dias = 1; dias < 30; dias++){
+            day.push(dias)
+        }
     }
     else{
-        return console.log('Não é bissexto')
+        for (let dias = 1; dias < 29; dias++){
+            day.push(dias)
+        }
     }
+    return day
 }
 
-function selectDayTratamento (mes){          
+
+
+function selectDayTratamento (mes,year){          
     day=[]
+    let ano = bissexto 
     const meses = [
     {
         "month": "Janeiro",
@@ -80,11 +89,9 @@ function selectDayTratamento (mes){
         }
     }
     if(mes === 'Fevereiro'){
-        for (let dias = 1; dias < 29; dias++){
-            day.push(dias)
-        }
-    }
+      ano(year)        
+    }    
     return console.log(mes, day)
 }
 
-selectDayTratamento("Dezembro")
+selectDayTratamento("Março", 2017)
