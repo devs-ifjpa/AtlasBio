@@ -1,3 +1,13 @@
+function gerarDias(start,stop){
+    day=[]
+    for(let dias=start; dias< stop+1; dias++){
+        day.push(dias)
+    }
+    return(console.log(day))
+}
+
+gerarDias(1,29)
+
 
 
 function bissexto(ano){
@@ -94,4 +104,4 @@ function selectDayTratamento (mes,year){
     return console.log(mes, day)
 }
 
-selectDayTratamento("Fevereiro", 2016)
+//selectDayTratamento("Fevereiro", 2015)
