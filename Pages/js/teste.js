@@ -17,69 +17,9 @@ function bissexto(ano){
 }
 
 function selectDayTratamento (mes,year){      
-    const meses = [
-    {
-        "month": "Janeiro",
-        "trinteum": true
-    },
-    {
-        "month": "Março",
-        "trinteum": true
-        
-    },
-    {
-        "month": "Abril",
-        "trinteum": false
-        
-    },
-    {
-        "month": "Maio",
-        "trinteum": true
-        
-    },
-    {
-        "month": "Junho",
-        "trinteum": false
-        
-    },
-    {
-        "month": "Julho",
-        "trinteum": true
-        
-    },
-    {
-        "month": "Agosto",
-        "trinteum": true
-        
-    },
-    {
-        "month": "Setembro",
-        "trinteum": false
-        
-    },
-    {
-        "month": "Outubro",
-        "trinteum": true
-        
-    },
-    {
-        "month": "Novembro",
-        "trinteum": false
-        
-    },
-    {
-        "month": "Dezembro",
-        "trinteum": true
-        
-    }
-    ]
-    for (let i in meses){
-        if(mes === meses[i].month && meses[i].trinteum === true){
-            gerarDias(1,31)
-        }
-        else if(mes === meses[i].month && meses[i].trinteum === false){
-            gerarDias(1,30)
-        }
+    const meses = ["Janeiro", "Março", "Maio", "Julho", "Agosto", "Outubro", "Dezembro"]
+    for (let i = 0; i<meses.length; i++){
+        mes === meses[i]?gerarDias(1,31):gerarDias(1,30)
     }
     if(mes === 'Fevereiro'){
       bissexto(year)        
@@ -87,4 +27,4 @@ function selectDayTratamento (mes,year){
     return console.log(mes, day)
 }
 
-selectDayTratamento("Fevereiro", 2016)
+selectDayTratamento("Maio", 2016)
