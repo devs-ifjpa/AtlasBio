@@ -78,14 +78,13 @@ function selectDayTratamento (mes){
                 day.push(dias)
             }
         }
-        else{
-            for (let dias = 1; dias < 29; dias++){
-                day.push(dias)
-            }
-            break
+    }
+    if(mes === 'Fevereiro'){
+        for (let dias = 1; dias < 29; dias++){
+            day.push(dias)
         }
     }
     return console.log(mes, day)
 }
 
-selectDayTratamento("Janeiro")
+selectDayTratamento("Dezembro")
