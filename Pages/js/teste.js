@@ -3,33 +3,20 @@ function gerarDias(start,stop){
     for(let dias=start; dias< stop+1; dias++){
         day.push(dias)
     }
-    return(console.log(day))
+    return day
 }
 
-gerarDias(1,29)
-
-
-
 function bissexto(ano){
-    day=[]
     if(ano%4 === 0 || ano%400 === 0){
-        for (let dias = 1; dias < 30; dias++){
-            day.push(dias)
-        }
+        gerarDias(1,29)
     }
     else{
-        for (let dias = 1; dias < 29; dias++){
-            day.push(dias)
-        }
+        gerarDias(1,28)
     }
     return day
 }
 
-
-
-function selectDayTratamento (mes,year){          
-    day=[]
-    let ano = bissexto 
+function selectDayTratamento (mes,year){      
     const meses = [
     {
         "month": "Janeiro",
@@ -88,20 +75,16 @@ function selectDayTratamento (mes,year){
     ]
     for (let i in meses){
         if(mes === meses[i].month && meses[i].trinteum === true){
-            for (let dias = 1; dias < 32; dias++){
-                day.push(dias)
-            }
+            gerarDias(1,31)
         }
         else if(mes === meses[i].month && meses[i].trinteum === false){
-            for (let dias = 1; dias < 31; dias++){
-                day.push(dias)
-            }
+            gerarDias(1,30)
         }
     }
     if(mes === 'Fevereiro'){
-      ano(year)        
+      bissexto(year)        
     }    
     return console.log(mes, day)
 }
 
-//selectDayTratamento("Fevereiro", 2015)
+selectDayTratamento("Fevereiro", 2016)
