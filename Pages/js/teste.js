@@ -1,12 +1,9 @@
 
 
 function bissexto(ano){
-    if(ano%4 === 0 || ano%400 === 0){
-        return console.log('É bissexto000000000000')
-    }
-    else{
-        return console.log('Não é bissexto')
-    }
+    if(ano%4 === 0 || ano%400 === 0) return true
+    
+    else return false
 }
 
 function selectDayTratamento (mes){          
