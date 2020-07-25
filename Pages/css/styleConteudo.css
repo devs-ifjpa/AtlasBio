@@ -88,14 +88,13 @@ main{
 }
 .titulos{
     background: #102660;
-    border-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
     align-items: center;
-    margin-left: -25px;
-    width: 90vw;
+    width: 304px;
 }
 .left{
     text-align: left;
-    margin-left: 30px;
 }
 .demo{
     width: 95px;
@@ -114,9 +113,8 @@ main{
     flex-wrap: nowrap;
     flex-direction: row;
     height: 150px;
-    width: calc(100vw - 10px);
+    width: 100vw;
     align-content: flex-start;
-    margin: 0px 5px 0px 5px;
     overflow-x: scroll;
     overflow-y: hidden;   
     white-space: nowrap;
@@ -131,34 +129,47 @@ main{
     flex-direction: column;
     justify-content: space-around;    
     align-items: center;
-    padding: 0px 2.5rem 0px 2.5rem;   
+    padding: 0px 8.5px;   
 }
 
 footer{     
     display: flex;
     flex-direction: row;   
     justify-content: space-around;
+    align-items: center;
     background-color: #0B193D;
     position: fixed;
     width: 100vw;
-    height: 7vh; 
+    height: 49px; 
     left: 0px;
     bottom: 0px;
     z-index: 999;    
 }
 
 footer img{
-    height: 49px;
+    height: 37px;
     display: flex;
     flex-direction: row;        
     box-sizing: border-box;   
 }
 .menu{
+    height: calc(100vh - 49px);
+    padding: 0;
     list-style: none;
-    display: none;
-    align-items: center;
     z-index: 998;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    right: -100%;
+    background: #C4C4C4;
+    margin: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0.95;
+    width: 231px;
+    transition: 0.5s ease;
 }
+
 .menu li a{
     display: flex;
     flex-wrap: wrap;
@@ -170,32 +181,19 @@ footer img{
     font-family: 'Roboto';
 }
 .menu li{
-    padding: 20px 10px;
+    margin-left: 21px;
+    margin-top: 30px;
 }
 .menu img{
     height: 30px;
 }
-@media screen and (max-width: 9999px){
-    .menu{
-        display: flex;
-        position: fixed;
-        top: 0px;
-        right: -100%;
-        height: 90.5vh;
-        background: #C4C4C4;
-        margin: 0px;
-        flex-direction: column;
-        align-items: flex-start;
-        opacity: 0.95;
-        padding: 10px 20px;
-        width: 100%;
-        max-width: 60vw;
-        transition: 0.5s ease;
-    }
-    li:first-child{
-        margin-top: 68vh;
-    }
-    .menu.active{
-        right: 0px;
-    }
+
+li:first-child{
+    margin-top: 68vh;
+}
+li:last-child{
+    margin-bottom: 30px;
+}
+.menu.active{
+    right: 0px;
 }
