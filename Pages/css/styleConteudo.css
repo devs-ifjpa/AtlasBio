@@ -64,7 +64,6 @@ main{
     overflow-x: hidden;
     overflow-y: scroll;   
     white-space: nowrap;
-    height: 82vh;
 }
 
 #linha{
@@ -79,12 +78,16 @@ main{
     margin-top: 12px;
 }
 .titulo{
+    margin: 16px auto;
     padding: 9px 18px;
     font-family: 'Roboto';
     text-align: center;
     font-weight: bold;
     font-size: 20px;
     color: #F5EAEA;
+}
+main:first-child + .titulo{
+    margin-top: 8px;
 }
 .titulos{
     background: #102660;
@@ -103,6 +106,7 @@ main{
     border-radius: 10px;
 }
 .demo2{
+    margin-top: 19px;
     width: 90px;
     height: 33px;    
     background: #183FA3;
@@ -112,7 +116,6 @@ main{
     display: flex;    
     flex-wrap: nowrap;
     flex-direction: row;
-    height: 150px;
     width: 100vw;
     align-content: flex-start;
     overflow-x: scroll;
@@ -124,10 +127,10 @@ main{
     display: none;
 }
 .demos2{
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-around;    
     align-items: center;
     padding: 0px 8.5px;   
 }
@@ -173,6 +176,7 @@ footer img{
 .menu li a{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     text-decoration: none;
     color: #102660;
     font-weight: bold;
@@ -185,7 +189,15 @@ footer img{
     margin-top: 30px;
 }
 .menu img{
-    height: 30px;
+    height: 27px;
+}
+.menu span{
+    margin-left: 5px;
+}
+
+#interrogation{
+    margin-left: 6.75px;
+    margin-right: 6.75px;
 }
 
 li:first-child{
