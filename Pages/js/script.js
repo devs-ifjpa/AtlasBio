@@ -5,7 +5,18 @@ $(document).ready(function(){
     });
 });
 
-
+function Desvasado(doc){
+    let link = doc.outerHTML.split(" ")[2].split("=")[1];
+    console.log(link);
+    console.log('"../img/footer/Botão-Opções-Vazado.png"');
+    if(link == '"../img/footer/Botão-Opções-Vazado.png"'){
+        console.log('pintou')
+        doc.src = '../img/footer/menu_pintado.svg'
+    }else{
+        console.log('vazou')
+        doc.src = '../img/footer/Botão-Opções-Vazado.png'
+    }
+}
 
 function gerarDias(start,stop){
     day=[]
@@ -20,14 +31,16 @@ function bissexto(ano){
     return day
 }
 
-      //Ano
-     let mySelectYear=document.getElementById("year"), 
-     year = new Date().getFullYear();
-         let gen = function(max){
-             do{
-                 mySelectYear.add(new Option(year--,max--),null);
-                 }while(max>0);
-                     }(121);
+    if(document.getElementById("year") != undefined){
+        //Ano
+        let mySelectYear = document.getElementById("year"), 
+        year = new Date().getFullYear();
+        let gen = function(max){
+            do{
+                mySelectYear.add(new Option(year--,max--),null);
+            }while(max>0);
+        }(121);
+    }
     
         
 let mySelectMonth = document.getElementById('month')             
