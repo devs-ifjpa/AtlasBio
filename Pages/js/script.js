@@ -1,3 +1,12 @@
+$(document).ready(function(){
+    $(".hamburguer").click(function(){
+        $(this).toggleClass("active")
+        $(".menu").toggleClass("active")
+    });
+});
+
+
+
 function gerarDias(start,stop){
     day=[]
     for(let dias=start; dias< stop+1; dias++){
