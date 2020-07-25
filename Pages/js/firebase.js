@@ -1,5 +1,6 @@
 var db = firebase.firestore();
 let FieldValue = firebase.firestore.FieldValue;
+let connectedRef = firebase.database().ref(".info/connected");
 
 // LOGIN DEFAULT
 
@@ -187,16 +188,33 @@ function Firebase_AlternativeLogin(type,data){
 
 // $REGISTER ALTERNATIVE
 
+// OFFLINE
+
+    firebase.firestore().enablePersistence();
+
+// $OFFLINE
+
 // SIGNED
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
-        console.log("entrou");
-        Firebase_ReadDatabase(user);
-    }else{
-        console.log("saiu");
-    }
-});
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            location.href
+            // User is signed in.
+            console.log("entrou");
+            // firebase.firestore().disableNetwork();
+            // firebase.firestore().enableNetwork();
+            connectedRef.on("value", function(snap) {
+                if (snap.val() === true) {
+                    Firebase_ReadDatabase(user);
+                    console.log("connected");
+                } else {
+                    Firebase_ReadDatabase(user);
+                    console.log("not connected");
+                }
+            });
+        }else{
+            console.log("saiu");
+        }
+    });
 
 // $SIGNED
