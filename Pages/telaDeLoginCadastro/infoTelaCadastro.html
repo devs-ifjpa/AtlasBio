@@ -41,8 +41,12 @@
                             <option value="month">Nov</option>
                             <option value="month">Dez</option>
                         </select>
-                        <select id="day"><option value="day"></option></select>
-                        <select id="year"></select>                
+                        <select id="day">
+                            <option value="day">01</option>
+                        </select>
+                        <select id="year">
+                            <option value="year">2000</option>
+                        </select>                
                     </div>
                 <!-- </div> -->
                 <input id="enviar" type="submit" value="Criar Conta">
@@ -56,6 +60,7 @@
     </main>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
     <script>
@@ -74,6 +79,6 @@
         firebase.analytics();
     </script>
     <script src="../js/firebase.js"></script>   
-    <script src="../js/script.js"></script>   
+    <!-- <script src="../js/script.js"></script>    -->
 </body>
 </html>  

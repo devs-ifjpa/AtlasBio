@@ -10,10 +10,8 @@ function Desvasado(doc){
     console.log(link);
     console.log('"../img/footer/Botão-Opções-Vazado.png"');
     if(link == '"../img/footer/Botão-Opções-Vazado.png"'){
-        console.log('pintou')
         doc.src = '../img/footer/menu_pintado.svg'
     }else{
-        console.log('vazou')
         doc.src = '../img/footer/Botão-Opções-Vazado.png'
     }
 }
