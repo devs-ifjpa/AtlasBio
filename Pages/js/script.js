@@ -21,7 +21,7 @@ function gerarDias(start,stop){
         day.push(dias)
     }
     day.forEach(e => {
-        mySelectDay.add(new Option(e,null))
+        mySelectDay.add(e,null)
     });
 }
 
@@ -59,6 +59,10 @@ function selectDayTratamento (mes,year){
 let mySelectMonth = document.querySelector('[wm-month] option')
 let mySelectYear = document.getElementById("year")
 
-selectDayTratamento(mySelectMonth.innerHTML, mySelectYear.innerText)
+// selectDayTratamento(mySelectMonth.innerHTML, mySelectYear.innerText)
 
-addEventListener('change',selectDayTratamento(mySelectMonth.innerHTML, mySelectYear.innerText))
+
+mySelectMonth.addEventListener('change', ()=>{
+    console.log('log')
+    selectDayTratamento(mySelectMonth.value,mySelectYear.value)
+})
