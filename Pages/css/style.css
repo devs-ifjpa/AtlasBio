@@ -1,0 +1,667 @@
+/* ******* TODAS AS FONTES ***** */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+@font-face {
+    font-family: "TypoGrafica";
+    src: url(../fonts/TypoGraphica_demo.otf);
+}
+@font-face{
+    font-family: 'roboto', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+}
+/* ******* FIM TODAS AS FONTES ***** */
+
+/* ******* TODO O CORPO ***** */
+* {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+}
+script{
+    display: none;
+}
+
+body{
+    margin: 0px;
+    /* width: 100vw; */
+    height: 100vh;
+}
+
+main{
+    margin: auto;
+}
+
+.hidden{
+    display: none;
+}
+
+#sphere{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 20px;
+    top: 15px;
+    background: #102660;
+    opacity: 0.9;
+    border-radius: 50%;
+}
+
+label{
+    font-size: 16px;
+}
+
+input{
+    border-width: 2px;
+}
+
+/* ******* FIM TODO O CORPO ***** */
+
+/* ******* TODAS AS IMAGENS ***** */
+
+#logo{
+    margin-top: 40px;
+    margin-bottom: 70px;
+    width: 160px;
+    height: 60px;
+}
+
+/* ******* FIM DE TODAS AS IMAGENS ***** */
+
+/* ******* TÍTULO ***** */
+#topo{
+    margin-bottom: 78px;
+    display: flex;
+    align-items: center;
+    color: #00081D;
+    font-size: 16px;
+    font-family: "TypoGrafica";
+}
+/* ******* FIM TÍTULO ***** */
+
+/* ******* TÍTULO TELALOGIN / TELA RECUPERAR SENHA ***** */
+#recuperar{
+    font-family: "TypoGrafica";
+    font-size: 15px;
+    color: #00081D;
+}
+/* ******* TÍTULO TELALOGIN / TELA RECUPERAR SENHA ***** */
+
+/* ******* TODAS AS CAIXINHAS AZUL(INPUT, BUTTON E TEXTO SIMPLES) ***** */
+/* ******* TUDO DE SELECT E OPTION ***** */
+input, option, select,button, #nasc {
+    background-color: #102660;
+    color:#F5EAEA;    
+    font-family: "TypoGrafica";
+    align-content: center;
+    align-items: center;
+    text-align: left;
+    border-radius: 50px;
+    margin-top: 15px;
+    font-size: 20px; 
+    width: fit-content;
+    padding: 5px 15px;    
+}
+select{
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+}
+.form input, select, option {
+    font-family: 'Roboto', sans-serif;      
+}
+
+.form{
+    width: 266px;
+}
+
+.form input:first-child{
+    margin-top: 0px;
+}
+
+.form input:not(:last-child){
+    font-size: 12px;
+    width: calc(100% - 34px);
+    height: calc(32px - 10px);
+    /* height: 32px; */
+}
+
+#voce{
+    width: calc(100% - 6px);
+    height: 32px;
+    font-size: 12px;
+    border: none;
+}
+
+/* #voce{ */
+    /* text-align: center; */
+/* } */
+
+
+/* ******* FIM DE TUDO DE SELECT E OPTION ***** */
+/* *****************traço**************** */
+
+.tracos{
+    width: 100vw;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-bottom: 27px;
+}
+
+.tracos hr{
+    margin: 0px;
+    /* width: 122px; */
+    width: 33.888888889vw;
+    border-bottom: none;
+    border-color: #102660;
+}
+
+#ou{
+    font-family: 'Righteous', cursive;
+    color: #102660;
+    font-size: 24px;
+}
+/* ******* TUDO DE DATA ***** */
+#formDate{    
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    align-self: center;
+}
+
+#formDate select{
+    margin: 0 8px;
+    font-size: 18px;
+    padding: 3px 14px;
+    width: 20vw;  
+}
+
+form{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+/* ******* FIM DE TUDO DE DATA ***** */
+
+input{
+    width: max-content;
+    border: 0px;
+}
+
+#enviar, #nasc{
+    padding: 7px 35px;
+    border: 0px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #F5EAEA;
+}
+#enviar{
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+    width: 106px;
+    height: 32px;
+    margin-bottom: 40px;
+    padding: 7px 40px;
+}
+
+/* ******* TEXTO ESCRITO DENTRO DAS CAIXINHAS ***** */
+::placeholder{
+    opacity: 1;
+    color: #F5EAEA;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+button, tr{    
+    flex-direction: row;    
+}
+
+tr img{
+   width: 10vw;  
+}
+
+#outrosLogin{
+    font-family: "TypoGrafica";
+    color: white;
+    font-size: 14px;
+}
+
+#outrosLogin a{
+    color: white;
+    border-radius: 30px;
+    background-color: #102660;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 266px;
+    height: 32px;
+}
+
+#outrosLogin a p{
+    margin: 0;
+}
+
+#LoginGoogle{
+    background-color: #102660;
+    border-radius: 30px;
+    width: 266px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 9px;
+}
+
+#LoginGoogle img{
+    width: 24px;
+    height: 24px;
+}
+
+#LoginGoogle p{
+    margin: 0px;
+    margin-left: 12px;
+}
+
+/* #outrosLogin button, #outrosLogin input{ */
+    /* width: 266px; */
+    /* height: 32px; */
+    /* font-size: 17px; */
+    /* padding: 0px 40px;     */
+/* } */
+/*  */
+/* #outrosLogin button{ */
+    /* margin-top: 0px; */
+/* } */
+
+/* ******* FIM TEXTO ESCRITO DENTRO DAS CAIXINHAS ***** */
+
+/* ******* FIM DAS CAIXINHAS AZUL (INPUT, BUTTON E TEXTO SIMPLES) ***** */
+
+
+#lembrarSenha{    
+    flex-direction: row;          
+    font-family: 'Roboto', sans-serif;
+    color: #00081D;
+    margin-top: 23px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#lembraSenha input[type="checkbox"]{
+    visibility: hidden;
+}
+
+.checkboxiconbox{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background: #102660;
+    opacity: 0.9;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.checkboxicon{
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    background: #102660;
+    border-radius: 50%;
+}
+
+#condicoes{
+    background-color: #102660;
+    border-radius: 50%;
+    margin: 0px 10px;
+}
+
+/* ******* ID OU CLASS DE DIV'S ***** */
+#meio{
+    font-size: 40px;
+    margin: 50px 0;
+}
+
+#data{
+    width: 60vw;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.menor{
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 24px;
+}
+
+
+/* ******* FIM ID OU CLASS DE DIV'S ***** */
+
+
+/* ******* TODO RODAPÉ ***** */
+.foot {
+    justify-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #00081D;
+    margin: 0px 0px;
+    font-size: 12px;     
+}
+
+.foot p{
+    justify-content: start;
+    margin: 0px 0px;
+}
+
+#foot{
+    font-size: 15px;
+    margin: 0px;
+    flex-direction: row;      
+}
+#foot a{
+    margin-left: 3px;
+}
+.foot p{
+    font-weight: normal;
+}
+a{
+    text-decoration: none;
+}
+/* ******* FIM DO RODAPÉ ***** */
+
+@media screen{
+    #sphere{
+        width: 2.34375vh;
+        height: 2.34375vh;
+        left: 3.125vh;
+        top: 2.34375vh;
+    }
+    label{
+        font-size: 2.5vh;
+    }
+    input{
+        border-width: 0.3125vh;
+    }    
+    #topo{
+        margin-bottom: 12.1875vh;
+        font-size: 2.5vh;
+    }
+    .form input:not(:last-child) {
+        font-size: 1.875vh;
+        width: calc(100% - 5.3125vh);
+        /* height: calc(5vh - (1.5625vh + 0.625vh)); */
+        height: calc(5vh - 1.5625vh);
+    }
+    input, option, select, button, #nasc {
+        border-radius: 7.8125vh;
+        margin-top: 3.125vh;
+        font-size: 3.125vh;
+        padding: 0.78125vh 2.34375vh;
+    }
+    #lembrarSenha {
+        margin-top: 3.59375vh;
+        margin-bottom: 4.6875vh;
+    }
+    .checkboxiconbox {
+        margin-left: 1.5625vh;
+        width: 2.34375vh;
+        height: 2.34375vh;
+        margin-right: 0.78125vh;
+    }
+    #logo{
+        margin-top: 6.25vh;
+        margin-bottom: 10.9375vh;
+        width: 25vh;
+        height: 9.375vh;
+    }
+    #recuperar{
+        font-size: 2.34375vh;
+    }
+    input, option, select,button, #nasc {
+        border-radius: 7.8125vh;
+        font-size: 3.125vh; 
+        padding: 0.78125vh 2.34375vh;
+        margin-top: 2.34375vh;
+    }
+    .form{
+        width: 41.5625vh;
+    }
+    #voce{
+        width: calc(100% - 0.9375vh);
+        font-size: 1.875vh;
+        height: 5vh;
+    }
+    .tracos{
+        margin-bottom: 4.21875vh;
+    }
+    /* .tracos hr{ */
+        /* width: 19.0625vh; */
+    /* } */
+    #ou{
+        font-size: 3.75vh;
+    }
+    #formDate{
+        margin-top: 1.5625vh;
+        margin-bottom: 4.6875vh;    
+    }
+    #formDate select{
+        margin: 0 1.25vh;
+        font-size: 2.8125vh;
+        padding: 0.46875vh 2.1875vh;    
+    }
+    #enviar, #nasc{
+        padding: 1.09375vh 5.46875vh;
+        margin-bottom: 1.5625vh;
+        font-size: 1.875vh;
+    }
+    #enviar{
+        font-size: 2.1875vh;
+        width: 16.5625vh;
+        height: 5vh;
+        margin-bottom: 6.25vh;
+        padding: 1.09375vh 6.25vh;
+    }
+    ::placeholder{
+        font-size: 1.875vh;
+    }
+    #outrosLogin{
+        font-size: 2.1875vh;
+    }
+    #outrosLogin a{
+        border-radius: 4.6875vh;
+        width: 41.5625vh;
+        height: 5vh;
+    }
+    #LoginGoogle{
+        border-radius: 4.6875vh;
+        width: 41.5625vh;
+        height: 5vh;
+        margin-bottom: 1.40625vh;
+    }
+    #LoginGoogle img{
+        width: 3.75vh;
+        height: 3.75vh;
+    }
+    #LoginGoogle p{
+        margin-left: 1.875vh;
+    }
+    #lembrarSenha{    
+        margin-top: 3.59375vh;
+        margin-bottom: 4.6875vh;
+    }
+    .checkboxiconbox{
+        margin-left: 1.5625vh;
+        width: 2.34375vh;
+        height: 2.34375vh;
+        margin-right: 0.78125vh;
+    }
+    #condicoes{
+        margin: 0 1.5625vh;
+    }
+    #meio{
+        font-size: 6.25vh;
+        margin: 7.8125vh 0;
+    }
+    .menor{
+        margin-bottom: 3.75vh;
+    }
+    .foot {
+        font-size: 1.875vh;     
+    }
+    #foot{
+        font-size: 2.34375vh;
+    }
+    #foot a{
+        margin-left: 0.46875vh;
+    }
+}
+
+@media screen and (max-aspect-ratio: 360/640){
+    #sphere{
+        width: 4.166666667vw;
+        height: 4.166666667vw;
+        left: 5.555555556vw;
+        top: 4.166666667vw;
+    }
+    label{
+        font-size: 4.444444444vw;
+    }
+    input{
+        border-width: 0.555555556vw;
+    }    
+    #topo{
+        margin-bottom: 21.666666667vw;
+        font-size: 4.444444444vw;
+    }
+    .form input:not(:last-child) {
+        font-size: 3.333333333vw;
+        width: calc(100% - 10vw);
+        /* height: calc(8.888888889vw - (2.777777778vw + 1.111111111vw)); */
+        height: calc(8.888888889vw - 2.777777778vw);
+    }
+    input, option, select, button, #nasc {
+        border-radius: 13.888888889vw;
+        margin-top: 5.555555556vw;
+        font-size: 5.555555556vw;
+        padding: 1.388888889vw 4.166666667vw;
+    }
+    #lembrarSenha {
+        margin-top: 6.388888889vw;
+        margin-bottom: 9.375vw;
+    }
+    .checkboxiconbox {
+        margin-left: 2.777777778vw;
+        width: 4.166666667vw;
+        height: 4.166666667vw;
+        margin-right: 1.388888889vw;
+    }
+    #logo{
+        margin-top: 11.111111111vw;
+        margin-bottom: 19.444444444vw;
+        width: 44.444444444vw;
+        height: 16.666666667vw;
+    }
+    #recuperar{
+        font-size: 4.166666667vw;
+    }
+    input, option, select,button, #nasc {
+        border-radius: 13.888888889vw;
+        font-size: 5.555555556vw; 
+        padding: 1.388888889vw 4.166666667vw;
+        margin-top: 4.166666667vw;
+    }
+    .form{
+        width: 73.888888889vw;
+    }
+    #voce{
+        width: calc(100% - 1.666666667vw);
+        font-size: 3.333333333vw;
+        height: 8.888888889vw;
+    }
+    .tracos{
+        margin-bottom: 7.5vw;
+    }
+    /* .tracos hr{ */
+        /* width: 33.888888889vw; */
+    /* } */
+    #ou{
+        font-size: 6.666666667vw;
+    }
+    #formDate{
+        margin-top: 2.777777778vw;
+        margin-bottom: 9.375vw;    
+    }
+    #formDate select{
+        margin: 0 2.222222222vw;
+        font-size: 5vw;
+        padding: 0.833333333vw 3.888888889vw;
+    }
+    #enviar, #nasc{
+        padding: 1.944444444vw 9.722222222vw;
+        margin-bottom: 2.777777778vw;
+        font-size: 3.333333333vw;
+    }
+    #enviar{
+        font-size: 3.888888889vw;
+        width: 29.444444444vw;
+        height: 10vw;
+        margin-bottom: 11.111111111vw;
+        padding: 1.944444444vw 11.111111111vw;
+    }
+    ::placeholder{
+        font-size: 3.333333333vw;
+    }
+    #outrosLogin{
+        font-size: 3.888888889vw;
+    }
+    #outrosLogin a{
+        border-radius: 9.375vw;
+        width: 73.888888889vw;
+        height: 8.888888889vw;
+    }
+    #LoginGoogle{
+        border-radius: 9.375vw;
+        width: 73.888888889vw;
+        height: 8.888888889vw;
+        margin-bottom: 2.5vw;
+    }
+    #LoginGoogle img{
+        width: 6.666666667vw;
+        height: 6.666666667vw;
+    }
+    #LoginGoogle p{
+        margin-left: 3.333333333vw;
+    }
+    #lembrarSenha{    
+        margin-top: 6.388888889vw;
+        margin-bottom: 9.375vw;
+    }
+    .checkboxiconbox{
+        margin-left: 2.777777778vw;
+        width: 4.166666667vw;
+        height: 4.166666667vw;
+        margin-right: 1.388888889vw;
+    }
+    #condicoes{
+        margin: 0 2.777777778vw;
+    }
+    #meio{
+        font-size: 11.111111111vw;
+        margin: 13.888888889vw 0;
+    }
+    .menor{
+        margin-bottom: 6.666666667vw;
+    }
+    .foot {
+        font-size: 3.333333333vw;
+    }
+    #foot{
+        font-size: 4.166666667vw;
+    }
+    #foot a{
+        margin-left: 0.833333333vw;
+    }
+}
