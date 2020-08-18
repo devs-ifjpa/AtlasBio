@@ -65,8 +65,9 @@ let mySelectYear = document.getElementById("year")
 
 // selectDayTratamento(mySelectMonth.innerHTML, mySelectYear.innerText)
 
-
-mySelectMonth.addEventListener('change', ()=>{
-    console.log('log')
-    selectDayTratamento(mySelectMonth.value,mySelectYear.value)
-})
+if(document.querySelector('#month') != undefined){
+    mySelectMonth.addEventListener('change', ()=>{
+        console.log('log')
+        selectDayTratamento(mySelectMonth.value,mySelectYear.value)
+    });
+}

@@ -198,23 +198,87 @@ function Firebase_AlternativeLogin(type,data){
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            location.href
+            // window.location = String(window.location).split('telaDeLoginCadastro')[0] + 'telaDeConteudo/conteudo.html'
+            
+            // location.href
             // User is signed in.
-            console.log("entrou");
+            // console.log("entrou");
             // firebase.firestore().disableNetwork();
             // firebase.firestore().enableNetwork();
-            connectedRef.on("value", function(snap) {
-                if (snap.val() === true) {
-                    Firebase_ReadDatabase(user);
-                    console.log("connected");
-                } else {
-                    Firebase_ReadDatabase(user);
-                    console.log("not connected");
-                }
-            });
+            // connectedRef.on("value", function(snap) {
+                // if (snap.val() === true) {
+                    // Firebase_ReadDatabase(user);
+                    // console.log("connected");
+                // } else {
+                    // Firebase_ReadDatabase(user);
+                    // console.log("not connected");
+                // }
+            // });
         }else{
-            console.log("saiu");
+            // console.log("saiu");
         }
     });
 
 // $SIGNED
+
+// CONTEUDO-BOX
+
+if(document.getElementById("ConteudoBox") != undefined){
+    let category = [];
+    let categoryData = [];
+    db.collection("content").onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            if(category.indexOf(doc.data().categoria) == -1){
+                category.push(doc.data().categoria);
+            }
+        });
+        category.map(item => {
+            db.collection('content').where("categoria", "==", item).onSnapshot(function(querySnapshot) {
+                let list = []
+                querySnapshot.forEach(function(doc) {
+                    list.push(doc.data());
+                });
+                categoryData.push(list);
+                if(categoryData.length === category.length){
+                    categoryData.map(item => {
+                        let itembox = document.createElement("DIV")
+                        itembox.insertAdjacentHTML('beforeend',
+                        `<div class="titulos">
+                            <p id='first-title' class="titulo left">${item[0].categoria}</p>
+                        </div>`)
+                        let demos = document.createElement('DIV')
+                        demos.className = 'demos'
+                        item.map(itemcategoria => {
+                            demos.insertAdjacentHTML('beforeend',
+                            `<div class="demos2">
+                                <div class="demo"></div>
+                                <div class="demo2">${itemcategoria.titulo}</div>
+                            </div>`);
+                            itembox.appendChild(demos);
+                            document.getElementById('ConteudoBox').appendChild(itembox)
+                        });
+                        // document.getElementById('ConteudoBox').insertAdjacentHTML('beforeend', itembox);
+                        // if(categoryData[length - 1] == item){
+                            // document.getElementById('ConteudoBox').appendChild(itembox);
+                        // }
+                    });
+                }
+            });
+        });
+    });
+
+    
+    // {to quieto pq to falando com ela}
+    // `{vou falar com ela ja volto}`
+    // category.map(item => {
+        // db.collection('content').where("categoria", "==", item).onSnapshot(function(querySnapshot) {
+            // querySnapshot.forEach(function(doc) {
+                // console.log(doc.data().titulo)
+                // cities.push(doc.data().name);
+            // });
+        // });    
+    // })
+    // document.getElementById("ConteudoBox").innerHTML = categoryData;
+}
+
+// $CONTEUDO-BOX
