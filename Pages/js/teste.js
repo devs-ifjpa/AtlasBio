@@ -30,18 +30,15 @@ selectDayTratamento("Fevereiro", 2016)
 
 let esconder = true
 function testee(){
-    menuLateral = document.querySelector(".ajuda").classList
+    menuLateral = document.querySelector(".fecharMenu").classList
     if (esconder){
-        menuLateral.toggle('meuu')
+        menuLateral.toggle('abrirMenu')
     }else{
-        menuLateral.toggle('ajuda')
+        menuLateral.toggle('fecharMenu')
     }
 }
 
 
-//$(document.querySelector('.menuu')).ready(function(){
-//$(".menuu").click(function(){
-//    $(this).toogleClass('active');
-//    $(".ajuda").toogleClass('active');
-//})
-//})
+//funtion alternarFoot(){
+//
+//}

@@ -106,7 +106,7 @@ footer img{
     box-sizing: border-box;   
 }
 
-.ajuda{
+.fecharMenu{
     position: fixed;  
     top: 0;  
     right: -100%;       
@@ -119,13 +119,13 @@ footer img{
     transition: 1s ease;      
 }
 
-.ajuda div{
+.fecharMenu div{
     flex-direction: column;   
     align-self: flex-end;
     z-index: 999;        
 }
 
-.meuu{
+.abrirMenu{
     right: 0;    
 }
 
