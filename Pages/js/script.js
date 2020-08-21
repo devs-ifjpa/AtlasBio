@@ -1,9 +1,9 @@
-// $(document).ready(function(){
-//     $(".hamburguer").click(function(){
-//         $(this).toggleClass("active")
-//         $(".menu").toggleClass("active")
-//     });
-// });
+$(document).ready(function(){
+    $(".hamburguer").click(function(){
+        $(this).toggleClass("active")
+        $(".menu").toggleClass("active")
+    });
+});
 
 function Desvasado(doc){
     let link = doc.outerHTML.split(" ")[2].split("=")[1];
