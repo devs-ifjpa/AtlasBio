@@ -27,3 +27,21 @@ function selectDayTratamento (mes,year){
 }
 
 selectDayTratamento("Fevereiro", 2016)
+
+let esconder = true
+function testee(){
+    menuLateral = document.querySelector(".ajuda").classList
+    if (esconder){
+        menuLateral.toggle('meuu')
+    }else{
+        menuLateral.toggle('ajuda')
+    }
+}
+
+
+//$(document.querySelector('.menuu')).ready(function(){
+//$(".menuu").click(function(){
+//    $(this).toogleClass('active');
+//    $(".ajuda").toogleClass('active');
+//})
+//})

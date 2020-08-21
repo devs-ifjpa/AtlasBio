@@ -105,3 +105,27 @@ footer img{
     flex-direction: row;        
     box-sizing: border-box;   
 }
+
+.ajuda{
+    position: fixed;  
+    top: 0;  
+    right: -100%;       
+    height: 91vh;
+    width: 60vw;
+    margin: 0;
+    background-color: rgba(122,122,122, 0.5);
+    display: flex;
+    flex-direction: row;  
+    transition: 1s ease;      
+}
+
+.ajuda div{
+    flex-direction: column;   
+    align-self: flex-end;
+    z-index: 999;        
+}
+
+.meuu{
+    right: 0;    
+}
+
