@@ -27,3 +27,18 @@ function selectDayTratamento (mes,year){
 }
 
 selectDayTratamento("Fevereiro", 2016)
+
+let esconder = true
+function testee(){
+    menuLateral = document.querySelector(".fecharMenu").classList
+    if (esconder){
+        menuLateral.toggle('abrirMenu')
+    }else{
+        menuLateral.toggle('fecharMenu')
+    }
+}
+
+
+//funtion alternarFoot(){
+//
+//}

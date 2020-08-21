@@ -9,8 +9,10 @@ function Desvasado(doc){
     let link = doc.outerHTML.split(" ")[2].split("=")[1];
     if(link == '"../img/footer/Botão-Opções-Vazado.png"'){
         doc.src = '../img/footer/menu_pintado.svg'
+        document.querySelector('.menu').style.right = 0;
     }else{
         doc.src = '../img/footer/Botão-Opções-Vazado.png'
+        document.querySelector('.menu').style.right = '-100%';
     }
 }
 
@@ -20,8 +22,12 @@ function gerarDias(start,stop){
     for(let dias=start; dias< stop+1; dias++){
         day.push(dias)
     }
+    mySelectDay.innerHTML = ''
     day.forEach(e => {
-        mySelectDay.add(e,null)
+        const opt = document.createElement("option");
+        opt.value = e;
+        opt.text = e;
+        mySelectDay.add(opt,null)
     });
 }
 
@@ -56,13 +62,14 @@ function selectDayTratamento (mes,year){
     return console.log(mes, day)
 }
 
-let mySelectMonth = document.querySelector('[wm-month] option')
+let mySelectMonth = document.querySelector('#month')
 let mySelectYear = document.getElementById("year")
 
 // selectDayTratamento(mySelectMonth.innerHTML, mySelectYear.innerText)
 
-
-mySelectMonth.addEventListener('change', ()=>{
-    console.log('log')
-    selectDayTratamento(mySelectMonth.value,mySelectYear.value)
-})
+if(document.querySelector('#month') != undefined){
+    mySelectMonth.addEventListener('change', ()=>{
+        console.log('log')
+        selectDayTratamento(mySelectMonth.value,mySelectYear.value)
+    });
+}
