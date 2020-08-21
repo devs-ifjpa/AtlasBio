@@ -63,8 +63,8 @@ nav img{
     height: 5vh;
 }
 
-main{
-    height: 528px;
+#ConteudoBox{
+    height: calc(100% - (59px + 49px));
     overflow-y: scroll;   
     white-space: nowrap;
 }
@@ -174,7 +174,7 @@ footer img{
     align-items: flex-start;
     opacity: 0.95;
     width: 231px;
-    transition: 0.5s ease;
+    transition: right 0.5s ease;
 }
 
 .menu li a{
