@@ -198,11 +198,12 @@ function Firebase_AlternativeLogin(type,data){
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            // window.location = String(window.location).split('telaDeLoginCadastro')[0] + 'telaDeConteudo/conteudo.html'
-            
+            if(String(window.location.href).split('Pages/telaDeLoginCadastro/')[1] === ''){
+                window.location = String(window.location).split('telaDeLoginCadastro')[0] + 'telaDeConteudo/conteudo.html'
+            }
             // location.href
             // User is signed in.
-            // console.log("entrou");
+            console.log("entrou");
             // firebase.firestore().disableNetwork();
             // firebase.firestore().enableNetwork();
             // connectedRef.on("value", function(snap) {
@@ -215,7 +216,7 @@ function Firebase_AlternativeLogin(type,data){
                 // }
             // });
         }else{
-            // console.log("saiu");
+            console.log("saiu");
         }
     });
 

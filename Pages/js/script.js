@@ -9,8 +9,10 @@ function Desvasado(doc){
     let link = doc.outerHTML.split(" ")[2].split("=")[1];
     if(link == '"../img/footer/Botão-Opções-Vazado.png"'){
         doc.src = '../img/footer/menu_pintado.svg'
+        document.querySelector('.menu').style.right = 0;
     }else{
         doc.src = '../img/footer/Botão-Opções-Vazado.png'
+        document.querySelector('.menu').style.right = '-100%';
     }
 }
 
