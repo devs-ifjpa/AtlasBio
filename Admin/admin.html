@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AtlasBio - ADMIN</title>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100vh;
+                margin: 0;
+                background-image: linear-gradient(45deg,#0800ff,#00aeff);
+            }
+            label{
+                color: #FFF;
+            }
+            .inputlogin{
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+            }
+            .inputlogin{
+                width: 230px;
+            }
+            .inputlogin input, #signed input:not([type='submit'],[type='file']){
+                height: 30px;
+                width: 100%;
+                border-radius: 10px;
+            }
+            #signed form div{
+                width: 400px;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-items: center;
+            }
+            #botao{
+                display: flex;
+                justify-content: center;
+                margin: 20px;
+            }
+            #botao input{
+                border-radius: 15px;
+                color: #102660;
+                padding: 15px 30px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 25px;        
+            }
+
+            #botao input:hover {
+                color: #F5EAEA;
+                background-color: #102660;
+            }
+            h3, h5{
+                color: #FFF;
+            }
+            #Logout{
+                transform: scale(.6);
+                margin: 10;
+            }
+            #signed form div{
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="login">
+            <form id='formlogin'>
+
+                <h3> Login Administrator - AtlasBio </h3>
+                <div class="inputlogin">
+                    <label for="name">  Email: </label>
+                    <input type="text" id="email" name="email" required> 
+                </div>
+                <div class='inputlogin' style="margin-bottom: 10;">
+                    <label for="senha"> Senha </label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div id="botao">
+                    <input type="submit" value="Entrar">
+                </div>
+                <h5> Adicionando informações sobre o conteudo </h5>
+            </form>
+        </div>
+        <div id="signed">
+
+            <h3> Adicionando conteudos </h3>
+            <h5> Adicionando titulo/categoria/fotoconteudo/fotointerprete/descrição </h5>  
+
+            <form id="FormCadastrarData"> 
+                <div>
+                    <!-- <img src="data:img/gif;base64,"></img> -->
+                    <label for="titulo"> Titulo: </label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                    <label for="categoria"> Categoria:  </label>
+                    <input type="text" id="categoria" name="categoria" required>
+
+                    <label for="gif1"> Foto Conteudo:  </label>
+                    <input type="file" id="gif1" name="gif1" required>
+                    <textarea id="gif1Text"></textarea>
+
+                    <label for="gif2"> Foto interprete: </label>
+                    <input type="file" id="gif2" name="gif2" required>
+                    <textarea id="gif2Text"></textarea>
+
+                    <label for="description"> Descrição: </label>
+                    <input style='margin-bottom: 10px' type="text" id="description" name="description" required>
+                    
+                    <div style='margin: 0;' id="botao">
+                        <input type="submit" value="Enviar">                        
+                    </div>
+                </div>
+
+                <script>
+                    if (window.File && window.FileReader && window.FileList && window.Blob) {
+                        document.getElementById('gif1').addEventListener('change', handleFileSelect, false);
+                        document.getElementById('gif2').addEventListener('change', handleFileSelect2, false);
+                    } else {
+                        alert('API não Suportada em seu Navegador.');
+                    }
+                    function handleFileSelect(evt) {
+                        var f = evt.target.files[0]; // FileList object
+                        var reader = new FileReader();
+                        reader.onload = (function(theFile) {
+                            return function(e) {
+                                var binaryData = e.target.result;
+                                var base64String = window.btoa(binaryData);
+                                document.getElementById('gif1Text').value = base64String;
+                                alert('Arquivo Convertido para URI');
+                            };
+                        })(f);
+                        reader.readAsBinaryString(f);
+                    }
+                    function handleFileSelect2(evt) {
+                        var f = evt.target.files[0]; // FileList object
+                        var reader = new FileReader();
+                        reader.onload = (function(theFile) {
+                            return function(e) {
+                                var binaryData = e.target.result;
+                                var base64String = window.btoa(binaryData);
+                                document.getElementById('gif2Text').value = base64String;
+                                alert('Arquivo Convertido para URI');
+                            };
+                        })(f);
+                        reader.readAsBinaryString(f);
+                    }
+                </script>
+    
+            </form>
+                    <div id="botao" style="margin: 0;">
+                        <input id='Logout' type="submit" onclick="Firebase_Logout()" value="Logout"></input>
+                    </div>
+        </div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDsOE0A9NkCyxxtQjaNg8QUJBRwgQ_csjs",
+            authDomain: "atlasbio-aa54f.firebaseapp.com",
+            databaseURL: "https://atlasbio-aa54f.firebaseio.com",
+            projectId: "atlasbio-aa54f",
+            storageBucket: "atlasbio-aa54f.appspot.com",
+            messagingSenderId: "413942805195",
+            appId: "1:413942805195:web:2aa2e5df1ee4c9a026614e",
+            measurementId: "G-XCQVHBMC97"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script>
+        firebase.firestore().collection('content').where('categoria','==','Gado').onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((item) => {                
+                document.querySelector('body').innerHTML = `<img src='${item.data().gif2}'></img>`; 
+            });
+        });
+    </script>
+
+    <script>
+        function Firebase_Logout(){
+            firebase.auth().signOut();  
+        }
+        document.getElementById("formlogin") != null ? (
+            document.getElementById("formlogin").addEventListener("submit", () => {
+                event.preventDefault();
+                var email = document.getElementById("email");
+                var password = document.getElementById("password");
+                Firebase_Login(email,password);
+            })
+        ) : false;
+
+
+        document.getElementById('FormCadastrarData') != null ? (
+            document.getElementById('FormCadastrarData').addEventListener('submit', () => {
+                event.preventDefault();
+                // let gif1 = document.getElementById('gif1').value;
+                // fetch(gif1)
+                // .then(res => res.file())
+                // .then(file => {
+                    // let objectURL = URL.createObjectURL(file);
+                    // gif1 = objectURL;
+                // });
+                let gif1Format = document.getElementById('gif1').value;
+                gif1Format = gif1Format.split('.')[gif1Format.split('.').length - 1];
+                let gif2Format = document.getElementById('gif2').value;
+                gif2Format = gif2Format.split('.')[gif2Format.split('.').length - 1];
+                let titulo = document.getElementById('titulo').value;
+                let description = document.getElementById('description').value;
+                let gif1 = `data:img/${gif1Format};base64,${document.getElementById('gif1Text').value}`;
+                let gif2 = `data:img/${gif2Format};base64,${document.getElementById('gif2Text').value}`;
+                let categoria = document.getElementById('categoria').value;
+                Firebase_RegisterDatabase([categoria,titulo,description,gif1,gif2]);
+            })
+        ) : false
+
+
+        function Firebase_Login(userEmail,userPass){
+            userEmail = userEmail.value;
+            userPass = userPass.value;
+            firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+                var errorMessage = error.message;
+                if(errorMessage == "The password is invalid or the user does not have a password."){
+                    window.alert("Senha inválida ou usuário não cadastrado.")
+                }
+                else if(errorMessage == "The email address is badly formatted."){
+                    window.alert("O endereço de email está mal formatado ou não foi preenchido.")
+                }
+            });
+        }
+        function Firebase_RegisterDatabase(data){
+            firebase.firestore().collection("content").doc().set({
+                categoria: data[0],
+                titulo: data[1],
+                description: data[2],
+                gif1: data[3],
+                gif2: data[4],
+            }).then(() => {
+                window.alert('Dados Salvos')
+            }).catch((error) => {
+                console.error("Erro ao Escrever Dados: ", error);
+            });
+        }
+    </script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('signed').style.display = 'block';
+            }else{
+                document.getElementById('login').style.display = 'block';
+                document.getElementById('signed').style.display = 'none';
+            }
+        });
+    </script>
+</html>
