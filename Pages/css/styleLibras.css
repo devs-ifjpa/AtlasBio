@@ -63,12 +63,6 @@ nav img{
     height: 5vh;
 }
 
-#ConteudoBox{
-    height: calc(100% - (59px + 49px));
-    overflow-y: scroll;   
-    white-space: nowrap;
-}
-
 #linha{
     border: 0.1rem solid #102660;
     width: 100%;
@@ -80,63 +74,63 @@ nav img{
     margin: 0px;
     margin-top: 8px;
 }
-.titulo{
-    margin: 16px auto;
-    padding: 9px 18px;
-    font-family: 'Roboto';
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    color: #F5EAEA;
-}
-#first-title{
-    margin-top: 8px;
-}
-.titulos{
-    background: #102660;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    align-items: center;
-    width: 304px;
-}
-.left{
-    text-align: left;
-}
-.demo{
-    width: 95px;
-    height: 65px;
-    background: #102660;
-    border-radius: 10px;
-}
-.demo2{
-    margin-top: 19px;
-    width: 90px;
-    height: 33px;    
-    background: #183FA3;
-    border-radius: 10px;
-}
-.demos{
-    display: flex;    
-    flex-wrap: nowrap;
-    flex-direction: row;
-    width: 100vw;
-    margin-bottom: 21px;
-    align-content: flex-start;
-    overflow-x: scroll;
-    white-space: nowrap;
-    scrollbar-width: none;
-}
-.demos::-webkit-scrollbar{
-    display: none;
+
+.boxInicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    margin: 0.8rem;
 }
 
-.demos2{
-    height: fit-content;
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;    
+    width: 80vw;
+    
+    align-content: center;
+    margin: 0 10vw;
+}
+
+.boxInicio p{
+    border: solid 2px #102660;
+    padding: 2.8em 4.8em;
+    background: #102660;
+    color: white;
+    text-align: center;
+    font-family: 'roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;    
+    border-radius: 10px;
+}
+
+.boxInicio a{
+    font-family: 'roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 0.5vh;
+     
+}
+
+.boxInicio img{
+    height: 7.5vh;
+}
+
+div.title{
+    background-color:#102660;
+    width: 60vw;
+    color:white;
+    margin-left:0px;
+    border-radius:0px 50px 50px 0px;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 8.5px;   
+    padding: 0.5rem 2rem;
+    font-size: 20px;
+    font-family: 'roboto';
+    font-style: normal;
+    font-weight: bold;
+    margin: 3px 0 8px 0;
 }
 
 footer{     
@@ -214,60 +208,3 @@ li:last-child{
     right: 0px;
 }
 
-.boxInicio{
-    display: flex;
-    flex-direction: column;
-    align-items: center;   
-}
-
-.container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;    
-    width: 80vw;
-    grid-gap:2px;
-    align-content: center;
-    margin: 0 10vw;
-}
-
-.boxInicio p{
-    border: solid 2px #102660;
-    padding: 5em 8em;
-    background: #102660;
-    color: white;
-    text-align: center;
-    font-family: 'roboto';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    border-radius: 10px;
-}
-
-.boxInicio a{
-    font-family: 'roboto';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;  
-    margin: 0.5vw 0; 
-}
-
-.boxInicio img{
-    height: 65px;
-}
-
-div.title{
-    background-color:#102660;
-    width: 60vw;
-    color:white;
-    margin-left:0px;
-    border-radius:0px 50px 50px 0px;
-    display: flex;
-    padding: 0.5rem 2rem;
-    font-size: 20px;
-    font-family: 'roboto';
-    font-style: normal;
-    font-weight: bold;
-    margin: 3px 0 8px 0;
-}
