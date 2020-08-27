@@ -250,8 +250,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById('login').style.display = 'none';
         // document.getElementById('signed').style.display = 'block';
     }else{
-        if(window.location != window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'login.html'){
-            window.location = window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'login.html';
+        if(window.location != window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'index.html'){
+            window.location = window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'index.html';
         }
         // document.getElementById('login').style.display = 'block';
         // document.getElementById('signed').style.display = 'none';
