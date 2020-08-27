@@ -244,14 +244,14 @@ function Firebase_RegisterDatabase(data){
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        if(window.location != window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'action.html' && String(window.location).split('/').pop() == 'login.html'){
-            window.location = window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'action.html'
+        if(window.location != window.location.origin + '/' + String(window.location).split('/')[3] + '/' + String(window.location).split('/')[4] + '/' + 'action.html' && String(window.location).split('/').pop() == 'index.html'){
+            window.location = window.location.origin + '/' + String(window.location).split('/')[3] + '/' + String(window.location).split('/')[4] + '/' + 'action.html'
         }
         // document.getElementById('login').style.display = 'none';
         // document.getElementById('signed').style.display = 'block';
     }else{
-        if(window.location != window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'index.html'){
-            window.location = window.location.origin + '/' + String(window.location).split('/')[3] + '/' + 'index.html';
+        if(window.location != window.location.origin + '/' + String(window.location).split('/')[3] + '/' + String(window.location).split('/')[4] + '/' + 'index.html'){
+            window.location = window.location.origin + '/' + String(window.location).split('/')[3] + '/' + String(window.location).split('/')[4] + '/' + 'index.html';
         }
         // document.getElementById('login').style.display = 'block';
         // document.getElementById('signed').style.display = 'none';
