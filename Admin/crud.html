@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>AtlasBio - Admin</title>
+    </head>
+    <body>
+        <a href="./action.html" class="voltar">Voltar</a>
+        <div id="botao" style="margin: 0;">
+            <input class='Logout' type="submit" onclick="Firebase_Logout()" value="Logout"></input>
+        </div>
+
+        <div class="headTitle">
+            <p>Titulo</p>
+            <p>Gif1</p>
+            <p>Gif2</p>
+            <p>Categoria</p>
+            <p>Descrição</p>
+        </div>
+        <div id="items">
+        </div>
+
+        <div id="EditableItem">
+        </div>
+
+        
+        <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyDsOE0A9NkCyxxtQjaNg8QUJBRwgQ_csjs",
+                authDomain: "atlasbio-aa54f.firebaseapp.com",
+                databaseURL: "https://atlasbio-aa54f.firebaseio.com",
+                projectId: "atlasbio-aa54f",
+                storageBucket: "atlasbio-aa54f.appspot.com",
+                messagingSenderId: "413942805195",
+                appId: "1:413942805195:web:2aa2e5df1ee4c9a026614e",
+                measurementId: "G-XCQVHBMC97"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+        <script src="./script.js"></script>
+    </body>
+</html>
