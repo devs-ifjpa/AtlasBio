@@ -253,7 +253,9 @@ if(document.getElementById("ConteudoBox") != undefined){
                             demos.insertAdjacentHTML('beforeend',
                             `<div class="demos2">
                                 <div class="demo"></div>
-                                <div class="demo2">${itemcategoria.titulo}</div>
+                                <div class="demo2">
+                                    <p>${itemcategoria.titulo}</p>
+                                </div>
                             </div>`);
                             itembox.appendChild(demos);
                             document.getElementById('ConteudoBox').appendChild(itembox)
