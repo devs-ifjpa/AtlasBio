@@ -1,3 +1,5 @@
+firebase.firestore().enablePersistence();
+
 function Editable(id,titulo,gif1,gif2,categoria,description){
     document.getElementById('EditableItem').style.zIndex = 1000;
     let EditableItens = document.createElement('FORM');
@@ -29,11 +31,22 @@ function Editable(id,titulo,gif1,gif2,categoria,description){
                 <textarea id='gif2EditText' disabled required></textarea>
             </div>
         </div>
-        <input type='submit' value='Alterar Dados' class='actionbutton'>
-        <input type='reset' class='actionbutton'>
+        <div style='display: flex; align-items: center; justify-content: space-evenly; width: 100%;'>
+            <input type='reset' class='actionbutton'>
+            <input type='submit' value='Alterar Dados' class='actionbutton'>
+            <h3 style='height: auto' onclick='RemoveItem()' class='actionbutton'>Deletar</h3>
+        </div>
     `);
     document.getElementById('EditableItem').insertAdjacentHTML('beforeend',EditableItens.outerHTML);
     ConvertImage();
+}
+
+function RemoveItem(){
+    let id = document.getElementById('EditId').textContent.split(' ')[2];
+    firebase.firestore().collection('content').doc(id).delete().then(() => {
+        window.alert('Item Removido');
+        document.location.reload(true);
+    });
 }
 
 function ExitEditable(){
