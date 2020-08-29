@@ -1,4 +1,4 @@
-firebase.firestore().enablePersistence();
+// firebase.firestore().enablePersistence();
 
 function Editable(id,titulo,gif1,gif2,categoria,description){
     document.getElementById('EditableItem').style.zIndex = 1000;
@@ -41,9 +41,15 @@ function Editable(id,titulo,gif1,gif2,categoria,description){
 
 function RemoveItem(){
     let id = document.getElementById('EditId').textContent.split(' ')[2];
-    firebase.firestore().collection('content').doc(id).delete().then(() => {
-        window.alert('Item Removido');
-        document.location.reload(true);
+    firebase.firestore().collection('content').doc(id).get().then(datapack => {
+        firebase.storage().ref(datapack.data().gif1).delete();
+        firebase.storage().ref(datapack.data().gif2).delete();
+        // firebase.storage().ref(`content/${id}`).delete().then(() => {
+            firebase.firestore().collection('content').doc(id).delete().then(() => {
+                window.alert('Item Removido');
+                document.location.reload(true);
+            });
+        // })    
     });
 }
 
@@ -56,17 +62,20 @@ function WriteData(id){
     if(document.getElementById('TitleEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             titulo: document.getElementById('TitleEdit').value
-        }, { merge: true }).then(() => { window.alert('Titulo Alterado') });
+        }, { merge: true }).then(() => { if(confirm('Titulo Alterado Recarregar?:')){ document.location.reload(true) };
+        });
     }
     if(document.getElementById('CategoryEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             categoria: document.getElementById('CategoryEdit').value
-        }, { merge: true }).then(() => { window.alert('Categoria Alterada') });
+        }, { merge: true }).then(() => { if(confirm('Categoria Alterada Recarregar?')){ document.location.reload(true) };
+        });
     }
     if(document.getElementById('DescriptionEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             description: document.getElementById('DescriptionEdit').value
-        }, { merge: true }).then(() => { window.alert('Descrição Alterada') });
+        }, { merge: true }).then(() => { if(confirm('Descrição Alterada Recarregar?')){ document.location.reload(true) };
+        });
     }
     if(document.getElementById('gif1Edit').files[0] !== undefined){
         firebase.firestore().collection('content').doc(id).get().then(doc => {
@@ -74,7 +83,8 @@ function WriteData(id){
                 firebase.storage().ref(`content/${id}/${document.getElementById('gif1Edit').files[0].name}`).put(document.getElementById('gif1Edit').files[0])
                 firebase.firestore().collection('content').doc(id).set({
                     gif1: `content/${id}/${document.getElementById('gif1Edit').files[0].name}`
-                }, { merge: true }).then(() => { window.alert('Gif1 Alterada') });
+                }, { merge: true }).then(() => { if(confirm('Gif1 Alterada Recarregar?')){ document.location.reload(true) };
+                });
             });
         });
     }
@@ -84,159 +94,12 @@ function WriteData(id){
                 firebase.storage().ref(`content/${id}/${document.getElementById('gif2Edit').files[0].name}`).put(document.getElementById('gif2Edit').files[0])
                 firebase.firestore().collection('content').doc(id).set({
                     gif2: `content/${id}/${document.getElementById('gif2Edit').files[0].name}`
-                }, { merge: true }).then(() => { window.alert('Gif2 Alterada') });
+                }, { merge: true }).then(() => { if(confirm('Gif2 Alterada')){ document.location.reload(true) };
+                });
             });
         });
     }
-    // console.log(firebase.storage().ref(`content/${id}/`))
-
-    // if(document.getElementById('TitleEdit').value !== ''){
-        // firebase.firestore().collection('content').doc(id).set({
-            // titulo: document.getElementById('TitleEdit').value
-        // }, { merge: true });
-    // }
-    // if(document.getElementById('CategoryEdit').value !== ''){
-        // firebase.firestore().collection('content').doc(id).set({
-            // categoria: document.getElementById('CategoryEdit').value
-        // }, { merge: true });
-    // }
-    // if(document.getElementById('DescriptionEdit').value !== ''){
-        // firebase.firestore().collection('content').doc(id).set({
-            // description: document.getElementById('DescriptionEdit').value
-        // }, { merge: true });
-    // }
-    // if(document.getElementById('gif1Edit').files[0] !== undefined){
-    //    firebase.storage().ref(`content/${id}`) 
-    // }
-
-
-
-    // if(document.getElementById('TitleEdit').value === ''){
-        // titulo = document.getElementById('TitleEdit').value === '';
-    // }
-    // if(document.getElementById('').value === ''){
-        // titulo = document.getElementById('CategoryEdit').value === '';
-    // }
-    // console.log(categoria);
-    // console.log(description);
-    // console.log(gif1);
-    // console.log(gif2);
 }
-
-// function ConvertImage(){
-    // if (window.File && window.FileReader && window.FileList && window.Blob) {
-        // document.getElementById('gif1Edit').addEventListener('change', handleFileSelect, false);
-        // document.getElementById('gif2Edit').addEventListener('change', handleFileSelect2, false);
-    // } else {
-        // alert('API não Suportada em seu Navegador.');
-    // }
-    // function handleFileSelect(evt) {
-        // var f = evt.target.files[0]; // FileList object
-        // var reader = new FileReader();
-        // reader.onload = (function(theFile) {
-            // return function(e) {
-                // var binaryData = e.target.result;
-                // var base64String = window.btoa(binaryData);
-                // document.getElementById('gif1EditText').value = base64String;
-                // alert('Arquivo Convertido para URI');
-            // };
-        // })(f);
-        // reader.readAsBinaryString(f);
-    // }
-    // function handleFileSelect2(evt) {
-        // var f = evt.target.files[0]; // FileList object
-        // var reader = new FileReader();
-        // reader.onload = (function(theFile) {
-            // return function(e) {
-                // var binaryData = e.target.result;
-                // var base64String = window.btoa(binaryData);
-                // document.getElementById('gif2EditText').value = base64String;
-                // alert('Arquivo Convertido para URI');
-            // };
-        // })(f);
-        // reader.readAsBinaryString(f);
-    // }
-    // console.log(!!(document.getElementById('FormEditable') != undefined));
-    // if(true){
-        // window.alert('teste')
-        // console.log(document.getElementById('FormEditable'));
-        // document.getElementById('FormEditable').addEventListener('submit', event => {
-            // event.preventDefault();
-            // let id = document.getElementById('EditId').textContent.split(' ID: ')[1];
-            // let title = document.getElementById('TitleEdit').value;
-            // let gif1 = document.getElementById('gif1Edit').files[0];
-            // let gif2 = document.getElementById('gif2Edit').files[0];
-            // let description = document.getElementById('DescriptionEdit').value;
-            // let categoria = document.getElementById('CategoryEdit').value;
-            // console.log(firebase.storage().ref(`content/${id}`));
-            // if(title != ''){
-                // firebase.firestore().collection("content").doc(id).set({
-                    // titulo: title
-                // },{ merge: true });
-            // }
-            // if(description != ''){
-                // firebase.firestore().collection("content").doc(id).set({
-                    // description: description
-                // },{ merge: true });
-            // }
-            // if(categoria != ''){
-                // firebase.firestore().collection("content").doc(id).set({
-                    // categoria: categoria
-                // },{ merge: true });
-            // }
-            // if(gif1 != ''){
-                // firebase.firestore().collection("content").doc(id).set({
-                    // gif1: gif1.name
-                // },{ merge: true }).then(() => {
-                    // firebase.storage().ref(`content/${id}`)
-                // });
-            // }
-
-
-            // let id = document.getElementById('EditId').textContent.split('ID: ')[1];
-            // let title = ''
-            // document.getElementById('TitleEdit').value != "" ?
-                // title = document.getElementById('TitleEdit').value :
-                // title = document.getElementById('EditTitleLabel').textContent.split(': ')[1];
-            // let gif1 = '';
-            // document.getElementById('gif1Edit').files[0] != '' ?
-                // gif1 = document.getElementById('gif1Edit').files[0] :
-                // gif1 = document.getElementById('gif1EditTextLabel').attributes.src.value
-            // let gif2 = '';
-            // document.getElementById('gif2Edit').files[0] != '' ?
-                // gif2 = document.getElementById('gif2Edit').files[0] :
-                // gif2 = document.getElementById('gif2EditTextLabel').attributes.src.value;
-            // let description = '';
-            // document.getElementById('DescriptionEdit').value != '' ?
-                // description = document.getElementById('DescriptionEdit').value :
-                // description = document.getElementById('DescriptionEditLabel').textContent.split(': ')[1];
-            // let categoria = ''
-            // document.getElementById('CategoryEdit').value != '' ?
-                // categoria = document.getElementById('CategoryEdit').value :
-                // categoria = document.getElementById('EditCategoriaLabel').textContent.split(': ')[1];
-            // if(title != "" || gif1 != "" || gif2 != "" || description != "" || categoria != ""){
-                // firebase.firestore().collection("content").doc(id).update({
-                    // titulo: title,
-                    // gif1: gif1,
-                    // gif2: gif2,
-                    // categoria: categoria,
-                    // description: description
-                // }).then(() => {
-                    // window.alert('Dados Alterados com Sucesso');
-                    // document.location.reload(true);
-                // }).catch(error => {
-                    // console.error("Error writing document: ", error);
-                // });
-            // }
-        // });
-    // }
-// }
-
-// document.getElementById('editableForm') != undefined ? (
-    // document.getElementById('EditableTitulo').textContent = String(window.location).split('titulo=')[1].split(',')[0],
-    // document.getElementById('EditableGif1').textContent = String(window.location).split('gif1=')[1].split(',')[0],
-    // document.getElementById('EditableGif2').textContent = String(window.location).split('gif2=')[1].split(',')[0]
-// ) : false;
 
 document.getElementById('items') != undefined ? (
     document.querySelector('body').style.height = 'auto',
@@ -309,13 +172,14 @@ document.getElementById('FormCadastrarData') != null ? (
             // gif1 = objectURL;
         // });
         let gif1 = document.getElementById('gif1').files[0];
-        // gif1Format = gif1Format.split('.')[gif1Format.split('.').length - 1];
-        let gif2 = document.getElementById('gif2').files[0];
-        // gif2Format = gif2Format.split('.')[gif2Format.split('.').length - 1];
+        let gif2 = '';
+        if(document.getElementById('gif2').files[0] !== undefined){
+            gif2 = document.getElementById('gif2').files[0]
+        }else{
+            gif2 = document.getElementById('gif1').files[0];
+        }
         let titulo = document.getElementById('titulo').value;
         let description = document.getElementById('description').value;
-        // let gif1 = `data:img/${gif1Format};base64,${document.getElementById('gif1Text').value}`;
-        // let gif2 = `data:img/${gif2Format};base64,${document.getElementById('gif2Text').value}`;
         let categoria = document.getElementById('categoria').value;
         firebase.firestore().collection("content").add({
             categoria: categoria,
@@ -323,11 +187,18 @@ document.getElementById('FormCadastrarData') != null ? (
             description: description,
         }).then((docRef) => {
             var StorageRef = firebase.storage().ref(`content/${docRef.id}`);
-            StorageRef.child(gif1.name).put(gif1).then(() => {
-                StorageRef.child(gif2.name).put(gif2).then(() => {
+            let gif1Name = gif1.name;
+            let gif2Name = gif2.name;
+            if(gif1.name === gif2.name){
+                gif2Name = gif2Name.split('.')[0] + '(1).' + gif2Name.split('.')[1];
+            }
+            let gif1Path = StorageRef.child(gif1Name).fullPath;
+            let gif2Path = StorageRef.child(gif2Name).fullPath
+            StorageRef.child(gif1Name).put(gif1).then(() => {
+                StorageRef.child(gif2Name).put(gif2).then(() => {
                     firebase.firestore().collection('content').doc(docRef.id).set({
-                        gif1: StorageRef.child(gif1.name).fullPath,
-                        gif2: StorageRef.child(gif2.name).fullPath
+                        gif1: gif1Path,
+                        gif2: gif2Path
                     }, { merge: true });
                     window.alert('Dados Salvos')
                 });
