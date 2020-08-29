@@ -22,62 +22,33 @@
                     <input type="text" id="categoria" name="categoria" required>
 
                     <label for="gif1"> Foto Conteudo:  </label>
-                    <input type="file" id="gif1" name="gif1">
-                    <textarea disabled id="gif1Text" required></textarea>
+                    <input type="file" id="gif1" name="gif1" required>
+                    <!-- <textarea disabled id="gif1Text" required></textarea> -->
 
                     <label for="gif2"> Foto interprete: </label>
-                    <input type="file" id="gif2" name="gif2">
-                    <textarea disabled id="gif2Text" required></textarea>
+                    <input type="file" id="gif2" name="gif2" required>
+                    <!-- <textarea disabled id="gif2Text" required></textarea> -->
 
                     <label for="description"> Descrição: </label>
                     <input style='margin-bottom: 10px' type="text" id="description" name="description" required>
                     
-                    <div style='margin: 0;' id="botao">
-                        <input type="submit" value="Enviar">                        
+                    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                        <div style='margin: 0; align-items: flex-start;' class="botao">
+                            <input type="reset" value="Resetar Valores">
+                        </div>
+                        <div style='margin: 0;' class="botao">
+                            <input type="submit" value="Enviar">
+                        </div>
                     </div>
                 </div>
-
-                <script>
-                    if (window.File && window.FileReader && window.FileList && window.Blob) {
-                        document.getElementById('gif1').addEventListener('change', handleFileSelect, false);
-                        document.getElementById('gif2').addEventListener('change', handleFileSelect2, false);
-                    } else {
-                        alert('API não Suportada em seu Navegador.');
-                    }
-                    function handleFileSelect(evt) {
-                        var f = evt.target.files[0]; // FileList object
-                        var reader = new FileReader();
-                        reader.onload = (function(theFile) {
-                            return function(e) {
-                                var binaryData = e.target.result;
-                                var base64String = window.btoa(binaryData);
-                                document.getElementById('gif1Text').value = base64String;
-                                alert('Arquivo Convertido para URI');
-                            };
-                        })(f);
-                        reader.readAsBinaryString(f);
-                    }
-                    function handleFileSelect2(evt) {
-                        var f = evt.target.files[0]; // FileList object
-                        var reader = new FileReader();
-                        reader.onload = (function(theFile) {
-                            return function(e) {
-                                var binaryData = e.target.result;
-                                var base64String = window.btoa(binaryData);
-                                document.getElementById('gif2Text').value = base64String;
-                                alert('Arquivo Convertido para URI');
-                            };
-                        })(f);
-                        reader.readAsBinaryString(f);
-                    }
-                </script>
             </form>
-            <div id="botao" style="margin: 0;">
+            <div class="botao" style="margin: 0;">
                 <input class='Logout' type="submit" onclick="Firebase_Logout()" value="Logout"></input>
             </div>
         </div>
         <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
