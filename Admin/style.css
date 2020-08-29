@@ -249,3 +249,7 @@ h3, h5{
     justify-content: center;
     align-items: center;
 }
+
+#gif2Default{
+    display: none;
+}
