@@ -236,9 +236,11 @@ if(document.getElementById("ConteudoBox") != undefined){
         category.map(item => {
             db.collection('content').where("categoria", "==", item).onSnapshot(function(querySnapshot) {
                 let list = []
+                var x = 0;
                 querySnapshot.forEach(function(doc) {
                     list.push(doc.data());
-                    list[0].id = doc.id;
+                    list[x].id = doc.id;
+                    x++;
                 });
                 categoryData.push(list);
                 if(categoryData.length === category.length){
