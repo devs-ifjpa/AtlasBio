@@ -250,13 +250,17 @@ if(document.getElementById("ConteudoBox") != undefined){
                         let demos = document.createElement('DIV')
                         demos.className = 'demos'
                         item.map(itemcategoria => {
-                            demos.insertAdjacentHTML('beforeend',
-                            `<div class="demos2">
-                                <div class="demo"></div>
-                                <div class="demo2">
-                                    <p>${itemcategoria.titulo}</p>
-                                </div>
-                            </div>`);
+                            firebase.storage().ref(itemcategoria.gif1).getDownloadURL().then((photo) => {
+                                demos.insertAdjacentHTML('beforeend',
+                                `<a class="demos2">
+                                    <div class="demo">
+                                        <img src='${photo}'></img>
+                                    </div>
+                                    <div class="demo2">
+                                        <p>${itemcategoria.titulo.split(' ').join('<br>')}</p>
+                                    </div>
+                                </a>`);
+                            });
                             itembox.appendChild(demos);
                             document.getElementById('ConteudoBox').appendChild(itembox)
                         });

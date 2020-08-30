@@ -62,20 +62,21 @@ function WriteData(id){
     if(document.getElementById('TitleEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             titulo: document.getElementById('TitleEdit').value
-        }, { merge: true }).then(() => { if(confirm('Titulo Alterado Recarregar?:')){ document.location.reload(true) };
-        });
+        }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
     }
     if(document.getElementById('CategoryEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             categoria: document.getElementById('CategoryEdit').value
-        }, { merge: true }).then(() => { if(confirm('Categoria Alterada Recarregar?')){ document.location.reload(true) };
-        });
+        }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+        // .then(() => { if(setTimeout(confirm('Categoria Alterada Recarregar?'),2000)){ document.location.reload(true) };
+        // });
     }
     if(document.getElementById('DescriptionEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             description: document.getElementById('DescriptionEdit').value
-        }, { merge: true }).then(() => { if(confirm('Descrição Alterada Recarregar?')){ document.location.reload(true) };
-        });
+        }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+        // .then(() => { if(setTimeout(confirm('Descrição Alterada Recarregar?'),2000)){ document.location.reload(true) };
+        // });
     }
     if(document.getElementById('gif1Edit').files[0] !== undefined){
         firebase.firestore().collection('content').doc(id).get().then(doc => {
@@ -83,8 +84,9 @@ function WriteData(id){
                 firebase.storage().ref(`content/${id}/${document.getElementById('gif1Edit').files[0].name}`).put(document.getElementById('gif1Edit').files[0])
                 firebase.firestore().collection('content').doc(id).set({
                     gif1: `content/${id}/${document.getElementById('gif1Edit').files[0].name}`
-                }, { merge: true }).then(() => { if(confirm('Gif1 Alterada Recarregar?')){ document.location.reload(true) };
-                });
+                }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+                // .then(() => { if(setTimeout(confirm('Gif1 Alterada Recarregar?'),2000)){ document.location.reload(true) };
+                // });
             });
         });
     }
@@ -94,8 +96,9 @@ function WriteData(id){
                 firebase.storage().ref(`content/${id}/${document.getElementById('gif2Edit').files[0].name}`).put(document.getElementById('gif2Edit').files[0])
                 firebase.firestore().collection('content').doc(id).set({
                     gif2: `content/${id}/${document.getElementById('gif2Edit').files[0].name}`
-                }, { merge: true }).then(() => { if(confirm('Gif2 Alterada')){ document.location.reload(true) };
-                });
+                }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+                // .then(() => { if(setTimeout(confirm('Gif2 Alterada'),2000)){ document.location.reload(true) };
+                // });
             });
         });
     }
