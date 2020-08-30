@@ -238,6 +238,7 @@ if(document.getElementById("ConteudoBox") != undefined){
                 let list = []
                 querySnapshot.forEach(function(doc) {
                     list.push(doc.data());
+                    list[0].id = doc.id;
                 });
                 categoryData.push(list);
                 if(categoryData.length === category.length){
@@ -252,14 +253,15 @@ if(document.getElementById("ConteudoBox") != undefined){
                         item.map(itemcategoria => {
                             firebase.storage().ref(itemcategoria.gif1).getDownloadURL().then((photo) => {
                                 demos.insertAdjacentHTML('beforeend',
-                                `<a class="demos2">
+                                `<a href='${`${window.location.origin}/Pages/telaConteudoIndividual/?${itemcategoria.id}`}' class="demos2">
                                     <div class="demo">
-                                        <img src='${photo}'></img>
+                                        <img class='freezeframe' src='${photo}'></img>
                                     </div>
                                     <div class="demo2">
                                         <p>${itemcategoria.titulo.split(' ').join('<br>')}</p>
                                     </div>
-                                </a>`);
+                                </a>
+                                `);
                             });
                             itembox.appendChild(demos);
                             document.getElementById('ConteudoBox').appendChild(itembox)
@@ -289,3 +291,21 @@ if(document.getElementById("ConteudoBox") != undefined){
 }
 
 // $CONTEUDO-BOX
+
+// CONTEUDO-INDIVIDUAL
+
+if(String(window.location).split('/')[String(window.location).split('/').length - 2] === 'telaConteudoIndividual'){
+    const id = String(window.location).split('?')[1];
+    firebase.firestore().collection('content').doc(id).get().then((doc) => {
+        document.getElementById('descriptionGif').innerHTML =  doc.data().description;
+        document.getElementById('first-title').innerHTML = doc.data().titulo
+        firebase.storage().ref(doc.data().gif1).getDownloadURL().then((url) => {
+            document.getElementById('Gif1').innerHTML = `<img class='gifImage' src='${url}'></img>`
+        });
+        firebase.storage().ref(doc.data().gif2).getDownloadURL().then((url) => {
+            document.getElementById('Gif2').innerHTML = `<img class='gifImage' src='${url}'></img>`
+        });
+    });
+}
+
+// $CONTEUDO-INDIVIDUAL

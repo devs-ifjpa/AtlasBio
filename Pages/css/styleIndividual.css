@@ -137,6 +137,7 @@ scroll::-webkit-scrollbar{
 }
 
 .gifs{
+    overflow: hidden;
     width: 288px;
     height: 196px;
     background-color: #5787BC;
@@ -145,7 +146,11 @@ scroll::-webkit-scrollbar{
     margin-bottom: 27px;
     margin-right: 0;
     margin-left: 0;
-    overflow-x: scroll;
+    box-shadow: 2px 2px 2px #999999;
+}
+.gifImage{
+    width: 100%;
+    height: 100%;
 }
 .estrelinha{
     margin-left: 30px;
@@ -164,6 +169,7 @@ scroll::-webkit-scrollbar{
     margin: 0px auto;
     padding: 10px;
     margin-bottom: 10px;
+    box-shadow: 2px 2px 2px #52607f;
 }
 
 .textoIndividual{
@@ -310,6 +316,7 @@ footer img{
         border-radius: 1.5625vh;
         margin-top: 2.96875vh;
         margin-bottom: 4.21875vh;
+        box-shadow: 0.3125vh 0.3125vh 0.3125vh #999999;
         
     }
     .estrelinha{
@@ -324,6 +331,7 @@ footer img{
         width: 43.125vh;
         padding: 1.5625vh;
         margin-bottom: 1.5625vh;
+        box-shadow: 0.3125vh 0.3125vh 0.3125vh #52607f;
     }
     
     .textoIndividual{
@@ -372,8 +380,6 @@ footer img{
 
 /* VW - 360 */
 @media screen and (max-aspect-ratio: 360/640){
-
-    
     nav{
         height: 13.333333333333334vw;
     }
@@ -382,31 +388,26 @@ footer img{
         margin-bottom: 0.8333333333333334vw;
         margin-right: 2.7777777777777777vw;
     }
-    
     #input{
         width: 74.72222222222223vw;
         height: 10.277777777777777vw;        
         opacity: 0.16666666666666666vw;
         border-radius: 4.166666666666666vw;
-        margin-top: 3.0555555555555554vw;        ;
+        margin-top: 3.0555555555555554vw;
         padding-left: 4.166666666666666vw;
-        
     }
     nav img{
         height: 8.333333333333332vw;
     }
-    
     #linha{
         border: 0.027777777777777776vw  solid #102660;
     }
     #linhas{
         margin-top: 2.2222222222222223vw;
     }
-    
     .conteudoIndividualBox{
-        height: 147.5vw;        ;
+        height: 147.5vw;
     }
-
     .titulo{
         margin: 4.444444444444445vw auto;
         padding: 2.5vw 8.055555555555555vw;
@@ -419,12 +420,9 @@ footer img{
         margin-top: 2.2222222222222223vw;
         
     }
-    
     #first-title{
         font-size: 5.555555555555555vw;
     }
-    
-    
     .gifsIndividual:first-child{
         margin-left: 8.333333333333332vw;
     }
@@ -436,42 +434,38 @@ footer img{
     .gifsIndividual{
         margin-right: 5.555555555555555vw;
     }
-    
     .gifs{
         width: 80vw;       
         height: 54.44444444444444vw;
         border-radius: 2.7777777777777777vw;
         margin-top: 5.277777777777778vw;
         margin-bottom: 7.5vw;
+        box-shadow: 0.5555555555555556vw 0.5555555555555556vw 0.5555555555555556vw #999999;
     }
     .estrelinha{
         margin-left: 8.333333333333332vw;
     
     }
-    
     .textoBox{
         margin-top: 8.055555555555555vw;
     }
-    
     .textoCorpo{
         width: 76.66666666666667vw;
         padding: 2.7777777777777777vw;
         margin-bottom: 2.7777777777777777vw;
+        box-shadow: 0.5555555555555556vw 0.5555555555555556vw 0.5555555555555556vw #52607f;
     }
-    
     .textoIndividual{
         height: 37.22222222222222vw;        
         font-weight: 138.88888888888889vw;
         font-size: 4.444444444444445vw;
         line-height: 5.277777777777778vw;
     }
-    
     footer{     
     
         height: 13.61111111111111vw; 
         z-index: 277.5vw;
     }
-    
     footer img{
         height: 10.277777777777777vw;
     
@@ -483,12 +477,10 @@ footer img{
         width: 64.16666666666667vw;
         transition: right 0.1388888888888889vw ease;
     }
-    
     .menu li a{
     
         font-size: 3.3333333333333335vw;
         line-height: 3.888888888888889vw;
-
     }
     .menu li{
         margin-left: 5.833333333333333vw;

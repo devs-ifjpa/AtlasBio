@@ -20,14 +20,14 @@
     <main class="conteudoIndividual">
         <div class="conteudoIndividualBox">
             <div class="titulos">
-                    <p id='first-title' class="titulo left">Sistema Digestório</p>
+                    <p id='first-title' class="titulo left"></p>
             </div>
             <div class="scroll">
                 <div class="gifsIndividual">
-                    <div class="gifs"></div>
+                    <div id='Gif1' class="gifs"></div>
                 </div>
                 <div class="gifsIndividual">
-                    <div class="gifs"></div>
+                    <div id='Gif2' class="gifs"></div>
                 </div>
             </div>
             <div class="estrelinha">
@@ -35,9 +35,7 @@
             </div>
             <div class="textoBox">
                 <div class="textoCorpo">
-                    <p class="textoIndividual">
-                        É um conjunto de órgãos que atuam na absorção de nutrientes dos alimentos. É composto pela boca, glândulas salivares, dentes, língua, faringe, esôfago, pâncreas, fígado, vesícula, estômago, intestino delgado, intestino grosso e ânus.
-                    </p>
+                    <p id="descriptionGif" class="textoIndividual"></p>
                 </div>
             </div>
         </div>
@@ -59,6 +57,28 @@
             </li>
         </ul>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDsOE0A9NkCyxxtQjaNg8QUJBRwgQ_csjs",
+            authDomain: "atlasbio-aa54f.firebaseapp.com",
+            databaseURL: "https://atlasbio-aa54f.firebaseio.com",
+            projectId: "atlasbio-aa54f",
+            storageBucket: "atlasbio-aa54f.appspot.com",
+            messagingSenderId: "413942805195",
+            appId: "1:413942805195:web:2aa2e5df1ee4c9a026614e",
+            measurementId: "G-XCQVHBMC97"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="../js/firebase.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>
