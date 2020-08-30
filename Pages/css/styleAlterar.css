@@ -39,7 +39,7 @@ nav p{
     margin-bottom: 50px;
 }
 form{
-    width: 73vw;
+    width: 266px;
 }
 input{
     background-color: #102660;
@@ -76,23 +76,66 @@ button{
     border: 0px;
     margin: 40px;
 }
+
 footer{     
     display: flex;
     flex-direction: row;   
     justify-content: space-around;
+    align-items: center;
     background-color: #0B193D;
     position: fixed;
     width: 100vw;
-    height: 7vh; 
+    height: 49px; 
     left: 0px;
-    bottom: 0px;    
+    bottom: 0px;
+    z-index: 999;    
 }
 
 footer img{
-    height: 49px;
+    height: 37px;
     display: flex;
     flex-direction: row;        
     box-sizing: border-box;   
+}
+.menu{
+    height: calc(100vh - 49px);
+    padding: 0;
+    list-style: none;
+    z-index: 998;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    right: -100%;
+    background: #C4C4C4;
+    margin: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0.95;
+    width: 231px;
+    transition: right 0.5s ease;
+}
+
+.menu li a{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-decoration: none;
+    color: #102660;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: 'Roboto';
+}
+.menu li{
+    margin-left: 21px;
+    margin-top: 30px;
+}
+.menu img{
+    height: 27px;
+    margin: auto 6.75px;
+}
+.menu span{
+    margin-left: 6px;
 }
 
 #sphere{
@@ -107,19 +150,9 @@ footer img{
 }
 
 @media screen{
-    #sphere{
-        width: 2.34375vh;
-        height: 2.34375vh;
-        left: 3.125vh;
-        top: 2.34375vh;
-    }
+
 }
 
 @media screen and (max-aspect-ratio: 360/640){
-    #sphere{
-        width: 4.166666667vw;
-        height: 4.166666667vw;
-        left: 5.555555556vw;
-        top: 4.166666667vw;
-    }
+
 }

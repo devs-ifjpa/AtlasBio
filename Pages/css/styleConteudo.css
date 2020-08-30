@@ -60,11 +60,10 @@ nav img{
 }
 #lupa{
     z-index: 5;
-    height: 5vh;
 }
 
 #ConteudoBox{
-    height: calc(100% - (59px + 49px));
+    height: calc(100% - (59px + 48px));
     overflow-y: scroll;   
     white-space: nowrap;
 }
@@ -114,10 +113,16 @@ nav img{
     height: 33px;    
     background: #183FA3;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .demo2 p{
-    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    margin: auto;
     color: #ffffff;
 }
 
@@ -218,4 +223,240 @@ li:last-child{
 }
 .menu.active{
     right: 0px;
+}
+
+
+/* VH */
+/* PX, REM, EM fica para converter para vh / 0 e vh e wh e % sai  */
+@media screen{
+    nav{
+        height: 7.5vh;
+    }
+    nav input{ 
+        font-size: 3.125vh;
+        margin-bottom: 0.46875vh;
+        margin-right: 1.5625vh; 
+    }
+    
+    #input{
+        width: 42.03125vh;
+        height: 5.78125vh;
+        border-radius: 2.34375vh;
+        margin-top: 1.71875vh;
+        padding-left: 2.34375vh;
+    }
+    nav img{
+        height: 4.6875vh;
+    }
+    #ConteudoBox{
+        height: calc(100% - (9.21875vh + 7.5vh)); /* duvida */
+    }
+    
+    #linha{
+        border: 0.015625vh solid #102660;
+    }
+    #linhas{
+        margin-top: 1.25vh;
+    }
+    .titulo{
+        margin: 2.5vh auto;
+        padding: 1.40625vh 2.8125vh;
+        font-size: 3.125vh; 
+    }
+    #first-title{
+        margin-top: 1.25vh;
+    }
+    .titulos{
+        border-top-right-radius: 7.8125vh;
+        border-bottom-right-radius: 7.8125vh;
+        width: 47.5vh;      
+    }
+    .demo{
+        width: 14.84375vh;
+        height: 10.15625vh;
+        border-radius: 1.5625vh;
+    }
+    .demo2{
+        margin-top: 2.96875vh;
+        width: 14.0625vh;
+        height: 5.15625vh;    
+        border-radius: 1.5625vh;
+    }
+    
+    .demo2 p{
+        font-size: 1.875vh;
+        line-height: 2.1875vh;
+    }
+    
+    .demos{
+        margin-bottom: 3.28125vh;
+    }
+    
+    .demos2{
+        padding: 1.328125vh;   
+    }
+    
+    footer{
+        height: 7.65625vh; 
+        z-index: 156.09375vh;    
+    }
+    
+    footer img{
+        height: 5.78125vh;
+     
+    }
+    .menu{
+        height: calc(100vh - 7.65625vh); /* duvida */
+        z-index: 155.9375vh;
+        opacity: 0.1484375vh;
+        width: 36.09375vh;
+        transition: right 0.078125vh ease;
+    }
+    
+    .menu li a{
+        font-size: 1.875vh;
+        line-height: 2.1875vh;
+        
+    }
+    .menu li{
+        margin-left: 3.28125vh;
+        margin-top: 4.6875vh;
+    }
+    .menu img{
+        height: 4.21875vh;
+    }
+    .menu span{
+        margin-left: 0.9375vh;
+    }
+    
+    #interrogation{
+        margin-left: 1.0546875vh;
+        margin-right: 1.0546875vh;
+    }
+    
+    li:last-child{
+        margin-bottom: 4.6875vh
+    }
+}
+    
+/* VW */
+/* PX, REM, EM fica para converter para vh / 0 e vh e wh e % sai  */
+
+@media screen and (max-aspect-ratio: 360/640){
+
+    
+    nav{
+        height: 13.333333333333334vw;
+    }
+    nav input{
+        font-size: 5.555555555555555vw;
+        margin-bottom: 0.8333333333333334vw;
+        margin-right: 2.7777777777777777vw;
+    }
+    
+    #input{
+        width: 74.72222222222223vw;
+        height: 10.277777777777777vw;
+        border-radius: 4.166666666666666vw;
+        margin-top: 3.0555555555555554vw;
+        padding-left: 4.166666666666666vw;
+    
+    }
+    nav img{
+        height: 8.333333333333332vw;
+    }
+    #ConteudoBox{
+        height: calc(100% - (16.38888888888889vw  + 13.333333333333334vw));
+        
+    }
+    
+    #linha{
+        border: 0.027777777777777776vw solid #102660;
+ 
+    }
+    #linhas{
+        margin-top: 2.2222222222222223vw;
+    }
+    .titulo{
+        margin: 4.444444444444445vw  auto;
+        padding: 2.5vw 5vw;
+        font-size: 5.555555555555555vw;        ;
+    }
+    #first-title{
+        margin-top: 2.2222222222222223vw;
+    }
+    .titulos{
+    
+        border-top-right-radius: 13.88888888888889vw;
+        border-bottom-right-radius: 13.88888888888889vw;
+        width: 84.44444444444444vw;
+    }
+  
+    .demo{
+        width: 26.38888888888889vw;
+        height: 18.055555555555554vw;
+        border-radius: 2.7777777777777777vw;
+    }
+    .demo2{
+        margin-top: 5.277777777777778vw;
+        width: 25vw;
+        height: 9.166666666666666vw;    
+        border-radius: 2.7777777777777777vw;
+    }
+    
+    .demo2 p{
+        font-size: 3.3333333333333335vw;
+        line-height: 3.888888888888889vw;
+    }
+    
+    .demos{
+        margin-bottom: 5.833333333333333vw;
+    }
+    
+    .demos2{
+        padding: 2.361111111111111vw;   
+    }
+    
+    footer{     
+    
+        height: 13.61111111111111vw; 
+        z-index: 277.5vw;    
+    }
+    
+    footer img{
+        height: 10.277777777777777vw;
+      
+    }
+    .menu{
+        height: calc(100vh - 13.61111111111111vw);
+        z-index: 277.22222222222223vw;
+        opacity: 0.2638888888888889vw;
+        width: 64.16666666666667vw;
+        transition: right 0.5s ease;
+    }
+    
+    .menu li a{
+        font-size: 3.3333333333333335vw;
+        line-height: 3.888888888888889vw;
+    }
+    .menu li{
+        margin-left: 5.833333333333333vw;
+        margin-top: 8.333333333333332vw;
+    }
+    .menu img{
+        height: 7.5vw;
+    }
+    .menu span{
+        margin-left: 1.6666666666666667vw;
+    }
+    
+    #interrogation{
+        margin-left: 1.875vw; 
+        margin-right: 1.875vw;
+    }
+    
+    li:last-child{
+        margin-bottom: 8.333333333333332vw;
+    }
+
 }
