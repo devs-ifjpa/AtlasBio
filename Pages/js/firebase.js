@@ -199,7 +199,7 @@ function Firebase_AlternativeLogin(type,data){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             if(String(window.location.href).split('Pages/telaDeLoginCadastro/')[1] === ''){
-                window.location = String(window.location).split('telaDeLoginCadastro')[0] + 'telaDeConteudo/conteudo.html'
+                window.location = String(window.location).split('telaDeLoginCadastro')[0] + 'telaDeConteudo/'
             }
             // location.href
             // User is signed in.
