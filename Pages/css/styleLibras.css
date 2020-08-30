@@ -60,7 +60,6 @@ nav img{
 }
 #lupa{
     z-index: 5;
-    height: 5vh;
 }
 
 #linha{
@@ -78,31 +77,42 @@ nav img{
 .boxInicio{
     display: flex;
     flex-direction: column;
-    align-items: center;   
-    margin: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+#containerScroll{
+    margin-top: 16px;
+    height: 467.5px;
+    overflow-y: scroll;
 }
 
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;    
-    width: 80vw;
-    
+    width: 100vw;
     align-content: center;
-    margin: 0 10vw;
 }
 
 .boxInicio p{
+    width: 141px;
+    height: 99px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: solid 2px #102660;
-    padding: 2.8em 4.8em;
     background: #102660;
     color: white;
     text-align: center;
     font-family: 'roboto';
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;    
+    font-size: 12px;
     border-radius: 10px;
+    margin: 0;
+    margin-bottom: 45px;
 }
 
 .boxInicio a{
@@ -110,12 +120,21 @@ nav img{
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
-    margin-top: 0.5vh;
+    margin-top: 10px;
+    margin-bottom: 7px;
      
 }
 
-.boxInicio img{
-    height: 7.5vh;
+.boxInicio .img, .boxInicio img{
+    width: 41px;
+    height: 41px;
+}
+
+.boxInicio:last-child img{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 41px;
 }
 
 div.title{
@@ -199,7 +218,7 @@ footer img{
 }
 
 li:first-child{
-    margin-top: 68vh;
+    margin-top: 435.2px;
 }
 li:last-child{
     margin-bottom: 30px;
@@ -208,3 +227,36 @@ li:last-child{
     right: 0px;
 }
 
+.titulos{
+    background: #102660;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    align-items: center;
+    width: 254px;
+}
+
+.titulo{
+    font-family: 'Roboto';
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #F5EAEA;
+}
+
+#first-title{
+    margin-top: 8px;
+}
+
+.left{
+    text-align: left;
+}
+
+.titulo-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto;
+    width: 254px;
+    height: 40px;
+    margin: 0;
+}

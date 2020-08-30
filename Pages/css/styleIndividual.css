@@ -237,9 +237,15 @@ footer img{
     margin-left: 21px;
     margin-top: 30px;
 }
+li:first-child{
+    margin-top: 120.83333333333333vw !important;
+}
+li:last-child{
+    margin-bottom: 30px;
+}
 .menu img{
     height: 27px;
-    margin: auto 6.75px;
+    margin: 0;
 }
 .menu span{
     margin-left: 6px;
@@ -370,10 +376,19 @@ footer img{
     }
     .menu img{
         height: 4.21875vh;
-        margin: auto 1.0546875vh;
     }
     .menu span{
         margin-left: 0.9375vh;
+    }
+    #interrogation{
+        margin-left: 1.0546875vh;
+        margin-right: 1.0546875vh;
+    }
+    li:first-child{
+        margin-top: 68vh !important;
+    }
+    li:last-child{
+        margin-bottom: 30px;
     }
 
 }
@@ -488,10 +503,19 @@ footer img{
     }
     .menu img{
         height: 7.5vw;
-        margin: auto 1.875vw;
     }
     .menu span{
         margin-left: 1.6666666666666667vw;
+    }
+    #interrogation{
+        margin-left: 1.875vw;
+        margin-right: 1.875vw;
+    }
+    li:first-child{
+        margin-top: 120.83333333333333vw !important;
+    }
+    li:last-child{
+        margin-bottom: 30px;
     }
 
 }

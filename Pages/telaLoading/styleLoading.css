@@ -13,11 +13,28 @@ body{
     height: 100vh;
     margin: 0px;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-#left, #right{
-    display: none;
+/* #left, #right{ */
+    /* display: none; */
+/* } */
+
+#up{
+    position: absolute;
+    top: 0;
+    height: 282px;
+}
+
+#down{
+    position: absolute;
+    bottom: 0;
+    height: 292px;
+}
+
+#up, #down{
+    width: 100vw;
 }
 
 #logo{    
@@ -26,42 +43,28 @@ body{
     justify-self: center;   
 }
 
-#up{
-    background-image: url(../img/Ellipse_2.svg);
-    height: 50vh;  
-    width: 100vw;
-    background-size: cover;
-    
+
+@media screen{
+    #logo{
+        width: 33.125vh;
+    }
+    #up{
+        height: 44.0625vh;
+    }
+    #down{
+        height: 45.625vh;
+    }
 }
 
-#down{       
-    background-image: url(../img/Ellipse_1.svg);
-    height: 55vh;
-    width: 100vw;
-    background-size: cover;   
-}
-@media screen and (min-width: 420){
-    #left{
-        width: 500px;
-        background-color: #102660;
-        display: unset;
+/* VW 360 */
+@media screen and (max-aspect-ratio: 360/640){
+    #logo{
+        width: 58.88888888888889vw;
     }
-    #right{
-        width: 500px; 
-        background-color: #102660;
-        display: unset;
+    #up{
+        height: 78.33333333333333vw;
     }
-    #tela{
-        width: 420px;
-        display: flex;
-        flex-direction: column;    
-        align-items: center;
-    }
-    #up, #down{
-        width: 100%;
-        box-sizing: border-box;
-    }
-    body{
-        flex-direction: row;
+    #down{
+        height: 81.11111111111111vw;
     }
 }

@@ -91,6 +91,9 @@ nav img{
 #first-title{
     margin-top: 8px;
 }
+li:first-child{
+    margin-top: 435.2px !important;
+}
 .titulos{
     background: #102660;
     border-top-right-radius: 50px;
@@ -223,11 +226,8 @@ footer img{
     margin-right: 6.75px;
 }
 
-li:first-child{
-    margin-top: 68vh;
-}
 li:last-child{
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 .menu.active{
     right: 0px;
@@ -273,6 +273,9 @@ li:last-child{
     }
     #first-title{
         margin-top: 1.25vh;
+    }
+    li:first-child{
+        margin-top: 68vh !important;
     }
     .titulos{
         border-top-right-radius: 7.8125vh;
@@ -342,10 +345,6 @@ li:last-child{
         margin-left: 1.0546875vh;
         margin-right: 1.0546875vh;
     }
-    
-    li:last-child{
-        margin-bottom: 4.6875vh
-    }
 }
     
 /* VW */
@@ -393,6 +392,9 @@ li:last-child{
     }
     #first-title{
         margin-top: 2.2222222222222223vw;
+    }
+    li:first-child{
+        margin-top: 120.83333333333333vw !important;
     }
     .titulos{
     
@@ -464,9 +466,4 @@ li:last-child{
         margin-left: 1.875vw; 
         margin-right: 1.875vw;
     }
-    
-    li:last-child{
-        margin-bottom: 8.333333333333332vw;
-    }
-
 }

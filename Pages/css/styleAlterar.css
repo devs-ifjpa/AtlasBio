@@ -46,7 +46,7 @@ input{
     border-radius: 30px;
     width: 100%;
     box-sizing: border-box;
-    height: 4.33124vh;
+    height: 32px;
     border: 0px;
     margin: 5px;
     padding-left: 15px;
@@ -66,9 +66,10 @@ input{
     color: #102660;
 }
 button{
+    font-size: 14px;
     width: 50%;
     box-sizing: border-box;
-    height: 4.33124vh;
+    height: 32px;
     background-color: #102660;
     border-radius: 30px;
     color: #F5EAEA;
@@ -132,7 +133,11 @@ footer img{
 }
 .menu img{
     height: 27px;
-    margin: auto 6.75px;
+    margin: 0;
+}
+#interrogation{
+    margin-left: 6.75px;
+    margin-right: 6.75px;
 }
 .menu span{
     margin-left: 6px;
@@ -148,285 +153,165 @@ footer img{
     opacity: 0.9;
     border-radius: 50%;
 }
+li:first-child{
+    margin-top: 435.2px !important;
+}
+li:last-child{
+    margin-bottom: 30px;
+}
 
-/* VH */
+/* 640 */
+/* VH  */
 @media screen{
-    body{
-        margin: 0px;
-    }
-    main{
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
     nav p{
-        font-family: 'Roboto';
-        font-weight: bold;
-        font-size: 16px;
-        color: #00081D;
-    }
-    #first, #second, form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        font-size: 2.5vh;
     }
     #second{
-        margin-bottom: 50px;
+        margin-bottom: 7.8125vh;
     }
     form{
-        width: 266px;
+        width: 41.5625vh;
     }
     input{
-        background-color: #102660;
-        border-radius: 30px;
-        width: 100%;
-        box-sizing: border-box;
-        height: 4.33124vh;
-        border: 0px;
-        margin: 5px;
-        padding-left: 15px;
-        color: #F5EAEA;
+        border-radius: 4.6875vh;
+        margin: 0.78125vh;
+        padding-left: 2.34375vh;
+        height: 5vh;
     }
     ::placeholder{
-        color: #F5EAEA;
-        font-size: 12px;
-        font-family: 'Roboto';
-        opacity: 1;
+        
+        font-size: 1.875vh;
     }
-    .title{
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: bold;
-        font-size: 15px;
-        color: #102660;
+    .title {
+        font-size: 2.34375vh;
     }
     button{
-        width: 50%;
-        box-sizing: border-box;
-        height: 4.33124vh;
-        background-color: #102660;
-        border-radius: 30px;
-        color: #F5EAEA;
-        font-family: "TypoGraphica";
-        border: 0px;
-        margin: 40px;
+        height: 5vh;
+        font-size: 2.1875vh;
+        border-radius: 4.6875vh;
+        margin: 6.25vh;
     }
     
     footer{     
-        display: flex;
-        flex-direction: row;   
-        justify-content: space-around;
-        align-items: center;
-        background-color: #0B193D;
-        position: fixed;
-        width: 100vw;
-        height: 49px; 
-        left: 0px;
-        bottom: 0px;
-        z-index: 999;    
+        height: 7.65625vh; 
     }
     
     footer img{
-        height: 37px;
-        display: flex;
-        flex-direction: row;        
-        box-sizing: border-box;   
+        height: 5.78125vh;   
     }
     .menu{
-        height: calc(100vh - 49px);
-        padding: 0;
-        list-style: none;
-        z-index: 998;
-        display: flex;
-        position: fixed;
-        top: 0px;
-        right: -100%;
-        background: #C4C4C4;
-        margin: 0px;
-        flex-direction: column;
-        align-items: flex-start;
-        opacity: 0.95;
-        width: 231px;
-        transition: right 0.5s ease;
+        height: calc(100vh - 7.65625vh);
+        width: 36.09375vh;
     }
     
     .menu li a{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        text-decoration: none;
-        color: #102660;
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 14px;
-        font-family: 'Roboto';
+        font-size: 1.875vh;
+        line-height: 2.1875vh;
     }
     .menu li{
-        margin-left: 21px;
-        margin-top: 30px;
+        margin-left: 3.28125vh;
+        margin-top: 4.6875vh;
     }
     .menu img{
-        height: 27px;
-        margin: auto 6.75px;
+        height: 4.21875vh;
     }
     .menu span{
-        margin-left: 6px;
+        margin-left: 0.9375vh;
     }
     
     #sphere{
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        left: 20px;
-        top: 15px;
-        background: #102660;
-        opacity: 0.9;
-        border-radius: 50%;
+        width: 2.34375vh;
+        height: 2.34375vh;
+        left: 3.125vh;
+        top: 2.34375vh;
+    }
+    #interrogation{
+        margin-left: 1.0546875vh;
+        margin-right: 1.0546875vh;
+    }
+    li:first-child{
+        margin-top: 68vh !important;
+    }
+    li:last-child{
+        margin-bottom: 30px;
     }
 }
 
+/* 360 */
 /* VW */
 @media screen and (max-aspect-ratio: 360/640){
-    body{
-        width: 100vw;
-        height: 100vh;
-        margin: 0px;
-    }
-    main{
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
+ 
     nav p{
-        font-family: 'Roboto';
-        font-weight: bold;
-        font-size: 16px;
-        color: #00081D;
+        font-size: 4.444444444444445vw;
     }
-    #first, #second, form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+
     #second{
-        margin-bottom: 50px;
+        margin-bottom: 13.88888888888889vw;
     }
     form{
-        width: 266px;
+        width: 73.88888888888889vw;
     }
     input{
-        background-color: #102660;
-        border-radius: 30px;
-        width: 100%;
-        box-sizing: border-box;
-        height: 4.33124vh;
-        border: 0px;
-        margin: 5px;
-        padding-left: 15px;
-        color: #F5EAEA;
+        height: 8.88888888888889vw;
+        border-radius: 8.333333333333332vw;
+        margin: 1.3888888888888888vw;
+        padding-left: 4.166666666666666vw;
     }
     ::placeholder{
-        color: #F5EAEA;
-        font-size: 12px;
-        font-family: 'Roboto';
-        opacity: 1;
+        font-size: 3.3333333333333335vw;
     }
     .title{
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: bold;
-        font-size: 15px;
-        color: #102660;
+        font-size: 4.166666666666666vw;
+        
     }
     button{
-        width: 50%;
-        box-sizing: border-box;
-        height: 4.33124vh;
-        background-color: #102660;
-        border-radius: 30px;
-        color: #F5EAEA;
-        font-family: "TypoGraphica";
-        border: 0px;
-        margin: 40px;
+        height: 8.88888888888889vw;
+        font-size: 3.888888888888889vw;
+        border-radius: 8.333333333333332vw;
+        margin: 11.11111111111111vw;
     }
     
     footer{     
-        display: flex;
-        flex-direction: row;   
-        justify-content: space-around;
-        align-items: center;
-        background-color: #0B193D;
-        position: fixed;
-        width: 100vw;
-        height: 49px; 
-        left: 0px;
-        bottom: 0px;
-        z-index: 999;    
+        height: 13.61111111111111vw; 
     }
     
     footer img{
-        height: 37px;
-        display: flex;
-        flex-direction: row;        
-        box-sizing: border-box;   
+        height: 10.277777777777777vw;   
     }
     .menu{
-        height: calc(100vh - 49px);
-        padding: 0;
-        list-style: none;
-        z-index: 998;
-        display: flex;
-        position: fixed;
-        top: 0px;
-        right: -100%;
-        background: #C4C4C4;
-        margin: 0px;
-        flex-direction: column;
-        align-items: flex-start;
-        opacity: 0.95;
-        width: 231px;
-        transition: right 0.5s ease;
-    }
-    
+        height: calc(100vh - 13.61111111111111vw);
+        width: 64.16666666666667vw;
+    }   
     .menu li a{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        text-decoration: none;
-        color: #102660;
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 14px;
-        font-family: 'Roboto';
+       
+        font-size: 3.3333333333333335vw;
+        line-height: 3.888888888888889vw;
     }
     .menu li{
-        margin-left: 21px;
-        margin-top: 30px;
+        margin-left: 5.833333333333333vw;
+        margin-top: 8.333333333333332vw;
     }
     .menu img{
-        height: 27px;
-        margin: auto 6.75px;
+        height: 7.5vw;
     }
     .menu span{
-        margin-left: 6px;
+        margin-left: 1.6666666666666667vw;
     }
     
     #sphere{
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        left: 20px;
-        top: 15px;
-        background: #102660;
-        opacity: 0.9;
-        border-radius: 50%;
+        width: 4.166666666666666vw;
+        height: 4.166666666666666vw;
+        left: 5.555555555555555vw;
+        top: 4.166666666666666vw;
+    }
+    #interrogation{
+        margin-left: 1.875vw;
+        margin-right: 1.875vw;
+    }
+    li:first-child{
+        margin-top: 120.83333333333333vw !important;
+    }
+    li:last-child{
+        margin-bottom: 30px;
     }
 }
