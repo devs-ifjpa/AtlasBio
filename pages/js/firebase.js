@@ -198,8 +198,10 @@ function Firebase_AlternativeLogin(type,data){
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(String(window.location.href).split('Pages/telaDeLoginCadastro/')[1] === ''){
-                window.location = String(window.location).split('telaDeLoginCadastro')[0] + 'telaDeConteudo/conteudo.html'
+            if(window.location.href.indexOf('pages/login/') !== -1 ||
+            window.location.href.indexOf('pages/register/') !== -1 ||
+            window.location.href.indexOf('pages/recovery/') !== -1){
+                window.location = String(window.location.origin) + '/pages/content/';
             }
             // location.href
             // User is signed in.
@@ -216,6 +218,11 @@ function Firebase_AlternativeLogin(type,data){
                 // }
             // });
         }else{
+            if(window.location.href !== String(window.location.origin) + '/pages/login/' &&
+            window.location.href !== String(window.location.origin) + '/pages/register/' &&
+            window.location.href !== String(window.location.origin) + '/pages/recovery/'){
+                window.location = String(window.location.origin) + '/pages/login/';
+            }
             console.log("saiu");
         }
     });
@@ -236,8 +243,11 @@ if(document.getElementById("ConteudoBox") != undefined){
         category.map(item => {
             db.collection('content').where("categoria", "==", item).onSnapshot(function(querySnapshot) {
                 let list = []
+                var x = 0;
                 querySnapshot.forEach(function(doc) {
                     list.push(doc.data());
+                    list[x].id = doc.id;
+                    x++;
                 });
                 categoryData.push(list);
                 if(categoryData.length === category.length){
@@ -250,13 +260,18 @@ if(document.getElementById("ConteudoBox") != undefined){
                         let demos = document.createElement('DIV')
                         demos.className = 'demos'
                         item.map(itemcategoria => {
-                            demos.insertAdjacentHTML('beforeend',
-                            `<div class="demos2">
-                                <div class="demo"></div>
-                                <div class="demo2">
-                                    <p>${itemcategoria.titulo}</p>
-                                </div>
-                            </div>`);
+                            firebase.storage().ref(itemcategoria.static).getDownloadURL().then((photo) => {
+                                demos.insertAdjacentHTML('beforeend',
+                                `<a href='${`${window.location.origin}/pages/content-item/?${itemcategoria.id}`}' class="demos2">
+                                    <div class="demo">
+                                        <img class='freezeframe' src='${photo}'></img>
+                                    </div>
+                                    <div class="demo2">
+                                        <p>${itemcategoria.titulo.split(' ').join('<br>')}</p>
+                                    </div>
+                                </a>
+                                `);
+                            });
                             itembox.appendChild(demos);
                             document.getElementById('ConteudoBox').appendChild(itembox)
                         });
@@ -285,3 +300,21 @@ if(document.getElementById("ConteudoBox") != undefined){
 }
 
 // $CONTEUDO-BOX
+
+// CONTEUDO-INDIVIDUAL
+
+if(window.location.href.indexOf('/pages/content-item/') !== -1){
+    const id = String(window.location).split('?')[1];
+    firebase.firestore().collection('content').doc(id).get().then((doc) => {
+        document.getElementById('descriptionGif').innerHTML =  doc.data().description;
+        document.getElementById('first-title').innerHTML = doc.data().titulo
+        firebase.storage().ref(doc.data().gif1).getDownloadURL().then((url) => {
+            document.getElementById('Gif1').innerHTML = `<img class='gifImage' src='${url}'></img>`
+        });
+        firebase.storage().ref(doc.data().gif2).getDownloadURL().then((url) => {
+            document.getElementById('Gif2').innerHTML = `<img class='gifImage' src='${url}'></img>`
+        });
+    });
+}
+
+// $CONTEUDO-INDIVIDUAL

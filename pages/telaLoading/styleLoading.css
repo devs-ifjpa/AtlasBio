@@ -1,0 +1,70 @@
+body{
+    display: flex;
+    flex-direction: column;
+   /* justify-content: center; */
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+#tela{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* #left, #right{ */
+    /* display: none; */
+/* } */
+
+#up{
+    position: absolute;
+    top: 0;
+    height: 282px;
+}
+
+#down{
+    position: absolute;
+    bottom: 0;
+    height: 292px;
+}
+
+#up, #down{
+    width: 100vw;
+}
+
+#logo{    
+    width: 212px;
+    display: flex;
+    justify-self: center;   
+}
+
+
+@media screen{
+    #logo{
+        width: 33.125vh;
+    }
+    #up{
+        height: 44.0625vh;
+    }
+    #down{
+        height: 45.625vh;
+    }
+}
+
+/* VW 360 */
+@media screen and (max-aspect-ratio: 360/640){
+    #logo{
+        width: 58.88888888888889vw;
+    }
+    #up{
+        height: 78.33333333333333vw;
+    }
+    #down{
+        height: 81.11111111111111vw;
+    }
+}
