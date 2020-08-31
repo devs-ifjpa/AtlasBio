@@ -198,8 +198,10 @@ function Firebase_AlternativeLogin(type,data){
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(String(window.location.href).split('Pages/telaDeLoginCadastro/')[1] === ''){
-                window.location = String(window.location).split('telaDeLoginCadastro')[0] + 'telaDeConteudo/'
+            if(window.location.href.indexOf('pages/login/') !== -1 ||
+            window.location.href.indexOf('pages/register/') !== -1 ||
+            window.location.href.indexOf('pages/recovery/') !== -1){
+                window.location = String(window.location.origin) + '/pages/content/';
             }
             // location.href
             // User is signed in.
@@ -216,6 +218,11 @@ function Firebase_AlternativeLogin(type,data){
                 // }
             // });
         }else{
+            if(window.location.href !== String(window.location.origin) + '/pages/login/' &&
+            window.location.href !== String(window.location.origin) + '/pages/register/' &&
+            window.location.href !== String(window.location.origin) + '/pages/recovery/'){
+                window.location = String(window.location.origin) + '/pages/login/';
+            }
             console.log("saiu");
         }
     });
@@ -255,7 +262,7 @@ if(document.getElementById("ConteudoBox") != undefined){
                         item.map(itemcategoria => {
                             firebase.storage().ref(itemcategoria.static).getDownloadURL().then((photo) => {
                                 demos.insertAdjacentHTML('beforeend',
-                                `<a href='${`${window.location.origin}/Pages/telaConteudoIndividual/?${itemcategoria.id}`}' class="demos2">
+                                `<a href='${`${window.location.origin}/pages/content-item/?${itemcategoria.id}`}' class="demos2">
                                     <div class="demo">
                                         <img class='freezeframe' src='${photo}'></img>
                                     </div>
@@ -296,7 +303,7 @@ if(document.getElementById("ConteudoBox") != undefined){
 
 // CONTEUDO-INDIVIDUAL
 
-if(String(window.location).split('/')[String(window.location).split('/').length - 2] === 'telaConteudoIndividual'){
+if(window.location.href.indexOf('/pages/content-item/') !== -1){
     const id = String(window.location).split('?')[1];
     firebase.firestore().collection('content').doc(id).get().then((doc) => {
         document.getElementById('descriptionGif').innerHTML =  doc.data().description;
