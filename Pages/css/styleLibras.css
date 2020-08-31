@@ -260,3 +260,275 @@ li:last-child{
     height: 40px;
     margin: 0;
 }
+/* VH 640 */
+@media screen{
+  
+    
+    nav{
+        height: 7.5vh;
+    }
+    nav input{
+        font-size: 3.125vh;
+        margin-bottom: 0.46875vh;
+        margin-right: 1.5625vh;
+    }
+    
+    #input{
+        width: 42.03125vh;
+        height: 5.78125vh;
+        opacity: 0.09375vh;
+        border-radius: 2.34375vh;
+        margin-top: 1.71875vh;
+        padding-left: 2.34375vh;
+    }
+    nav img{
+        height: 4.6875vh;
+    }
+    #lupa{
+        z-index: 0.78125vh;
+    }
+    
+    #linha{
+        border: 0.015625vh solid #102660;
+    }
+    #linhas{
+        margin-top: 1.25vh;
+    }
+
+    #containerScroll{
+        margin-top: 2.5vh;
+        height: 73.046875vh;
+    }
+    
+    .boxInicio p{
+        width: 22.03125vh;
+        height: 15.46875vh;
+        border: solid 0.3125vh  #102660;
+        font-size: 1.875vh;
+        border-radius: 1.5625vh;
+        margin-bottom: 7.03125vh;
+    }
+    
+    .boxInicio a{
+        font-size: 2.1875vh;
+        margin-top: 1.5625vh;
+        margin-bottom: 1.09375vh;
+         
+    }
+    
+    .boxInicio .img, .boxInicio img{
+        width: 6.40625vh;
+        height: 6.40625vh;
+    }
+    
+    .boxInicio:last-child img{
+        height: 6.40625vh;
+    }
+    
+    div.title{
+        border-radius:0px 7.8125vh 7.8125vh 0px;
+        padding: 0.078125vh 0.3125vh;
+        font-size: 3.125vh;
+        margin: 0.46875vh 0 1.25vh 0;
+    }
+    
+    footer{     
+        height: 7.65625vh; 
+        z-index: 156.09375vh;    
+    }
+    
+    footer img{
+        height: 5.78125vh;  
+    }
+    .menu{
+        height: calc(100vh - 7.65625vh);
+        z-index: 155.9375vh;
+        opacity: 0.1484375vh;
+        width: 36.09375vh;
+        transition: right 0.078125vh ease;
+    }
+    
+    .menu li a{
+        font-size: 1.875vh;
+        line-height: 2.1875vh;   
+    }
+
+    .menu li{
+        margin-left: 3.28125vh;
+        margin-top: 4.6875vh;
+    }
+    .menu img{
+        height: 4.21875vh;
+    }
+    .menu span{
+        margin-left: 0.9375vh;
+    }
+    
+    #interrogation{
+        margin-left: 1.0546875vh;
+        margin-right: 1.0546875vh;
+    }
+    
+    li:first-child{
+        margin-top: 68vh;
+    }
+    li:last-child{
+        margin-bottom: 4.6875vh;
+    }
+
+    .titulos{
+        border-top-right-radius: 7.8125vh;
+        border-bottom-right-radius: 7.8125vh;
+        width: 254px;
+    }
+    
+    .titulo{
+        font-size: 3.125vh;
+    }
+    
+    #first-title{
+        margin-top: 1.25vh;
+    }
+    
+    .titulo-icons{
+        width: 39.6875vh;
+        height: 6.25vh;
+    }
+}
+/* VW 360 */
+@media screen and (max-aspect-ratio: 360/640){
+    
+    nav{
+        height: 13.333333333333334vw;
+    }
+    nav input{
+        
+        font-size: 5.555555555555555vw;
+        margin-bottom: 0.8333333333333334vw;
+        margin-right: 2.7777777777777777vw;
+    }
+    
+    #input{
+        width: 74.72222222222223vw;
+        height: 10.277777777777777vw;
+        opacity: 0.16666666666666666vw;
+        border-radius: 4.166666666666666vw;
+        margin-top: 3.0555555555555554vw;
+        padding-left: 4.166666666666666vw;
+    }
+    nav img{
+        height: 8.333333333333332vw;
+    }
+    #lupa{
+        z-index: 1.3888888888888888vw;
+    }
+    
+    #linha{
+        border: 0.027777777777777776vw solid #102660;
+    }
+    #linhas{
+        margin-top: 2.2222222222222223vw;
+    }
+    
+    #containerScroll{
+        margin-top: 4.444444444444445vw;
+        height: 129.86111111111111vw;
+    }
+    
+    
+    .boxInicio p{
+        width: 39.166666666666664vw;
+        height: 27.500000000000004vw;
+        border: solid 0.5555555555555556vw #102660;
+        font-size: 3.3333333333333335vw;
+        border-radius: 2.7777777777777777vw;
+        margin-bottom: 12.5vw;
+    }
+    
+    .boxInicio a{
+        font-size: 3.888888888888889vw;
+        margin-top: 2.7777777777777777vw;
+        margin-bottom: 1.9444444444444444vw;
+         
+    }
+    
+    .boxInicio .img, .boxInicio img{
+        width: 11.38888888888889vw;
+        height: 11.38888888888889vw;
+    }
+    
+    .boxInicio:last-child img{
+        height: 11.38888888888889vw;
+    }
+    
+    div.title{
+        border-radius:0px 13.88888888888889vw 13.88888888888889vw 0px;
+        padding: 0.1388888888888889vw 0.5555555555555556vw;
+        font-size: 5.555555555555555vw;
+        margin: 0.8333333333333334vw 0 2.2222222222222223vw 0;
+    }
+    
+    footer{     
+        height: 13.61111111111111vw; 
+        z-index: 277.5vw;    
+    }
+    
+    footer img{
+        height: 10.277777777777777vw; 
+    }
+    .menu{
+        height: calc(100vh - 13.61111111111111vw);
+        z-index: 277.22222222222223vw;
+        opacity: 0.2638888888888889vw;
+        width: 64.16666666666667vw;
+        transition: right 0.1388888888888889vw ease;
+    }
+    
+    .menu li a{
+        font-size: 3.3333333333333335vw;
+        line-height: 3.888888888888889vw;
+    }
+    .menu li{
+        margin-left: 5.833333333333333vw;
+        margin-top: 8.333333333333332vw;
+    }
+    .menu img{
+        height: 7.5vw;
+    }
+    .menu span{
+        margin-left: 1.6666666666666667vw;
+    }
+    
+    #interrogation{
+        margin-left: 1.875vw;
+        margin-right: 1.875vw;
+    }
+    
+    li:first-child{
+        margin-top: 120.88888888888889vw;
+    }
+    li:last-child{
+        margin-bottom: 8.333333333333332vw;
+    }
+   
+    
+    .titulos{
+        border-top-right-radius: 13.88888888888889vw;
+        border-bottom-right-radius: 13.88888888888889vw;
+        width: 70.55555555555556vw;
+    }
+    
+    .titulo{
+        font-size: 5.555555555555555vw;
+    }
+    
+    #first-title{
+        margin-top: 2.2222222222222223vw;
+    }
+    
+    
+    .titulo-icons{
+        width: 70.55555555555556vw;
+        height: 11.11111111111111vw;
+    }
+}

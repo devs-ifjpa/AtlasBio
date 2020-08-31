@@ -253,7 +253,7 @@ if(document.getElementById("ConteudoBox") != undefined){
                         let demos = document.createElement('DIV')
                         demos.className = 'demos'
                         item.map(itemcategoria => {
-                            firebase.storage().ref(itemcategoria.gif1).getDownloadURL().then((photo) => {
+                            firebase.storage().ref(itemcategoria.static).getDownloadURL().then((photo) => {
                                 demos.insertAdjacentHTML('beforeend',
                                 `<a href='${`${window.location.origin}/Pages/telaConteudoIndividual/?${itemcategoria.id}`}' class="demos2">
                                     <div class="demo">

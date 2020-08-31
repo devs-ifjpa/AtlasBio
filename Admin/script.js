@@ -1,6 +1,6 @@
 // firebase.firestore().enablePersistence();
 
-function Editable(id,titulo,gif1,gif2,categoria,description){
+function Editable(id,titulo,gif1,gif2,categoria,description,static,static2){
     document.getElementById('EditableItem').style.zIndex = 1000;
     let EditableItens = document.createElement('FORM');
     EditableItens.id = 'FormEditable';
@@ -16,6 +16,18 @@ function Editable(id,titulo,gif1,gif2,categoria,description){
         </div>
         <div class='formbox'>
             <label id='DescriptionEditLabel'> Descrição: ${description} </label><input type='text' id='DescriptionEdit'>
+        </div>
+        <div class='formbox'>
+            <img id='staticEditTextLabel' src=${static}>
+            <div class='gifsEdit'>
+                <input type=file id='staticEdit'>
+            </div>
+        </div>
+        <div class='formbox'>
+            <img id='static2EditTextLabel' src=${static2}>
+            <div class='gifsEdit'>
+                <input type=file id='static2Edit'>
+            </div>
         </div>
         <div class='formbox'>
             <img id='gif1EditTextLabel' src=${gif1}>
@@ -44,6 +56,8 @@ function RemoveItem(){
     firebase.firestore().collection('content').doc(id).get().then(datapack => {
         firebase.storage().ref(datapack.data().gif1).delete();
         firebase.storage().ref(datapack.data().gif2).delete();
+        firebase.storage().ref(datapack.data().static).delete();
+        firebase.storage().ref(datapack.data().static2).delete();
         // firebase.storage().ref(`content/${id}`).delete().then(() => {
             firebase.firestore().collection('content').doc(id).delete().then(() => {
                 window.alert('Item Removido');
@@ -62,21 +76,45 @@ function WriteData(id){
     if(document.getElementById('TitleEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             titulo: document.getElementById('TitleEdit').value
-        }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+        }, { merge: true }).then(() => { window.alert('Titulo Alterado, Recarregue a Pagina') });
     }
     if(document.getElementById('CategoryEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             categoria: document.getElementById('CategoryEdit').value
-        }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+        }, { merge: true }).then(() => { window.alert('Categoria Alterada, Recarregue a Pagina') });
         // .then(() => { if(setTimeout(confirm('Categoria Alterada Recarregar?'),2000)){ document.location.reload(true) };
         // });
     }
     if(document.getElementById('DescriptionEdit').value !== ''){
         firebase.firestore().collection('content').doc(id).set({
             description: document.getElementById('DescriptionEdit').value
-        }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+        }, { merge: true }).then(() => { window.alert('Descrição Alterada, Recarregue a Pagina') });
         // .then(() => { if(setTimeout(confirm('Descrição Alterada Recarregar?'),2000)){ document.location.reload(true) };
         // });
+    }
+    if(document.getElementById('staticEdit').files[0] !== undefined){
+        firebase.firestore().collection('content').doc(id).get().then(doc => {
+            firebase.storage().ref(doc.data().static).delete().then(function() {
+                firebase.storage().ref(`content/${id}/${document.getElementById('staticEdit').files[0].name}`).put(document.getElementById('staticEdit').files[0])
+                firebase.firestore().collection('content').doc(id).set({
+                    static: `content/${id}/${document.getElementById('staticEdit').files[0].name}`
+                }, { merge: true }).then(() => { window.alert('Foto Estática Alterada, Recarregue a Pagina') });    
+            });
+            // .then(() => { if(setTimeout(confirm('Gif1 Alterada Recarregar?'),2000)){ document.location.reload(true) };
+            // });
+        });
+    }
+    if(document.getElementById('static2Edit').files[0] !== undefined){
+        firebase.firestore().collection('content').doc(id).get().then(doc => {
+            firebase.storage().ref(doc.data().static2).delete().then(function() {
+                firebase.storage().ref(`content/${id}/${document.getElementById('static2Edit').files[0].name}`).put(document.getElementById('static2Edit').files[0])
+                firebase.firestore().collection('content').doc(id).set({
+                    static2: `content/${id}/${document.getElementById('static2Edit').files[0].name}`
+                }, { merge: true }).then(() => { window.alert('Foto Estática 2 Alterada, Recarregue a Pagina') });    
+            });
+            // .then(() => { if(setTimeout(confirm('Gif1 Alterada Recarregar?'),2000)){ document.location.reload(true) };
+            // });
+        });
     }
     if(document.getElementById('gif1Edit').files[0] !== undefined){
         firebase.firestore().collection('content').doc(id).get().then(doc => {
@@ -84,7 +122,7 @@ function WriteData(id){
                 firebase.storage().ref(`content/${id}/${document.getElementById('gif1Edit').files[0].name}`).put(document.getElementById('gif1Edit').files[0])
                 firebase.firestore().collection('content').doc(id).set({
                     gif1: `content/${id}/${document.getElementById('gif1Edit').files[0].name}`
-                }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+                }, { merge: true }).then(() => { window.alert('Gif1 Alterada, Recarregue a Pagina') });
                 // .then(() => { if(setTimeout(confirm('Gif1 Alterada Recarregar?'),2000)){ document.location.reload(true) };
                 // });
             });
@@ -96,7 +134,7 @@ function WriteData(id){
                 firebase.storage().ref(`content/${id}/${document.getElementById('gif2Edit').files[0].name}`).put(document.getElementById('gif2Edit').files[0])
                 firebase.firestore().collection('content').doc(id).set({
                     gif2: `content/${id}/${document.getElementById('gif2Edit').files[0].name}`
-                }, { merge: true }).then(() => { window.alert('Dados Alterados, Recarregue a Pagina') });
+                }, { merge: true }).then(() => { window.alert('Gif2 Alterada, Recarregue a Pagina') });
                 // .then(() => { if(setTimeout(confirm('Gif2 Alterada'),2000)){ document.location.reload(true) };
                 // });
             });
@@ -128,20 +166,26 @@ document.getElementById('items') != undefined ? (
                         CategoryItems.map(item => {
                             let formatData = document.createElement("DIV")
                             formatData.className = 'itemBox'
-                            firebase.storage().ref(item.gif1).getDownloadURL().then(gif1 => {
-                                firebase.storage().ref(item.gif2).getDownloadURL().then(gif2 => {
-                                    formatData.insertAdjacentHTML('beforeend',
-                                    `
-                                        <textarea disabled class='id'>${item.id}</textarea>
-                                        <h4 class='title'>${item.titulo}</h4>
-                                        <img class='gif1' src=${gif1}>
-                                        <img class='gif2' src=${gif2}>
-                                        <h4 class='categoria'>${item.categoria}</h4>
-                                        <p class='description'>${item.description}</p>
-                                        <img class='editable' onclick="Editable('${item.id}','${item.titulo}','${gif1}','${gif2}','${item.categoria}','${item.description}')" src='./icon.svg'>
-                                    `
-                                    );
-                                    document.getElementById('items').insertAdjacentHTML('beforeend',formatData.outerHTML);
+                            firebase.storage().ref(item.static).getDownloadURL().then((static) => {
+                                firebase.storage().ref(item.static2).getDownloadURL().then((static2) => {
+                                    firebase.storage().ref(item.gif1).getDownloadURL().then(gif1 => {
+                                        firebase.storage().ref(item.gif2).getDownloadURL().then(gif2 => {
+                                            formatData.insertAdjacentHTML('beforeend',
+                                            `
+                                                <textarea disabled class='id'>${item.id}</textarea>
+                                                <h4 class='title'>${item.titulo}</h4>
+                                                <img class='static' src=${static}>
+                                                <img class='static' src=${static2}>
+                                                <img class='gif1' src=${gif1}>
+                                                <img class='gif2' src=${gif2}>
+                                                <h4 class='categoria'>${item.categoria}</h4>
+                                                <p class='description'>${item.description}</p>
+                                                <img class='editable' onclick="Editable('${item.id}','${item.titulo}','${gif1}','${gif2}','${item.categoria}','${item.description}','${static}','${static2}')" src='./icon.svg'>
+                                            `
+                                            );
+                                            document.getElementById('items').insertAdjacentHTML('beforeend',formatData.outerHTML);
+                                        });
+                                    });    
                                 });
                             });
                         })
@@ -174,12 +218,19 @@ document.getElementById('FormCadastrarData') != null ? (
             // let objectURL = URL.createObjectURL(file);
             // gif1 = objectURL;
         // });
+        let static = document.getElementById('staticPhoto').files[0];
+        let static2 = document.getElementById('staticPhoto2').files[0];
         let gif1 = document.getElementById('gif1').files[0];
         let gif2 = '';
         if(document.getElementById('gif2').files[0] !== undefined){
             gif2 = document.getElementById('gif2').files[0]
         }else{
             gif2 = document.getElementById('gif1').files[0];
+        }
+        if(document.getElementById('staticPhoto2').files[0] !== undefined){
+            static2 = document.getElementById('staticPhoto2').files[0]
+        }else{
+            static2 = document.getElementById('staticPhoto').files[0];
         }
         let titulo = document.getElementById('titulo').value;
         let description = document.getElementById('description').value;
@@ -190,22 +241,35 @@ document.getElementById('FormCadastrarData') != null ? (
             description: description,
         }).then((docRef) => {
             var StorageRef = firebase.storage().ref(`content/${docRef.id}`);
+            let staticName = static.name;
+            let staticName2 = static2.name;
             let gif1Name = gif1.name;
             let gif2Name = gif2.name;
             if(gif1.name === gif2.name){
                 gif2Name = gif2Name.split('.')[0] + '(1).' + gif2Name.split('.')[1];
             }
+            if(staticName.name === staticName2.name){
+                staticName2 = staticName2.split('.')[0] + '(1).' + staticName2.split('.')[1];
+            }
             let gif1Path = StorageRef.child(gif1Name).fullPath;
-            let gif2Path = StorageRef.child(gif2Name).fullPath
-            StorageRef.child(gif1Name).put(gif1).then(() => {
-                StorageRef.child(gif2Name).put(gif2).then(() => {
-                    firebase.firestore().collection('content').doc(docRef.id).set({
-                        gif1: gif1Path,
-                        gif2: gif2Path
-                    }, { merge: true });
-                    window.alert('Dados Salvos')
+            let gif2Path = StorageRef.child(gif2Name).fullPath;
+            let staticPath = StorageRef.child(staticName).fullPath;
+            let staticPath2 = StorageRef.child(staticName2).fullPath;
+            StorageRef.child(staticName).put(static).then(() => {
+                StorageRef.child(staticName2).put(static2).then(() => {
+                    StorageRef.child(gif1Name).put(gif1).then(() => {
+                        StorageRef.child(gif2Name).put(gif2).then(() => {
+                            firebase.firestore().collection('content').doc(docRef.id).set({
+                                static: staticPath,
+                                static2: staticPath2,
+                                gif1: gif1Path,
+                                gif2: gif2Path
+                            }, { merge: true });
+                            window.alert('Dados Salvos')
+                        });
+                    });
                 });
-            });
+            })
         }).catch((error) => {
             console.error("Erro ao Escrever Dados: ", error);
         });
