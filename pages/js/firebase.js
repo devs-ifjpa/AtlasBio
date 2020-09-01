@@ -97,7 +97,8 @@ function Firebase_Logout(){
                     db.collection("users").doc(user.uid).set({
                         nome: data[0],
                         data: data[1],
-                        profissao: data[2]
+                        profissao: data[2],
+                        favoritos: [],
                     }).then(function() {
                         Firebase_Logout();
                     })
