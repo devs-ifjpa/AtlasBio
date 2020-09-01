@@ -201,7 +201,7 @@ function Firebase_AlternativeLogin(type,data){
             if(window.location.href.indexOf('pages/login/') !== -1 ||
             window.location.href.indexOf('pages/register/') !== -1 ||
             window.location.href.indexOf('pages/recovery/') !== -1){
-                window.location = String(window.location.origin) + '/pages/content/';
+                window.location = window.location.href.split('pages')[0] + 'content/';
             }
             // location.href
             // User is signed in.
@@ -221,7 +221,7 @@ function Firebase_AlternativeLogin(type,data){
             if(window.location.href !== String(window.location.origin) + '/pages/login/' &&
             window.location.href !== String(window.location.origin) + '/pages/register/' &&
             window.location.href !== String(window.location.origin) + '/pages/recovery/'){
-                window.location = String(window.location.origin) + '/pages/login/';
+                window.location = window.location.href.split('pages')[0] + 'login/';
             }
             console.log("saiu");
         }
