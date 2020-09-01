@@ -198,9 +198,9 @@ function Firebase_AlternativeLogin(type,data){
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(window.location.href.indexOf('pages/login/') !== -1 ||
-            window.location.href.indexOf('pages/register/') !== -1 ||
-            window.location.href.indexOf('pages/recovery/') !== -1){
+            if(window.location.href.indexOf('pages/login') !== -1 ||
+            window.location.href.indexOf('pages/register') !== -1 ||
+            window.location.href.indexOf('pages/recovery') !== -1){
                 window.location = window.location.href.split('pages')[0] + 'pages/content/';
             }
             // location.href
@@ -218,9 +218,9 @@ function Firebase_AlternativeLogin(type,data){
                 // }
             // });
         }else{
-            if(window.location.href.indexOf('/pages/login/') === -1 &&
-            window.location.href.indexOf('/pages/register/') === -1 &&
-            window.location.href.indexOf('/pages/recovery/') === -1){
+            if(window.location.href.indexOf('pages/login') === -1 &&
+            window.location.href.indexOf('pages/register') === -1 &&
+            window.location.href.indexOf('pages/recovery') === -1){
                 window.location = window.location.href.split('pages')[0] + 'pages/login/';
             }
             console.log("saiu");
