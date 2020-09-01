@@ -97,7 +97,8 @@ function Firebase_Logout(){
                     db.collection("users").doc(user.uid).set({
                         nome: data[0],
                         data: data[1],
-                        profissao: data[2]
+                        profissao: data[2],
+                        favoritos: [],
                     }).then(function() {
                         Firebase_Logout();
                     })
@@ -198,9 +199,9 @@ function Firebase_AlternativeLogin(type,data){
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(window.location.href.indexOf('pages/login/') !== -1 ||
-            window.location.href.indexOf('pages/register/') !== -1 ||
-            window.location.href.indexOf('pages/recovery/') !== -1){
+            if(window.location.href.indexOf('pages/login') !== -1 ||
+            window.location.href.indexOf('pages/register') !== -1 ||
+            window.location.href.indexOf('pages/recovery') !== -1){
                 window.location = window.location.href.split('pages')[0] + 'pages/content/';
             }
             // location.href
@@ -218,9 +219,9 @@ function Firebase_AlternativeLogin(type,data){
                 // }
             // });
         }else{
-            if(window.location.href.indexOf('/pages/login/') === -1 &&
-            window.location.href.indexOf('/pages/register/') === -1 &&
-            window.location.href.indexOf('/pages/recovery/') === -1){
+            if(window.location.href.indexOf('pages/login') === -1 &&
+            window.location.href.indexOf('pages/register') === -1 &&
+            window.location.href.indexOf('pages/recovery') === -1){
                 window.location = window.location.href.split('pages')[0] + 'pages/login/';
             }
             console.log("saiu");
@@ -301,18 +302,121 @@ if(document.getElementById("ConteudoBox") != undefined){
 
 // $CONTEUDO-BOX
 
+// PREFERRED-BOX
+
+if(document.getElementById('PreferredBox') !== null){
+    let category = [];
+    let categoryData = [];
+    let categoryloop = 0;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            db.collection('users').doc(user.uid).get().then((userData) => {
+                db.collection("content").onSnapshot(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                        if(category.indexOf(doc.data().categoria) == -1){
+                            category.push(doc.data().categoria);
+                        }
+                    });
+                    category.map(item => {
+                        db.collection('content').where("categoria", "==", item).onSnapshot(function(querySnapshot) {
+                            let list = []
+                            var x = 0;
+                            querySnapshot.forEach(function(doc) {
+                                if(userData.data().favoritos.indexOf(doc.id) !== -1){
+                                    list.push(doc.data());
+                                    list[x].id = doc.id;
+                                    x++;    
+                                }
+                            });
+                            categoryloop++
+                            if(list.length !== 0){
+                                categoryData.push(list);
+                            }
+                            if(category.length === categoryloop){
+                                categoryData.map(item => {
+                                    let itembox = document.createElement("DIV")
+                                    itembox.insertAdjacentHTML('beforeend',
+                                    `<div class="titulos">
+                                        <p id='first-title' class="titulo left">${item[0].categoria}</p>
+                                    </div>`)
+                                    let demos = document.createElement('DIV')
+                                    demos.className = 'demos'
+                                    item.map(itemcategoria => {
+                                        firebase.storage().ref(itemcategoria.static).getDownloadURL().then((photo) => {
+                                            demos.insertAdjacentHTML('beforeend',
+                                            `<a href='${`${window.location.origin}/pages/content-item/?${itemcategoria.id}`}' class="demos2">
+                                                <div class="demo">
+                                                    <img class='freezeframe' src='${photo}'></img>
+                                                </div>
+                                                <div class="demo2">
+                                                    <p>${itemcategoria.titulo.split(' ').join('<br>')}</p>
+                                                </div>
+                                            </a>
+                                            `);
+                                        });
+                                        itembox.appendChild(demos);
+                                        document.getElementById('PreferredBox').appendChild(itembox)
+                                    });
+                                });
+                            }
+                        });
+                    });
+                });
+            });
+        }
+    });
+}
+
+// $PREFERRED-BOX
+
 // CONTEUDO-INDIVIDUAL
 
 if(window.location.href.indexOf('/pages/content-item/') !== -1){
     const id = String(window.location).split('?')[1];
-    firebase.firestore().collection('content').doc(id).get().then((doc) => {
-        document.getElementById('descriptionGif').innerHTML =  doc.data().description;
-        document.getElementById('first-title').innerHTML = doc.data().titulo
-        firebase.storage().ref(doc.data().gif1).getDownloadURL().then((url) => {
-            document.getElementById('Gif1').innerHTML = `<img class='gifImage' src='${url}'></img>`
-        });
-        firebase.storage().ref(doc.data().gif2).getDownloadURL().then((url) => {
-            document.getElementById('Gif2').innerHTML = `<img class='gifImage' src='${url}'></img>`
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            db.collection('users').doc(user.uid).get().then((userData) => {
+                if(userData.data().favoritos.indexOf(id) !== -1){
+                    document.getElementById('StarFavorite').src = '../img/estrelaFav.svg'
+                }
+                firebase.firestore().collection('content').doc(id).get().then((doc) => {
+                    document.getElementById('descriptionGif').innerHTML =  doc.data().description;
+                    document.getElementById('first-title').innerHTML = doc.data().titulo
+                    firebase.storage().ref(doc.data().gif1).getDownloadURL().then((url) => {
+                        document.getElementById('Gif1').innerHTML = `<img class='gifImage' src='${url}'></img>`
+                    });
+                    firebase.storage().ref(doc.data().gif2).getDownloadURL().then((url) => {
+                        document.getElementById('Gif2').innerHTML = `<img class='gifImage' src='${url}'></img>`
+                    });
+                });
+            });
+        }
+    });
+}
+
+if(document.getElementById('StarFavorite') !== null){
+    document.getElementById('StarFavorite').addEventListener('click',() => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                db.collection('users').doc(user.uid).get().then((userData) => {    
+                    if(document.getElementById('StarFavorite').src.indexOf('estrelaFav.svg') !== -1){
+                        let NewData = userData.data().favoritos;
+                        const position = NewData.indexOf(window.location.href.split('?')[1]);
+                        NewData.splice(position, 1)
+                        firebase.firestore().collection('users').doc(user.uid).set({
+                            favoritos: NewData,
+                        }, { merge: true });
+                        document.getElementById('StarFavorite').src = document.getElementById('StarFavorite').src.split('estrelaFav.svg').join('estrelaFavVazada.svg');
+                    }else{
+                        let NewData = userData.data().favoritos;
+                        NewData.push(window.location.href.split('?')[1]);
+                        firebase.firestore().collection('users').doc(user.uid).set({
+                            favoritos: NewData,
+                        }, { merge: true });
+                        document.getElementById('StarFavorite').src = document.getElementById('StarFavorite').src.split('estrelaFavVazada.svg').join('estrelaFav.svg');
+                    }
+                });
+            }
         });
     });
 }
