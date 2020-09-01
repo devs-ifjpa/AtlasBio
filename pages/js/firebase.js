@@ -306,6 +306,7 @@ if(document.getElementById("ConteudoBox") != undefined){
 if(document.getElementById('PreferredBox') !== null){
     let category = [];
     let categoryData = [];
+    let categoryloop = 0;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             db.collection('users').doc(user.uid).get().then((userData) => {
@@ -326,8 +327,11 @@ if(document.getElementById('PreferredBox') !== null){
                                     x++;    
                                 }
                             });
-                            categoryData.push(list);
-                            if(categoryData.length === category.length && x !== 0){
+                            categoryloop++
+                            if(list.length !== 0){
+                                categoryData.push(list);
+                            }
+                            if(category.length === categoryloop){
                                 categoryData.map(item => {
                                     let itembox = document.createElement("DIV")
                                     itembox.insertAdjacentHTML('beforeend',
