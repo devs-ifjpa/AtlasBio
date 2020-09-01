@@ -218,9 +218,9 @@ function Firebase_AlternativeLogin(type,data){
                 // }
             // });
         }else{
-            if(window.location.href !== String(window.location.origin) + '/pages/login/' &&
-            window.location.href !== String(window.location.origin) + '/pages/register/' &&
-            window.location.href !== String(window.location.origin) + '/pages/recovery/'){
+            if(window.location.href.indexOf('/pages/login/') === -1 &&
+            window.location.href.indexOf('/pages/register/') === -1 &&
+            window.location.href.indexOf('/pages/recovery/') === -1){
                 window.location = window.location.href.split('pages')[0] + 'pages/login/';
             }
             console.log("saiu");
