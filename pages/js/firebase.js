@@ -263,7 +263,7 @@ if(document.getElementById("ConteudoBox") != undefined){
                         item.map(itemcategoria => {
                             firebase.storage().ref(itemcategoria.static).getDownloadURL().then((photo) => {
                                 demos.insertAdjacentHTML('beforeend',
-                                `<a href='${`${window.location.origin}/pages/content-item/?${itemcategoria.id}`}' class="demos2">
+                                `<a href='${`${window.location.href.split('content').join('content-item')}?${itemcategoria.id}`}' class="demos2">
                                     <div class="demo">
                                         <img class='freezeframe' src='${photo}'></img>
                                     </div>
