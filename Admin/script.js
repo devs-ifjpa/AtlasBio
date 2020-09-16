@@ -246,10 +246,10 @@ document.getElementById('FormCadastrarData') != null ? (
             let gif1Name = gif1.name;
             let gif2Name = gif2.name;
             if(gif1.name === gif2.name){
-                gif2Name = gif2Name.split('.')[0] + '(1).' + gif2Name.split('.')[1];
+                gif2Name = gif2Name.replace(gif2Name.split('.')[gif2Name.split('.').length -1], `(1).${gif2Name.split('.')[gif2Name.split('.').length -1]}`);
             }
             if(staticName.name === staticName2.name){
-                staticName2 = staticName2.split('.')[0] + '(1).' + staticName2.split('.')[1];
+                staticName2 = staticName2.replace(staticName2.split('.')[staticName2.split('.').length -1], `(1).${staticName2.split('.')[staticName2.split('.').length -1]}`);
             }
             let gif1Path = StorageRef.child(gif1Name).fullPath;
             let gif2Path = StorageRef.child(gif2Name).fullPath;
