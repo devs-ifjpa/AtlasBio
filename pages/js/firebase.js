@@ -68,6 +68,21 @@ function Firebase_Logout(){
         })
     ) : false;
 
+    document.getElementById('Form_Register-Google') != null ? (
+        document.getElementById("Form_Register-Google").addEventListener("submit", () => {
+            event.preventDefault();
+            let voce = SelectChecked(document.getElementById("voce"),"option").value;
+            let day = SelectChecked(document.getElementById("day"),"option").textContent;
+            let month = SelectChecked(document.getElementById("month"),"option").textContent;
+            let year = SelectChecked(document.getElementById("year"),"option").textContent;
+            let date = `${day}/${month}/${year}`;
+            voce != "you" ? (
+                Firebase_RegisterDatabase(['',date,voce],"Google")
+            ) :
+            alert("Selecione sua profissão");
+        })
+    ) : false;
+
     function Firebase_RegisterEmail(email,password,data){
         if(email != "" && password != ""){
             firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
@@ -90,17 +105,24 @@ function Firebase_Logout(){
 
     // CREATE
 
-        function Firebase_RegisterDatabase(data){
+        function Firebase_RegisterDatabase(data, google = undefined){
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
                     var user = firebase.auth().currentUser;
+                    if(google !== undefined){
+                        data[0] = user.displayName;
+                    }
                     db.collection("users").doc(user.uid).set({
                         nome: data[0],
                         data: data[1],
                         profissao: data[2],
                         favoritos: [],
                     }).then(function() {
-                        Firebase_Logout();
+                        if(google === undefined){
+                            Firebase_Logout();
+                        }else{
+                            window.location = window.location.origin + '/pages/content';
+                        }
                     })
                     .catch(function(error) {
                         console.error("Error writing document: ", error);
@@ -199,14 +221,25 @@ function Firebase_AlternativeLogin(type,data){
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if(window.location.href.indexOf('pages/login') !== -1 ||
-            window.location.href.indexOf('pages/register') !== -1 ||
-            window.location.href.indexOf('pages/recovery') !== -1){
-                window.location = window.location.href.split('pages')[0] + 'pages/content/';
-            }
+            db.collection('users').doc(user.uid).get().then(doc => {
+                if(doc.data() === undefined && window.location.href.indexOf("pages/register") === -1){
+                    window.location = window.location.origin + "/pages/register-google";
+                }else{
+                    if((window.location.href.indexOf('pages/login') !== -1 ||
+                        window.location.href.indexOf('pages/register') !== -1 ||
+                        window.location.href.indexOf('pages/recovery') !== -1) && doc.data() !== undefined){
+                        window.location = window.location.href.split('pages')[0] + 'pages/content/';
+                    }
+                }
+            }).catch(err => {
+                console.error("Error writing document: ", err);
+            });
+            // if(user.displayName != undefined && window.location.href.indexOf('pages/register') === -1){
+            //    window.location = window.location.origin + "/pages/register";
+            //}
             // location.href
             // User is signed in.
-            console.log("entrou");
+            // console.log("entrou");
             // firebase.firestore().disableNetwork();
             // firebase.firestore().enableNetwork();
             // connectedRef.on("value", function(snap) {
@@ -219,9 +252,10 @@ function Firebase_AlternativeLogin(type,data){
                 // }
             // });
         }else{
-            if(window.location.href.indexOf('pages/login') === -1 &&
+            if((window.location.href.indexOf('pages/login') === -1 &&
             window.location.href.indexOf('pages/register') === -1 &&
-            window.location.href.indexOf('pages/recovery') === -1){
+            window.location.href.indexOf('pages/recovery') === -1) ||
+            window.location.href.indexOf('pages/register-google') !== -1){
                 window.location = window.location.href.split('pages')[0] + 'pages/login/';
             }
             console.log("saiu");
