@@ -121,7 +121,7 @@ function Firebase_Logout(){
                         if(google === undefined){
                             Firebase_Logout();
                         }else{
-                            window.location = window.location.origin + '/pages/content';
+                            window.location = window.location.origin + '/pages/content/index.html';
                         }
                     })
                     .catch(function(error) {
@@ -223,19 +223,19 @@ function Firebase_AlternativeLogin(type,data){
         if (user) {
             db.collection('users').doc(user.uid).get().then(doc => {
                 if(doc.data() === undefined && window.location.href.indexOf("pages/register") === -1){
-                    window.location = window.location.origin + "/pages/register-google";
+                    window.location = window.location.origin + "/pages/register-google/index.html";
                 }else{
                     if((window.location.href.indexOf('pages/login') !== -1 ||
                         window.location.href.indexOf('pages/register') !== -1 ||
                         window.location.href.indexOf('pages/recovery') !== -1) && doc.data() !== undefined){
-                        window.location = window.location.href.split('pages')[0] + 'pages/content/';
+                        window.location = window.location.href.split('pages')[0] + 'pages/content/index.html';
                     }
                 }
             }).catch(err => {
                 console.error("Error writing document: ", err);
             });
             // if(user.displayName != undefined && window.location.href.indexOf('pages/register') === -1){
-            //    window.location = window.location.origin + "/pages/register";
+            //    window.location = window.location.origin + "/pages/register/index.html";
             //}
             // location.href
             // User is signed in.
@@ -256,7 +256,7 @@ function Firebase_AlternativeLogin(type,data){
             window.location.href.indexOf('pages/register') === -1 &&
             window.location.href.indexOf('pages/recovery') === -1) ||
             window.location.href.indexOf('pages/register-google') !== -1){
-                window.location = window.location.href.split('pages')[0] + 'pages/login/';
+                window.location = window.location.href.split('pages')[0] + 'pages/login/index.html';
             }
             console.log("saiu");
         }
